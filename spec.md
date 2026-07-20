@@ -248,15 +248,18 @@ Each app entry contains:
 - Search shows registry suggestions in an "Available to install" section below
   installed results, with install-command hints in the detail line. [done]
 - Registry-driven catalog augments the seed for detection (breadth). [done]
-- Remote `index.json` fetch via jsDelivr → raw fallback, disk cache with
-  configurable TTL, offline degradation (fresh cache → network → stale cache →
-  local), background refresh. Disabled by default until a registry repo URL is
-  set in config. [done]
+- Remote `dist/index.yaml` fetch via jsDelivr → raw.githubusercontent fallback,
+  disk cache with configurable TTL, offline degradation (fresh cache → network →
+  stale cache → local), background refresh. Enabled by default. [done]
 - Precedence when merging: seed > remote > local. Seed keeps curated
   install/package metadata; registry contributes the long tail.
+- Registry repo `JThrom/hawk-registry` is live: per-app `apps/<id>.yaml` sources
+  + `categories.yaml`, compiled by CI (GitHub Actions) into
+  `dist/index.yaml`, served via
+  `https://cdn.jsdelivr.net/gh/JThrom/hawk-registry@master/dist/index.yaml`. [done]
 
-Remaining for a full Phase 2: stand up the `hawk-registry` repo + CI to publish
-`index.json`, then flip `registry.enabled` and set the real URL in defaults.
+Phase 2 complete. Note: the index is YAML (not JSON); the fetcher parses YAML,
+which is a JSON superset, so the local disk cache remains JSON for fast reads.
 
 ### Phase 3 — Install flow
 - Auto-pick package manager (with override), stream install in new window.
