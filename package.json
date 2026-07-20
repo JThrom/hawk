@@ -1,0 +1,35 @@
+{
+  "name": "hawk",
+  "version": "0.1.0",
+  "description": "TUI application launcher and management layer",
+  "type": "module",
+  "bin": {
+    "hawk": "./src/index.ts"
+  },
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "start": "bun run src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "gen-registry": "bun run scripts/gen-registry.ts"
+  },
+  "keywords": [
+    "tui",
+    "launcher",
+    "terminal",
+    "tmux",
+    "zellij"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@opentui/core": "^0.4.5",
+    "yaml": "^2.9.0"
+  }
+}

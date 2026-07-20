@@ -1,0 +1,5273 @@
+source: awesome-tuis
+generatedAt: 2026-07-20T02:40:58.367Z
+categories:
+  - id: dashboards
+    name: Dashboards & Monitoring
+    order: 25
+  - id: dev
+    name: Development
+    order: 10
+  - id: containers
+    name: Docker / K8s
+    order: 15
+  - id: editors
+    name: Editors
+    order: 50
+  - id: files
+    name: File Management
+    order: 40
+  - id: games
+    name: Games
+    order: 85
+  - id: messaging
+    name: Messaging
+    order: 55
+  - id: misc
+    name: Miscellaneous
+    order: 100
+  - id: media
+    name: Media
+    order: 70
+  - id: productivity
+    name: Productivity
+    order: 80
+  - id: screensavers
+    name: Screensavers
+    order: 95
+  - id: web
+    name: Web
+    order: 60
+entries:
+  - id: abook
+    name: abook
+    description: TUI addressbook with [mutt](http://www.mutt.org/) integration
+    categories:
+      - productivity
+    binaries:
+      - abook
+    homepage: https://abook.sourceforge.io/
+  - id: act3
+    name: act3
+    description: Glance at the last 3 runs of your Github Actions
+    categories:
+      - dev
+    binaries:
+      - act3
+    homepage: https://github.com/dhth/act3
+    repo: https://github.com/dhth/act3
+  - id: adbtuifm
+    name: adbtuifm
+    description: A TUI file manager for Android, based on the Android Debug Bridge(ADB).
+    categories:
+      - files
+    binaries:
+      - adbtuifm
+    homepage: https://github.com/darkhz/adbtuifm
+    repo: https://github.com/darkhz/adbtuifm
+  - id: adguardian-term
+    name: AdGuardian-Term
+    description: A TUI dashboard for monitoring real-time traffic from an AdGuard Home instance
+    categories:
+      - dashboards
+    binaries:
+      - adguardian-term
+      - adguardian
+    homepage: https://github.com/lissy93/AdGuardian-Term
+    repo: https://github.com/lissy93/AdGuardian-Term
+  - id: aerc
+    name: aerc
+    description: Email client
+    categories:
+      - messaging
+    binaries:
+      - aerc
+    homepage: https://aerc-mail.org/
+  - id: agent-deck
+    name: agent-deck
+    description: Terminal dashboard for managing multiple AI coding agent sessions
+    categories:
+      - productivity
+    binaries:
+      - agent-deck
+    homepage: https://github.com/asheshgoplani/agent-deck
+    repo: https://github.com/asheshgoplani/agent-deck
+  - id: alpine
+    name: alpine
+    description: Email client
+    categories:
+      - messaging
+    binaries:
+      - alpine
+    homepage: https://alpineapp.email/
+  - id: amp
+    name: amp
+    description: A complete text editor for your terminal
+    categories:
+      - editors
+    binaries:
+      - amp
+    homepage: https://github.com/jmacdonald/amp
+    repo: https://github.com/jmacdonald/amp
+  - id: amtui
+    name: amtui
+    description: Alertmanager TUI - Your Terminal Companion for Alertmanager
+    categories:
+      - dev
+    binaries:
+      - amtui
+    homepage: https://github.com/pehlicd/amtui/
+    repo: https://github.com/pehlicd/amtui/
+  - id: amux
+    name: amux
+    description: Easily run parallel coding agents
+    categories:
+      - dev
+    binaries:
+      - amux
+    homepage: https://github.com/andyrewlee/amux
+    repo: https://github.com/andyrewlee/amux
+  - id: ani-l
+    name: ani-l
+    description: Rust-based anime browsing and streaming all without leaving the terminal
+    categories:
+      - media
+    binaries:
+      - ani-l
+    homepage: https://github.com/komposer-aml/ani-l
+    repo: https://github.com/komposer-aml/ani-l
+  - id: apachetop
+    name: apachetop
+    description: display information from a running copy of Apache.
+    categories:
+      - dashboards
+    binaries:
+      - apachetop
+    homepage: https://github.com/tessus/apachetop
+    repo: https://github.com/tessus/apachetop
+  - id: argonaut
+    name: Argonaut
+    description: ArgoCD TUI
+    categories:
+      - containers
+    binaries:
+      - argonaut
+    homepage: https://github.com/darksworm/argonaut
+    repo: https://github.com/darksworm/argonaut
+  - id: arttime
+    name: arttime
+    description: An app that brings beauty of text-art together with functionality of clock, timer, and pattern-based time manager.
+    categories:
+      - misc
+    binaries:
+      - arttime
+    homepage: https://github.com/reportaman/arttime
+    repo: https://github.com/reportaman/arttime
+  - id: asak
+    name: asak
+    description: A cross-platform audio recording/playback TUI
+    categories:
+      - media
+    binaries:
+      - asak
+    homepage: https://github.com/chaosprint/asak
+    repo: https://github.com/chaosprint/asak
+  - id: asciimol
+    name: asciiMol
+    description: Curses based ASCII molecule viewer for linux terminals.
+    categories:
+      - misc
+    binaries:
+      - asciimol
+    homepage: https://github.com/dewberryants/asciiMol
+    repo: https://github.com/dewberryants/asciiMol
+  - id: astroterm
+    name: astroterm
+    description: A planetarium for your terminal! Explore stars, planets, constellations, and more
+    categories:
+      - screensavers
+    binaries:
+      - astroterm
+    homepage: https://github.com/da-luce/astroterm
+    repo: https://github.com/da-luce/astroterm
+  - id: atac
+    name: ATAC
+    description: A feature-full TUI API client made in Rust. ATAC is free, open-source, offline and account-less.
+    categories:
+      - dev
+    binaries:
+      - atac
+    homepage: https://github.com/Julien-cpsn/ATAC
+    repo: https://github.com/Julien-cpsn/ATAC
+  - id: atop
+    name: atop
+    description: root level system and process monitor for Linux
+    categories:
+      - dashboards
+    binaries:
+      - atop
+    homepage: https://github.com/Atoptool/atop/
+    repo: https://github.com/Atoptool/atop/
+  - id: austin-tui
+    name: austin-tui
+    description: The top-like text-based user interface for Austin
+    categories:
+      - dev
+    binaries:
+      - austin-tui
+      - austin
+    homepage: https://github.com/P403n1x87/austin-tui
+    repo: https://github.com/P403n1x87/austin-tui
+  - id: awkaster
+    name: awkaster
+    description: Pseudo-3D shooter written completely in gawk using raycasting technique
+    categories:
+      - games
+    binaries:
+      - awkaster
+    homepage: https://github.com/TheMozg/awk-raycaster
+    repo: https://github.com/TheMozg/awk-raycaster
+  - id: awsui
+    name: awsui
+    description: A powerful, user-friendly terminal interface for AWS Profile and SSO management.
+    categories:
+      - productivity
+    binaries:
+      - awsui
+    homepage: https://github.com/junminhong/awsui
+    repo: https://github.com/junminhong/awsui
+  - id: backlog.md
+    name: Backlog.md
+    description: A tool for managing project collaboration between humans and AI Agents in a git ecosystem
+    categories:
+      - dashboards
+    binaries:
+      - backlog.md
+    homepage: https://github.com/MrLesk/Backlog.md
+    repo: https://github.com/MrLesk/Backlog.md
+  - id: bagels
+    name: Bagels
+    description: TUI expense tracker
+    categories:
+      - productivity
+    binaries:
+      - bagels
+    homepage: https://github.com/EnhancedJax/Bagels
+    repo: https://github.com/EnhancedJax/Bagels
+  - id: balatrotui
+    name: balatrotui
+    description: A TUI clone of Balatro
+    categories:
+      - games
+    binaries:
+      - balatrotui
+    homepage: https://github.com/Passeriform/BalatroTUI
+    repo: https://github.com/Passeriform/BalatroTUI
+  - id: bandwhich
+    name: bandwhich
+    description: Terminal bandwidth utilization tool
+    categories:
+      - dashboards
+    binaries:
+      - bandwhich
+    homepage: https://github.com/imsnif/bandwhich
+    repo: https://github.com/imsnif/bandwhich
+  - id: basalt
+    name: basalt
+    description: TUI Application to manage Obsidian vaults and notes directly from the terminal.
+    categories:
+      - messaging
+    binaries:
+      - basalt
+    homepage: https://github.com/erikjuhani/basalt
+    repo: https://github.com/erikjuhani/basalt
+  - id: bashtop
+    name: bashtop
+    description: Resource manager written in bash
+    categories:
+      - dashboards
+    binaries:
+      - bashtop
+    homepage: https://github.com/aristocratos/bashtop
+    repo: https://github.com/aristocratos/bashtop
+  - id: bastet
+    name: bastet
+    description: Evil falling block game
+    categories:
+      - games
+    binaries:
+      - bastet
+    homepage: https://github.com/fph/bastet
+    repo: https://github.com/fph/bastet
+  - id: below
+    name: below
+    description: A time traveling resource monitor for modern Linux systems
+    categories:
+      - dashboards
+    binaries:
+      - below
+    homepage: https://github.com/facebookincubator/below
+    repo: https://github.com/facebookincubator/below
+  - id: binsider
+    name: binsider
+    description: A TUI for analyzing Linux binaries.
+    categories:
+      - dashboards
+    binaries:
+      - binsider
+    homepage: https://github.com/orhun/binsider
+    repo: https://github.com/orhun/binsider
+  - id: blinkenlights
+    name: blinkenlights
+    description: TUI that may be used for debugging x86_64-linux or i8086 programs across platforms
+    categories:
+      - dev
+    binaries:
+      - blinkenlights
+    homepage: https://github.com/jart/blink
+    repo: https://github.com/jart/blink
+  - id: blitzdenk
+    name: blitzdenk
+    description: A minimal multi api auto-context project chat bot as tui
+    categories:
+      - messaging
+    binaries:
+      - blitzdenk
+    homepage: https://github.com/Lommix/blitzdenk
+    repo: https://github.com/Lommix/blitzdenk
+  - id: bluetui
+    name: bluetui
+    description: A TUI for managing bluetooth devices.
+    categories:
+      - misc
+    binaries:
+      - bluetui
+    homepage: https://github.com/pythops/bluetui
+    repo: https://github.com/pythops/bluetui
+  - id: bluetuith
+    name: bluetuith
+    description: A TUI-based bluetooth connection manager, which can interact with bluetooth adapters and devices.
+    categories:
+      - misc
+    binaries:
+      - bluetuith
+    homepage: https://github.com/darkhz/bluetuith
+    repo: https://github.com/darkhz/bluetuith
+  - id: bmon
+    name: bmon
+    description: A monitoring and debugging tool to capture networking related statistics and prepare them visually.
+    categories:
+      - dashboards
+    binaries:
+      - bmon
+    homepage: https://github.com/tgraf/bmon
+    repo: https://github.com/tgraf/bmon
+  - id: bombadillo
+    name: bombadillo
+    description: "A TUI browser for the non-web: Gopher, Gemini, Finger"
+    categories:
+      - web
+    binaries:
+      - bombadillo
+    homepage: https://bombadillo.colorfield.space/
+  - id: bookokrat
+    name: bookokrat
+    description: Full-featured EPUB books reader with Vim keybindings.
+    categories:
+      - media
+    binaries:
+      - bookokrat
+    homepage: https://github.com/bugzmanov/bookokrat
+    repo: https://github.com/bugzmanov/bookokrat
+  - id: botany
+    name: botany
+    description: Virtual plant buddy
+    categories:
+      - games
+    binaries:
+      - botany
+    homepage: https://github.com/jifunks/botany/
+    repo: https://github.com/jifunks/botany/
+  - id: bottom
+    name: bottom
+    description: A customizable graphical process/system monitor for the terminal.
+    categories:
+      - dashboards
+    binaries:
+      - btm
+    homepage: https://github.com/ClementTsang/bottom
+    repo: https://github.com/ClementTsang/bottom
+  - id: bpytop
+    name: bpytop
+    description: A Python-based system monitor with lots of information.
+    categories:
+      - dashboards
+    binaries:
+      - bpytop
+    homepage: https://github.com/aristocratos/bpytop
+    repo: https://github.com/aristocratos/bpytop
+  - id: brickgame-4bit
+    name: brickgame-4bit
+    description: Brick Game emulator (4-bit Holtek chip)
+    categories:
+      - games
+    binaries:
+      - brickgame-4bit
+    homepage: https://github.com/ilyakurdyukov/brickgame-4bit
+    repo: https://github.com/ilyakurdyukov/brickgame-4bit
+  - id: brief
+    name: Brief
+    description: Terminal-first OpenAI chat client with slash-command palette and local tool execution.
+    categories:
+      - productivity
+    binaries:
+      - brief
+    homepage: https://github.com/WilliamAGH/brief
+    repo: https://github.com/WilliamAGH/brief
+  - id: broguece
+    name: BrogueCE
+    description: Beautiful roguelike dungeon crawler
+    categories:
+      - games
+    binaries:
+      - broguece
+    homepage: https://github.com/tmewett/BrogueCE
+    repo: https://github.com/tmewett/BrogueCE
+  - id: broot
+    name: broot
+    description: A new way to see and navigate directory trees
+    categories:
+      - files
+    binaries:
+      - broot
+    homepage: https://github.com/Canop/broot
+    repo: https://github.com/Canop/broot
+  - id: brows
+    name: brows
+    description: CLI GitHub release browser
+    categories:
+      - dev
+    binaries:
+      - brows
+    homepage: https://github.com/rubysolo/brows
+    repo: https://github.com/rubysolo/brows
+  - id: browsh
+    name: browsh
+    description: A fully-modern text-based browser, rendering to TTY and browsers
+    categories:
+      - web
+    binaries:
+      - browsh
+    homepage: https://github.com/browsh-org/browsh
+    repo: https://github.com/browsh-org/browsh
+  - id: btop
+    name: btop++
+    description: Resource monitor with extras
+    categories:
+      - dashboards
+    binaries:
+      - btop
+    homepage: https://github.com/aristocratos/btop
+    repo: https://github.com/aristocratos/btop
+  - id: bulletty
+    name: bulletty
+    description: A pretty feed reader (ATOM/RSS) that stores articles in Markdown files
+    categories:
+      - web
+    binaries:
+      - bulletty
+    homepage: https://github.com/CrociDB/bulletty
+    repo: https://github.com/CrociDB/bulletty
+  - id: burf
+    name: burf
+    description: TUI for Google Cloud Storage (GCS)
+    categories:
+      - dev
+    binaries:
+      - burf
+    homepage: https://github.com/razeghi71/burf
+    repo: https://github.com/razeghi71/burf
+  - id: c-edit
+    name: C-Edit
+    description: A text editor with drop down menus in the style of MS-DOS Editor
+    categories:
+      - editors
+    binaries:
+      - c-edit
+    homepage: https://github.com/velorek1/c-edit
+    repo: https://github.com/velorek1/c-edit
+  - id: calcure
+    name: calcure
+    description: Modern TUI calendar and task manager with minimal and customizable UI.
+    categories:
+      - productivity
+    binaries:
+      - calcure
+    homepage: https://github.com/anufrievroman/calcure
+    repo: https://github.com/anufrievroman/calcure
+  - id: calcurse
+    name: calcurse
+    description: calendar and scheduling application for the command line
+    categories:
+      - productivity
+    binaries:
+      - calcurse
+    homepage: https://calcurse.org/
+  - id: caligula
+    name: Caligula
+    description: A user-friendly, lightweight TUI for imaging disks.
+    categories:
+      - misc
+    binaries:
+      - caligula
+    homepage: https://github.com/ifd3f/caligula
+    repo: https://github.com/ifd3f/caligula
+  - id: canard
+    name: Canard
+    description: A command line TUI client for the [Journalist](https://github.com/mrusme/journalist) RSS aggregator.
+    categories:
+      - web
+    binaries:
+      - canard
+    homepage: https://github.com/mrusme/canard
+    repo: https://github.com/mrusme/canard
+  - id: captain-s-log
+    name: Captain's log
+    description: A small TUI journaling tool
+    categories:
+      - misc
+    binaries:
+      - captain-s-log
+      - captainslog
+    homepage: https://github.com/NikolaDucak/caps-log
+    repo: https://github.com/NikolaDucak/caps-log
+  - id: carbonyl
+    name: carbonyl
+    description: Chromium running inside your terminal
+    categories:
+      - web
+    binaries:
+      - carbonyl
+    homepage: https://github.com/fathyb/carbonyl
+    repo: https://github.com/fathyb/carbonyl
+  - id: cargo-seek
+    name: cargo-seek
+    description: A TUI for searching, adding and installing cargo crates
+    categories:
+      - dev
+    binaries:
+      - cargo-seek
+    homepage: https://github.com/tareqimbasher/cargo-seek
+    repo: https://github.com/tareqimbasher/cargo-seek
+  - id: castero
+    name: castero
+    description: A TUI app to listen to podcast
+    categories:
+      - web
+    binaries:
+      - castero
+    homepage: https://github.com/xgi/castero
+    repo: https://github.com/xgi/castero
+  - id: catalyst
+    name: catalyst
+    description: Elegant TUI for triggering GitHub Actions workflows with matrix configurations.
+    categories:
+      - dev
+    binaries:
+      - catalyst
+    homepage: https://github.com/PraveenGongada/catalyst
+    repo: https://github.com/PraveenGongada/catalyst
+  - id: catenavetus
+    name: CatenaVetus
+    description: A TUI for reading the Church Fathers
+    categories:
+      - web
+    binaries:
+      - catenavetus
+    homepage: https://github.com/jimbob88/CatenaVetus
+    repo: https://github.com/jimbob88/CatenaVetus
+  - id: cava
+    name: cava
+    description: Cross-platform Audio Visualizer
+    categories:
+      - misc
+    binaries:
+      - cava
+    homepage: https://github.com/karlstav/cava
+    repo: https://github.com/karlstav/cava
+  - id: cbonsai
+    name: cbonsai
+    description: A bonsai tree generator
+    categories:
+      - games
+    binaries:
+      - cbonsai
+    homepage: https://gitlab.com/jallbrit/cbonsai
+  - id: cfdisk
+    name: cfdisk
+    description: TUI partition editor included in util-linux
+    categories:
+      - misc
+    binaries:
+      - cfdisk
+    homepage: https://github.com/util-linux/util-linux
+    repo: https://github.com/util-linux/util-linux
+  - id: cgdb
+    name: cgdb
+    description: Console front-end to the GNU debugger
+    categories:
+      - dashboards
+    binaries:
+      - cgdb
+    homepage: https://github.com/cgdb/cgdb
+    repo: https://github.com/cgdb/cgdb
+  - id: cgdisk
+    name: cgdisk
+    description: TUI partition editor for manipulating GUID partition tables, and modeled after cfdisk
+    categories:
+      - misc
+    binaries:
+      - cgdisk
+    homepage: https://www.rodsbooks.com/gdisk/cgdisk-walkthrough.html
+  - id: chafa
+    name: chafa
+    description: A powerful utility that converts image data, including animated GIFs, into graphics formats or ANSI/Unicode character art suitable for display in a terminal.
+    categories:
+      - media
+    binaries:
+      - chafa
+    homepage: https://hpjansson.org/chafa/
+  - id: chawan
+    name: Chawan
+    description: A TUI web (and (S)FTP, Gopher, Gemini) browser with CSS, inline image and JavaScript support.
+    categories:
+      - web
+    binaries:
+      - chawan
+    homepage: https://chawan.net
+  - id: chdig
+    name: chdig
+    description: Dig into ClickHouse with TUI interface
+    categories:
+      - dashboards
+    binaries:
+      - chdig
+    homepage: https://github.com/azat/chdig
+    repo: https://github.com/azat/chdig
+  - id: cheatshh
+    name: cheatshh
+    description: A fzf TUI for managing custom made command-line cheatsheet for Unix.
+    categories:
+      - dashboards
+    binaries:
+      - cheatshh
+    homepage: https://github.com/AnirudhG07/cheatshh
+    repo: https://github.com/AnirudhG07/cheatshh
+  - id: chess-tui
+    name: chess-tui
+    description: Play Chess in your terminal, built in rust
+    categories:
+      - games
+    binaries:
+      - chess-tui
+    homepage: https://github.com/thomas-mauran/chess-tui
+    repo: https://github.com/thomas-mauran/chess-tui
+  - id: chiko
+    name: chiko
+    description: The Ultimate Beauty TUI gRPC Client
+    categories:
+      - dev
+    binaries:
+      - chiko
+    homepage: https://github.com/felangga/chiko
+    repo: https://github.com/felangga/chiko
+  - id: chronos
+    name: Chronos
+    description: A Vimlike Calendar TUI
+    categories:
+      - productivity
+    binaries:
+      - chronos
+    homepage: https://github.com/samuelstranges/chronos
+    repo: https://github.com/samuelstranges/chronos
+  - id: claude-code-bridge
+    name: Claude Code Bridge
+    description: Real-time multi-AI collaboration between Claude, Codex and Gemini in terminal
+    categories:
+      - dev
+    binaries:
+      - claude-code-bridge
+      - claudecodebridge
+    homepage: https://github.com/bfly123/claude_code_bridge
+    repo: https://github.com/bfly123/claude_code_bridge
+  - id: claws
+    name: claws
+    description: A terminal UI for AWS resource management with vim-style keybindings, command-mode navigation, and optional read-only mode.
+    categories:
+      - dashboards
+    binaries:
+      - claws
+    homepage: https://github.com/clawscli/claws
+    repo: https://github.com/clawscli/claws
+  - id: clidle
+    name: clidle
+    description: Play Wordle in your terminal. Also works over SSH!
+    categories:
+      - games
+    binaries:
+      - clidle
+    homepage: https://github.com/ajeetdsouza/clidle
+    repo: https://github.com/ajeetdsouza/clidle
+  - id: clipse
+    name: clipse
+    description: TUI-based clipboard manager application
+    categories:
+      - productivity
+    binaries:
+      - clipse
+    homepage: https://github.com/savedra1/clipse
+    repo: https://github.com/savedra1/clipse
+  - id: close-mongo-ops-manager
+    name: Close Mongo Ops Manager
+    description: Monitor and kill MongoDB operations
+    categories:
+      - dev
+    binaries:
+      - close-mongo-ops-manager
+      - closemongoopsmanager
+    homepage: https://github.com/closeio/close-mongo-ops-manager
+    repo: https://github.com/closeio/close-mongo-ops-manager
+  - id: cloud-code-usage-monitor
+    name: Cloud Code Usage Monitor
+    description: Monitor Claude token usage
+    categories:
+      - dev
+    binaries:
+      - cloud-code-usage-monitor
+      - cloudcodeusagemonitor
+    homepage: https://github.com/Maciek-roboblog/Claude-Code-Usage-Monitor
+    repo: https://github.com/Maciek-roboblog/Claude-Code-Usage-Monitor
+  - id: cloudflare-speed-cli
+    name: cloudflare-speed-cli
+    description: Internet speed test via Cloudflare
+    categories:
+      - web
+    binaries:
+      - cloudflare-speed-cli
+      - cloudflare-speed
+    homepage: https://github.com/kavehtehrani/cloudflare-speed-cli
+    repo: https://github.com/kavehtehrani/cloudflare-speed-cli
+  - id: cmdpxl
+    name: cmdpxl
+    description: Totally practical command-line image editor
+    categories:
+      - media
+    binaries:
+      - cmdpxl
+    homepage: https://github.com/knosmos/cmdpxl
+    repo: https://github.com/knosmos/cmdpxl
+  - id: cmus
+    name: cmus
+    description: A small, fast and powerful console music player for Unix-like operating systems.
+    categories:
+      - media
+    binaries:
+      - cmus
+    homepage: https://cmus.github.io/
+  - id: cntui
+    name: cnTUI
+    description: Replay chrome requests from your terminal using curl
+    categories:
+      - dev
+    binaries:
+      - cntui
+    homepage: https://github.com/fipso/cntui
+    repo: https://github.com/fipso/cntui
+  - id: codex
+    name: codex
+    description: Lightweight coding agent that runs in your terminal
+    categories:
+      - dev
+    binaries:
+      - codex
+    homepage: https://github.com/openai/codex
+    repo: https://github.com/openai/codex
+  - id: cointop
+    name: cointop
+    description: The fastest and most interactive terminal based UI application for tracking cryptocurrencies
+    categories:
+      - dashboards
+    binaries:
+      - cointop
+    homepage: https://github.com/miguelmota/cointop
+    repo: https://github.com/miguelmota/cointop
+  - id: corefreq
+    name: CoreFreq
+    description: CPU monitoring software designed for the 64-bits Processors
+    categories:
+      - dashboards
+    binaries:
+      - corefreq
+    homepage: https://github.com/cyring/CoreFreq
+    repo: https://github.com/cyring/CoreFreq
+  - id: cruise
+    name: cruise
+    description: A container management TUI
+    categories:
+      - containers
+    binaries:
+      - cruise
+    homepage: https://github.com/cruise-org/cruise
+    repo: https://github.com/cruise-org/cruise
+  - id: crunchycleaner
+    name: CrunchyCleaner
+    description: A lightweight, software cache cleanup tool for Windows & Linux.
+    categories:
+      - misc
+    binaries:
+      - crunchycleaner
+    homepage: https://github.com/knuspii/crunchycleaner
+    repo: https://github.com/knuspii/crunchycleaner
+  - id: crush
+    name: crush
+    description: The glamourous AI coding agent
+    categories:
+      - dev
+    binaries:
+      - crush
+    homepage: https://github.com/charmbracelet/crush
+    repo: https://github.com/charmbracelet/crush
+  - id: csol
+    name: csol
+    description: Collection of solitaire/patience games, such as Klondike, FreeCell, Spider, and Yukon
+    categories:
+      - games
+    binaries:
+      - csol
+    homepage: https://github.com/nielssp/csol
+    repo: https://github.com/nielssp/csol
+  - id: csope
+    name: csope
+    description: C source code browser based on cscope
+    categories:
+      - dev
+    binaries:
+      - csope
+    homepage: https://github.com/agvxov/csope
+    repo: https://github.com/agvxov/csope
+  - id: csvlens
+    name: csvlens
+    description: TUI CSV file viewer. It is like less but made for CSV.
+    categories:
+      - misc
+    binaries:
+      - csvlens
+    homepage: https://github.com/YS-L/csvlens
+    repo: https://github.com/YS-L/csvlens
+  - id: csysdig
+    name: csysdig
+    description: root level Ncurses interface for sysdig, Linux system exploration and troubleshooting tool with first class support for containers
+    categories:
+      - dashboards
+    binaries:
+      - csysdig
+    homepage: https://github.com/draios/sysdig
+    repo: https://github.com/draios/sysdig
+  - id: ctop
+    name: ctop
+    description: Top-like interface for container metrics
+    categories:
+      - containers
+    binaries:
+      - ctop
+    homepage: https://github.com/bcicen/ctop
+    repo: https://github.com/bcicen/ctop
+  - id: ctune
+    name: ctune
+    description: ncurses based internet radio player for Linux.
+    categories:
+      - media
+    binaries:
+      - ctune
+    homepage: https://github.com/An7ar35/ctune
+    repo: https://github.com/An7ar35/ctune
+  - id: cute
+    name: CuTE
+    description: TUI to help build, execute and save curl commands, recursively download from remote sources, test your API endpoints, and mange your keys
+    categories:
+      - dev
+    binaries:
+      - cute
+    homepage: https://github.com/PThorpe92/CuTE
+    repo: https://github.com/PThorpe92/CuTE
+  - id: d4s
+    name: d4s
+    description: A fast, keyboard-driven terminal UI to manage Docker containers, Compose stacks, and Swarm services with the ergonomics of K9s
+    categories:
+      - containers
+    binaries:
+      - d4s
+    homepage: https://github.com/jr-k/d4s
+    repo: https://github.com/jr-k/d4s
+  - id: damon
+    name: damon
+    description: TUI interface for Hashicorp Nomad
+    categories:
+      - dashboards
+    binaries:
+      - damon
+    homepage: https://github.com/hashicorp/damon
+    repo: https://github.com/hashicorp/damon
+  - id: dashbrew
+    name: dashbrew
+    description: TUI dashboard builder that lets you visualize data from scripts and APIs.
+    categories:
+      - dashboards
+    binaries:
+      - dashbrew
+    homepage: https://github.com/rasjonell/dashbrew
+    repo: https://github.com/rasjonell/dashbrew
+  - id: dbee
+    name: dbee
+    description: Fast & Minimalistic Database Browser
+    categories:
+      - dev
+    binaries:
+      - dbee
+    homepage: https://github.com/murat-cileli/dbee
+    repo: https://github.com/murat-cileli/dbee
+  - id: dblab
+    name: dblab
+    description: The database client every command line junkie deserves
+    categories:
+      - dev
+    binaries:
+      - dblab
+    homepage: https://github.com/danvergara/dblab
+    repo: https://github.com/danvergara/dblab
+  - id: ddqa
+    name: ddqa
+    description: Jira TUI to help with software releases
+    categories:
+      - dev
+    binaries:
+      - ddqa
+    homepage: https://github.com/DataDog/ddqa
+    repo: https://github.com/DataDog/ddqa
+  - id: ddv
+    name: ddv
+    description: Terminal DynamoDB viewer
+    categories:
+      - dev
+    binaries:
+      - ddv
+    homepage: https://github.com/lusingander/ddv
+    repo: https://github.com/lusingander/ddv
+  - id: deletor
+    name: deletor
+    description: Manage and delete files efficiently with an interactive TUI and scriptable CLI.
+    categories:
+      - files
+    binaries:
+      - deletor
+    homepage: https://github.com/pashkov256/deletor
+    repo: https://github.com/pashkov256/deletor
+  - id: delta
+    name: delta
+    description: A syntax-highlighting pager for git, diff, and grep output
+    categories:
+      - dev
+    binaries:
+      - delta
+    homepage: https://github.com/dandavison/delta
+    repo: https://github.com/dandavison/delta
+  - id: deputui
+    name: deputui
+    description: Review and install NPM package updates
+    categories:
+      - dev
+    binaries:
+      - deputui
+    homepage: https://github.com/twiddler/deputui
+    repo: https://github.com/twiddler/deputui
+  - id: desktop-tui
+    name: Desktop-TUI
+    description: A desktop environment without graphics
+    categories:
+      - productivity
+    binaries:
+      - desktop-tui
+      - desktop
+    homepage: https://github.com/Julien-cpsn/desktop-tui
+    repo: https://github.com/Julien-cpsn/desktop-tui
+  - id: devzat
+    name: Devzat
+    description: Chat over SSH, written in Golang with self-hosting ability.
+    categories:
+      - messaging
+    binaries:
+      - devzat
+    homepage: https://github.com/quackduck/devzat
+    repo: https://github.com/quackduck/devzat
+  - id: diary
+    name: diary
+    description: A diary app written in Rust that encrypts both text and file data, and can decrypt and build a rich HTML representation of your diary when required.
+    categories:
+      - misc
+    binaries:
+      - diary
+    homepage: https://github.com/actuday6418/Diary
+    repo: https://github.com/actuday6418/Diary
+  - id: differ
+    name: differ
+    description: A TUI git diff viewer
+    categories:
+      - dev
+    binaries:
+      - differ
+    homepage: https://github.com/JanSmrcka/differ
+    repo: https://github.com/JanSmrcka/differ
+  - id: digisurf
+    name: DigiSurf
+    description: A TUI signal waveform viewer
+    categories:
+      - misc
+    binaries:
+      - digisurf
+    homepage: https://github.com/SeanMcLoughlin/digisurf
+    repo: https://github.com/SeanMcLoughlin/digisurf
+  - id: discordo
+    name: discordo
+    description: A lightweight, secure, and feature-rich Discord terminal client
+    categories:
+      - messaging
+    binaries:
+      - discordo
+    homepage: https://github.com/ayntgl/discordo
+    repo: https://github.com/ayntgl/discordo
+  - id: diskonaut
+    name: diskonaut
+    description: Terminal disk space navigator
+    categories:
+      - misc
+    binaries:
+      - diskonaut
+    homepage: https://github.com/imsnif/diskonaut
+    repo: https://github.com/imsnif/diskonaut
+  - id: distrobox-tui
+    name: distrobox-tui
+    description: TUI for managing distrobox containers
+    categories:
+      - misc
+    binaries:
+      - distrobox-tui
+      - distrobox
+    homepage: https://github.com/phanirithvij/distrobox-tui
+    repo: https://github.com/phanirithvij/distrobox-tui
+  - id: dive
+    name: dive
+    description: A tool for exploring each layer in a docker image
+    categories:
+      - containers
+    binaries:
+      - dive
+    homepage: https://github.com/wagoodman/dive
+    repo: https://github.com/wagoodman/dive
+  - id: docker-dash
+    name: docker-dash
+    description: A full TUI managemnet tool for Docker
+    categories:
+      - containers
+    binaries:
+      - docker-dash
+    homepage: https://github.com/GustavoCaso/docker-dash
+    repo: https://github.com/GustavoCaso/docker-dash
+  - id: dockly
+    name: dockly
+    description: Immersive terminal interface for managing docker containers and services
+    categories:
+      - containers
+    binaries:
+      - dockly
+    homepage: https://github.com/lirantal/dockly
+    repo: https://github.com/lirantal/dockly
+  - id: dockmate
+    name: DockMate
+    description: A lightweight TUI manager for Docker and Podman
+    categories:
+      - containers
+    binaries:
+      - dockmate
+    homepage: https://github.com/shubh-io/dockmate
+    repo: https://github.com/shubh-io/dockmate
+  - id: dolphie
+    name: dolphie
+    description: Your single pane of glass for real-time analytics into MySQL/MariaDB & ProxySQL
+    categories:
+      - dashboards
+    binaries:
+      - dolphie
+    homepage: https://github.com/charles-001/dolphie
+    repo: https://github.com/charles-001/dolphie
+  - id: doom-ascii
+    name: DOOM-ASCII
+    description: Text-based DOOM running in terminal.
+    categories:
+      - games
+    binaries:
+      - doom-ascii
+    homepage: https://github.com/wojciech-graj/doom-ascii
+    repo: https://github.com/wojciech-graj/doom-ascii
+  - id: doxx
+    name: doxx
+    description: A TUI document viewer for Microsoft Word files
+    categories:
+      - productivity
+    binaries:
+      - doxx
+    homepage: https://github.com/bgreenwell/doxx
+    repo: https://github.com/bgreenwell/doxx
+  - id: dprs
+    name: dprs
+    description: A TUI for managing Docker containers with real-time monitoring and log streaming
+    categories:
+      - containers
+    binaries:
+      - dprs
+    homepage: https://github.com/durableprogramming/dprs
+    repo: https://github.com/durableprogramming/dprs
+  - id: drako
+    name: drako
+    description: A grid-based, customizable and extendable command- and TUI-Deck launcher
+    categories:
+      - productivity
+    binaries:
+      - drako
+    homepage: https://github.com/lucky7xz/drako
+    repo: https://github.com/lucky7xz/drako
+  - id: draw
+    name: draw
+    description: A simple drawing tool in the terminal.
+    categories:
+      - media
+    binaries:
+      - draw
+    homepage: https://github.com/maaslalani/draw
+    repo: https://github.com/maaslalani/draw
+  - id: dry
+    name: dry
+    description: A Docker manager for the terminal
+    categories:
+      - containers
+    binaries:
+      - dry
+    homepage: https://github.com/moncho/dry
+    repo: https://github.com/moncho/dry
+  - id: dtop
+    name: dtop
+    description: Terminal dashboard for Docker monitoring across multiple hosts
+    categories:
+      - containers
+    binaries:
+      - dtop
+    homepage: https://github.com/amir20/dtop
+    repo: https://github.com/amir20/dtop
+  - id: ducker
+    name: ducker
+    description: A slightly quackers Docker TUI based on k9s
+    categories:
+      - containers
+    binaries:
+      - ducker
+    homepage: https://github.com/robertpsoane/ducker
+    repo: https://github.com/robertpsoane/ducker
+  - id: durdraw
+    name: Durdraw
+    description: An ASCII, Unicode and ANSI art editor
+    categories:
+      - editors
+    binaries:
+      - durdraw
+    homepage: https://github.com/cmang/durdraw
+    repo: https://github.com/cmang/durdraw
+  - id: dvtm
+    name: dvtm
+    description: A terminal multiplexer with dwm like window management
+    categories:
+      - productivity
+    binaries:
+      - dvtm
+    homepage: https://github.com/martanne/dvtm
+    repo: https://github.com/martanne/dvtm
+  - id: e1s
+    name: e1s
+    description: TUI for managing AWS ECS resources
+    categories:
+      - containers
+    binaries:
+      - e1s
+    homepage: https://github.com/keidarcy/e1s
+    repo: https://github.com/keidarcy/e1s
+  - id: ec
+    name: ec
+    description: A TUI native Git mergetool with 3 panes
+    categories:
+      - dev
+    binaries:
+      - ec
+    homepage: https://github.com/chojs23/ec
+    repo: https://github.com/chojs23/ec
+  - id: ec2-instance-selector
+    name: ec2-instance-selector
+    description: A CLI tool and go library which recommends instance types based on resource criteria like vcpus and memory
+    categories:
+      - misc
+    binaries:
+      - ec2-instance-selector
+    homepage: https://github.com/aws/amazon-ec2-instance-selector
+    repo: https://github.com/aws/amazon-ec2-instance-selector
+  - id: edit
+    name: Edit
+    description: A simple text editor. Pays homage to the classic MS-DOS Editor.
+    categories:
+      - editors
+    binaries:
+      - edit
+    homepage: https://github.com/microsoft/edit
+    repo: https://github.com/microsoft/edit
+  - id: eilmeldung
+    name: eilmeldung
+    description: RSS reader, supporting many RSS providers, bulk-operations and configuration options.
+    categories:
+      - web
+    binaries:
+      - eilmeldung
+    homepage: https://github.com/christo-auer/eilmeldung
+    repo: https://github.com/christo-auer/eilmeldung
+  - id: ekphos
+    name: ekphos
+    description: A fast, lightweight, markdown research tool written in rust
+    categories:
+      - productivity
+    binaries:
+      - ekphos
+    homepage: https://github.com/hanebox/ekphos
+    repo: https://github.com/hanebox/ekphos
+  - id: eks-node-viewer
+    name: eks-node-viewer
+    description: visualizing dynamic node usage within a kubernetes cluster
+    categories:
+      - containers
+    binaries:
+      - eks-node-viewer
+    homepage: https://github.com/awslabs/eks-node-viewer/
+    repo: https://github.com/awslabs/eks-node-viewer/
+  - id: elia
+    name: elia
+    description: A terminal ChatGPT client build with Textual
+    categories:
+      - productivity
+    binaries:
+      - elia
+    homepage: https://github.com/darrenburns/elia
+    repo: https://github.com/darrenburns/elia
+  - id: elinks
+    name: elinks
+    description: ELinks (HTTP/FTP/..) brower with mujs javascript support.
+    categories:
+      - web
+    binaries:
+      - elinks
+    homepage: https://github.com/rkd77/elinks
+    repo: https://github.com/rkd77/elinks
+  - id: emu2
+    name: emu2
+    description: A simple DOS emulator for the Linux text console, supporting basic DOS system calls and console I/O.
+    categories:
+      - misc
+    binaries:
+      - emu2
+    homepage: https://github.com/dmsc/emu2
+    repo: https://github.com/dmsc/emu2
+  - id: endcord
+    name: endcord
+    description: Feature rich Discord TUI client.
+    categories:
+      - messaging
+    binaries:
+      - endcord
+    homepage: https://github.com/mzivic7/endcord
+    repo: https://github.com/mzivic7/endcord
+  - id: etcd-walker
+    name: etcd-walker
+    description: Opensource TUI tool for managing etcd keys
+    categories:
+      - containers
+    binaries:
+      - etcd-walker
+    homepage: https://github.com/nexusriot/etcd-walker/
+    repo: https://github.com/nexusriot/etcd-walker/
+  - id: euporie
+    name: euporie
+    description: Jupyter notebooks in the terminal
+    categories:
+      - dev
+    binaries:
+      - euporie
+    homepage: https://github.com/joouha/euporie
+    repo: https://github.com/joouha/euporie
+  - id: fancy-cat
+    name: fancy-cat
+    description: A Lightweight terminal-based PDF reader with Vim keybindings
+    categories:
+      - media
+    binaries:
+      - fancy-cat
+    homepage: https://github.com/freref/fancy-cat
+    repo: https://github.com/freref/fancy-cat
+  - id: far2l
+    name: far2l
+    description: Linux port of Far v2 file manager
+    categories:
+      - files
+    binaries:
+      - far2l
+    homepage: https://github.com/elfmz/far2l
+    repo: https://github.com/elfmz/far2l
+  - id: fast-resume
+    name: fast-resume
+    description: Index and fuzzy search coding agent sessions
+    categories:
+      - dev
+    binaries:
+      - fast-resume
+    homepage: https://github.com/angristan/fast-resume
+    repo: https://github.com/angristan/fast-resume
+  - id: favicon-editor
+    name: favicon-editor
+    description: Spartan grayscale favicon editor
+    categories:
+      - media
+    binaries:
+      - favicon-editor
+    homepage: https://github.com/xyproto/favicon-editor
+    repo: https://github.com/xyproto/favicon-editor
+  - id: feluda
+    name: Feluda
+    description: Detect restrictive and incompatible licesenses in all dependencies of your project.
+    categories:
+      - dev
+    binaries:
+      - feluda
+    homepage: https://github.com/anistark/feluda
+    repo: https://github.com/anistark/feluda
+  - id: fjira
+    name: fjira
+    description: TUI application for Atlassian Jira
+    categories:
+      - productivity
+    binaries:
+      - fjira
+    homepage: https://github.com/mk-5/fjira
+    repo: https://github.com/mk-5/fjira
+  - id: flawz
+    name: flawz
+    description: A Terminal UI for browsing security vulnerabilities (CVEs)
+    categories:
+      - misc
+    binaries:
+      - flawz
+    homepage: https://github.com/orhun/flawz
+    repo: https://github.com/orhun/flawz
+  - id: fml
+    name: fml
+    description: ":file_folder: A stupid simple, fast file manager written in BASH v4.2+."
+    categories:
+      - files
+    binaries:
+      - fml
+    homepage: https://github.com/wick3dr0se/fml
+    repo: https://github.com/wick3dr0se/fml
+  - id: fnf
+    name: fnf
+    description: An interactive fuzzy finder for the terminal
+    categories:
+      - misc
+    binaries:
+      - fnf
+    homepage: https://github.com/leo-arch/fnf
+    repo: https://github.com/leo-arch/fnf
+  - id: framework-tool-tui
+    name: framework-tool-tui
+    description: TUI for controlling and monitoring Framework Computers hardware built in Rust
+    categories:
+      - dashboards
+    binaries:
+      - framework-tool-tui
+      - framework-tool
+    homepage: https://github.com/grouzen/framework-tool-tui
+    repo: https://github.com/grouzen/framework-tool-tui
+  - id: fresh
+    name: Fresh
+    description: An easy-to-use, powerful and fast terminal-based text editor.
+    categories:
+      - editors
+    binaries:
+      - fresh
+    homepage: https://github.com/sinelaw/fresh
+    repo: https://github.com/sinelaw/fresh
+  - id: froggit
+    name: Froggit
+    description: Minimalist Git TUI with GitHub CLI integration
+    categories:
+      - dev
+    binaries:
+      - froggit
+    homepage: https://github.com/thewizardshell/froggit
+    repo: https://github.com/thewizardshell/froggit
+  - id: frogmouth
+    name: frogmouth
+    description: A Markdown browser for your terminal
+    categories:
+      - editors
+    binaries:
+      - frogmouth
+    homepage: https://github.com/Textualize/frogmouth
+    repo: https://github.com/Textualize/frogmouth
+  - id: fubar
+    name: fubar
+    description: Formidable Unix Binary Arsenal & Repository. TUI built for gtfobins power users.
+    categories:
+      - dashboards
+    binaries:
+      - fubar
+    homepage: https://github.com/irishmaestro/fubar
+    repo: https://github.com/irishmaestro/fubar
+  - id: fx
+    name: fx
+    description: Terminal JSON viewer & processor
+    categories:
+      - dev
+    binaries:
+      - fx
+    homepage: https://github.com/antonmedv/fx
+    repo: https://github.com/antonmedv/fx
+  - id: fzf
+    name: fzf
+    description: A general-purpose command-line fuzzy finder
+    categories:
+      - misc
+    binaries:
+      - fzf
+    homepage: https://github.com/junegunn/fzf
+    repo: https://github.com/junegunn/fzf
+  - id: gadacz
+    name: gadacz
+    description: Audiobook player
+    categories:
+      - media
+    binaries:
+      - gadacz
+    homepage: https://github.com/rareitems/gadacz
+    repo: https://github.com/rareitems/gadacz
+  - id: gameboy-emulator
+    name: Gameboy Emulator
+    description: A PHP Terminal GameBoy Emulator
+    categories:
+      - games
+    binaries:
+      - gameboy-emulator
+      - gameboyemulator
+    homepage: https://github.com/gabrielrcouto/php-terminal-gameboy-emulator
+    repo: https://github.com/gabrielrcouto/php-terminal-gameboy-emulator
+  - id: gdu
+    name: gdu
+    description: Fast disk usage analyzer with console interface written in Go
+    categories:
+      - misc
+    binaries:
+      - gdu
+    homepage: https://github.com/dundee/gdu
+    repo: https://github.com/dundee/gdu
+  - id: geekcalendar
+    name: GeekCalendar
+    description: TUI calendar with vim key bindings, which can import from calcure or calcurse.
+    categories:
+      - productivity
+    binaries:
+      - geekcalendar
+    homepage: https://github.com/fearlessgeekmedia/GeekCalendar
+    repo: https://github.com/fearlessgeekmedia/GeekCalendar
+  - id: ggc
+    name: ggc
+    description: A terminal-based Git CLI tool written in Go
+    categories:
+      - dev
+    binaries:
+      - ggc
+    homepage: https://github.com/bmf-san/ggc
+    repo: https://github.com/bmf-san/ggc
+  - id: gh-dash
+    name: gh-dash
+    description: A rich terminal UI for GitHub PRs and Issues
+    categories:
+      - dashboards
+    binaries:
+      - gh-dash
+    homepage: https://github.com/dlvhdr/gh-dash
+    repo: https://github.com/dlvhdr/gh-dash
+  - id: gif-for-cli
+    name: gif-for-cli
+    description: Convert a gif into ASCII
+    categories:
+      - misc
+    binaries:
+      - gif-for-cli
+      - gif-for
+    homepage: https://github.com/google/gif-for-cli
+    repo: https://github.com/google/gif-for-cli
+  - id: git-crecord
+    name: git-crecord
+    description: interactive selective commit tool
+    categories:
+      - dev
+    binaries:
+      - git-crecord
+    homepage: https://github.com/andrewshadura/git-crecord
+    repo: https://github.com/andrewshadura/git-crecord
+  - id: git-scope
+    name: git-scope
+    description: Terminal UI dashboard for inspecting multiple local Git repositories.
+    categories:
+      - dev
+    binaries:
+      - git-scope
+    homepage: https://github.com/Bharath-code/git-scope
+    repo: https://github.com/Bharath-code/git-scope
+  - id: gitlogue
+    name: gitlogue
+    description: A TUI screensaver that visualizes Git commit history in your terminal
+    categories:
+      - screensavers
+    binaries:
+      - gitlogue
+    homepage: https://github.com/unhappychoice/gitlogue
+    repo: https://github.com/unhappychoice/gitlogue
+  - id: gittype
+    name: GitType
+    description: A CLI code-typing game that turns your source code into typing challenges
+    categories:
+      - games
+    binaries:
+      - gittype
+    homepage: https://github.com/unhappychoice/gittype
+    repo: https://github.com/unhappychoice/gittype
+  - id: gitui
+    name: gitui
+    description: blazing fast terminal-ui for git written in rust
+    categories:
+      - dev
+    binaries:
+      - gitui
+    homepage: https://github.com/extrawurst/gitui
+    repo: https://github.com/extrawurst/gitui
+  - id: gitv
+    name: gitv
+    description: ": A beautiful, feature-rich and performant terminal client for GitHub issues."
+    categories:
+      - dev
+    binaries:
+      - gitv
+    homepage: https://github.com/jayanaxhf/gitv
+    repo: https://github.com/jayanaxhf/gitv
+  - id: glances
+    name: Glances
+    description: Glances an Eye on your system. A top/htop alternative.
+    categories:
+      - dashboards
+    binaries:
+      - glances
+    homepage: https://github.com/nicolargo/glances
+    repo: https://github.com/nicolargo/glances
+  - id: glow
+    name: Glow
+    description: A markdown reader, designed from the ground up to showcase the elegance and capabilities of TUI.
+    categories:
+      - productivity
+    binaries:
+      - glow
+    homepage: https://github.com/charmbracelet/glow
+    repo: https://github.com/charmbracelet/glow
+  - id: go-life
+    name: go-life
+    description: Terminal based Conway's Game of Life
+    categories:
+      - games
+    binaries:
+      - go-life
+    homepage: https://github.com/sachaos/go-life
+    repo: https://github.com/sachaos/go-life
+  - id: goaccess
+    name: Goaccess
+    description: GoAccess is a real-time web log analyzer and interactive viewer that runs in a terminal in nix systems or through your browser.
+    categories:
+      - dashboards
+    binaries:
+      - goaccess
+    homepage: https://github.com/allinurl/goaccess
+    repo: https://github.com/allinurl/goaccess
+  - id: gobang
+    name: gobang
+    description: A cross-platform TUI database management tool written in Rust
+    categories:
+      - dashboards
+    binaries:
+      - gobang
+    homepage: https://github.com/TaKO8Ki/gobang
+    repo: https://github.com/TaKO8Ki/gobang
+  - id: gocheat
+    name: gocheat
+    description: A beautiful TUI cheatsheet for keybindings,hotkeys,gestures and aliases
+    categories:
+      - productivity
+    binaries:
+      - gocheat
+    homepage: https://github.com/Achno/gocheat
+    repo: https://github.com/Achno/gocheat
+  - id: godap
+    name: godap
+    description: A complete TUI for LDAP written in Golang
+    categories:
+      - misc
+    binaries:
+      - godap
+    homepage: https://github.com/Macmod/godap
+    repo: https://github.com/Macmod/godap
+  - id: goful
+    name: goful
+    description: a powerful TUI file manager written in Go.
+    categories:
+      - files
+    binaries:
+      - goful
+    homepage: https://github.com/anmitsu/goful
+    repo: https://github.com/anmitsu/goful
+  - id: gokemon
+    name: gokemon
+    description: A terminal based Pokemon battle simulator
+    categories:
+      - games
+    binaries:
+      - gokemon
+    homepage: https://github.com/nathanieltooley/gokemon
+    repo: https://github.com/nathanieltooley/gokemon
+  - id: golazo
+    name: golazo
+    description: Get soccer minute-by-minute updates and finished match stats in your terminal
+    categories:
+      - misc
+    binaries:
+      - golazo
+    homepage: https://github.com/0xjuanma/golazo
+    repo: https://github.com/0xjuanma/golazo
+  - id: gomphotherium
+    name: Gomphotherium
+    description: A command line Mastodon client.
+    categories:
+      - messaging
+    binaries:
+      - gomphotherium
+    homepage: https://github.com/mrusme/gomphotherium
+    repo: https://github.com/mrusme/gomphotherium
+  - id: gomuks
+    name: gomuks
+    description: Matrix client
+    categories:
+      - messaging
+    binaries:
+      - gomuks
+    homepage: https://github.com/tulir/gomuks
+    repo: https://github.com/tulir/gomuks
+  - id: gonzo
+    name: gonzo
+    description: A powerful, real-time log analysis terminal UI inspired by k9s.
+    categories:
+      - dashboards
+    binaries:
+      - gonzo
+    homepage: https://github.com/control-theory/gonzo
+    repo: https://github.com/control-theory/gonzo
+  - id: gophertube
+    name: GopherTube
+    description: A terminal-based YouTube client that scrapes YouTube search results and uses mpv for video playback
+    categories:
+      - media
+    binaries:
+      - gophertube
+    homepage: https://github.com/krishnassh/gophertube
+    repo: https://github.com/krishnassh/gophertube
+  - id: gorae
+    name: Gorae
+    description: TUI librarian for PDFs and EPUBs with Vim-style navigation.
+    categories:
+      - media
+    binaries:
+      - gorae
+    homepage: https://github.com/Han8931/gorae
+    repo: https://github.com/Han8931/gorae
+  - id: gotop
+    name: gotop
+    description: A terminal based graphical activity monitor inspired by gtop and vtop
+    categories:
+      - dashboards
+    binaries:
+      - gotop
+    homepage: https://github.com/xxxserxxx/gotop
+    repo: https://github.com/xxxserxxx/gotop
+  - id: gpg-tui
+    name: gpg-tui
+    description: A terminal user interface for GnuPG
+    categories:
+      - misc
+    binaries:
+      - gpg-tui
+      - gpg
+    homepage: https://github.com/orhun/gpg-tui
+    repo: https://github.com/orhun/gpg-tui
+  - id: gping
+    name: gping
+    description: Ping, but with a graph
+    categories:
+      - dashboards
+    binaries:
+      - gping
+    homepage: https://github.com/orf/gping
+    repo: https://github.com/orf/gping
+  - id: grafterm
+    name: Grafterm
+    description: Metrics dashboards on terminal, a Grafana inspired terminal version
+    categories:
+      - dashboards
+    binaries:
+      - grafterm
+    homepage: https://github.com/slok/grafterm
+    repo: https://github.com/slok/grafterm
+  - id: greed
+    name: Greed
+    description: A game of consumption. Eat as much as you can before munching yourself into a corner!
+    categories:
+      - games
+    binaries:
+      - greed
+    homepage: https://gitlab.com/esr/greed
+  - id: grv
+    name: grv
+    description: Terminal interface for viewing git repositories
+    categories:
+      - dev
+    binaries:
+      - grv
+    homepage: https://github.com/rgburke/grv
+    repo: https://github.com/rgburke/grv
+  - id: gurk-rs
+    name: gurk-rs
+    description: Signal Messenger client for terminal
+    categories:
+      - messaging
+    binaries:
+      - gurk-rs
+      - gurk
+    homepage: https://github.com/boxdot/gurk-rs
+    repo: https://github.com/boxdot/gurk-rs
+  - id: h-m-m
+    name: h-m-m
+    description: Hackers Mind Map
+    categories:
+      - productivity
+    binaries:
+      - h-m-m
+    homepage: https://github.com/nadrad/h-m-m
+    repo: https://github.com/nadrad/h-m-m
+  - id: hackernews-tui
+    name: hackernews-TUI
+    description: A Terminal UI to browse Hacker News
+    categories:
+      - web
+    binaries:
+      - hackernews-tui
+      - hackernews
+    homepage: https://github.com/aome510/hackernews-TUI
+    repo: https://github.com/aome510/hackernews-TUI
+  - id: harlequin
+    name: harlequin
+    description: The SQL IDE for Your Terminal
+    categories:
+      - dev
+    binaries:
+      - harlequin
+    homepage: https://github.com/tconbeer/harlequin
+    repo: https://github.com/tconbeer/harlequin
+  - id: haxor-news
+    name: haxor-news
+    description: "Browse Hacker News like a haxor: A Hacker News command line interface (CLI)"
+    categories:
+      - web
+    binaries:
+      - haxor-news
+    homepage: https://github.com/donnemartin/haxor-news
+    repo: https://github.com/donnemartin/haxor-news
+  - id: helix
+    name: helix
+    description: A post-modern text editor.
+    categories:
+      - editors
+    binaries:
+      - hx
+    homepage: https://helix-editor.com/
+  - id: helm
+    name: helm
+    description: A minimalistic & customizable pomodoro-like timer for your terminal
+    categories:
+      - productivity
+    binaries:
+      - helm
+    homepage: https://github.com/0xjuanma/helm
+    repo: https://github.com/0xjuanma/helm
+  - id: heretek
+    name: heretek
+    description: GDB TUI Dashboard
+    categories:
+      - dev
+    binaries:
+      - heretek
+    homepage: https://github.com/wcampbell0x2a/heretek
+    repo: https://github.com/wcampbell0x2a/heretek
+  - id: hledger-ui
+    name: hledger-ui
+    description: A fast TUI for browsing double entry bookkeeping data
+    categories:
+      - productivity
+    binaries:
+      - hledger-ui
+    homepage: https://github.com/simonmichael/hledger
+    repo: https://github.com/simonmichael/hledger
+  - id: hnjobs
+    name: hnjobs
+    description: Find your next job on Who's Hiring
+    categories:
+      - productivity
+    binaries:
+      - hnjobs
+    homepage: https://github.com/mwinters0/hnjobs
+    repo: https://github.com/mwinters0/hnjobs
+  - id: htop
+    name: htop
+    description: Interactive text-mode process viewer for Unix systems. It aims to be a better 'top'
+    categories:
+      - dashboards
+    binaries:
+      - htop
+    homepage: https://github.com/htop-dev/htop
+    repo: https://github.com/htop-dev/htop
+  - id: htui
+    name: htui
+    description: Heroku Terminal User Interface
+    categories:
+      - dashboards
+    binaries:
+      - htui
+    homepage: https://github.com/PierreKieffer/htui
+    repo: https://github.com/PierreKieffer/htui
+  - id: humble-explorer
+    name: HumBLE Explorer
+    description: A cross-platform, command-line and human-friendly Bluetooth Low Energy scanner
+    categories:
+      - misc
+    binaries:
+      - humble-explorer
+      - humbleexplorer
+    homepage: https://github.com/koenvervloesem/humble-explorer
+    repo: https://github.com/koenvervloesem/humble-explorer
+  - id: hwinfo-tui
+    name: hwinfo-tui
+    description: A gping-inspired terminal visualization tool for monitoring real-time hardware sensor data from HWInfo
+    categories:
+      - dashboards
+    binaries:
+      - hwinfo-tui
+      - hwinfo
+    homepage: https://github.com/JuanjoFuchs/hwinfo-tui
+    repo: https://github.com/JuanjoFuchs/hwinfo-tui
+  - id: hydrofetch
+    name: HydroFetch
+    description: A fast, beautiful, and lightweight system information tool written exclusively for the Fish shell.
+    categories:
+      - productivity
+    binaries:
+      - hydrofetch
+    homepage: https://github.com/Henriquehnnm/hydrofetch
+    repo: https://github.com/Henriquehnnm/hydrofetch
+  - id: hydrotodo
+    name: HydroToDo
+    description: A simple and beautiful TUI to-do list
+    categories:
+      - productivity
+    binaries:
+      - hydrotodo
+    homepage: https://github.com/Henriquehnnm/hydrotodo
+    repo: https://github.com/Henriquehnnm/hydrotodo
+  - id: hygg
+    name: hygg
+    description: 📚 Simplifying the way you read. Minimalistic Vim-like TUI document reader.
+    categories:
+      - productivity
+    binaries:
+      - hygg
+    homepage: https://github.com/kruserr/hygg
+    repo: https://github.com/kruserr/hygg
+  - id: iamb
+    name: iamb
+    description: A Matrix client for Vim addicts written in Rust
+    categories:
+      - messaging
+    binaries:
+      - iamb
+    homepage: https://iamb.chat
+  - id: iconicfonts
+    name: IconicFonts
+    description: A collection of patched fonts featuring over 60,000 icons, tailored specifically for TUIs.
+    categories:
+      - misc
+    binaries:
+      - iconicfonts
+    homepage: https://github.com/iconicFonts/iconic-fonts
+    repo: https://github.com/iconicFonts/iconic-fonts
+  - id: id-spoofer
+    name: ID-Spoofer
+    description: A cross-platform cybersecurity toolkit for fingerprint and traffic obfuscation.
+    categories:
+      - dashboards
+    binaries:
+      - id-spoofer
+    homepage: https://github.com/NubleX/ID-Spoofer
+    repo: https://github.com/NubleX/ID-Spoofer
+  - id: image-sorter
+    name: image-sorter
+    description: Terminal user interface for sorting images using key bindings written in Rust
+    categories:
+      - media
+    binaries:
+      - image-sorter
+    homepage: https://github.com/jgalat/image-sorter
+    repo: https://github.com/jgalat/image-sorter
+  - id: impala
+    name: impala
+    description: TUI for managing wifi
+    categories:
+      - misc
+    binaries:
+      - impala
+    homepage: https://github.com/pythops/impala
+    repo: https://github.com/pythops/impala
+  - id: instagram-cli
+    name: instagram-cli
+    description: Use Instagram from your terminal, the end of brainrot is here
+    categories:
+      - messaging
+    binaries:
+      - instagram-cli
+      - instagram
+    homepage: https://github.com/supreme-gg-gg/instagram-cli
+    repo: https://github.com/supreme-gg-gg/instagram-cli
+  - id: intelli-shell
+    name: intelli-shell
+    description: "- Manage command templates/snippets with dynamic completions and AI integration"
+    categories:
+      - productivity
+    binaries:
+      - intelli-shell
+    homepage: https://github.com/lasantosr/intelli-shell
+    repo: https://github.com/lasantosr/intelli-shell
+  - id: invidtui
+    name: invidtui
+    description: A TUI Invidious client for Windows, Linux and MacOS, that fetches and plays audio/video from an invidious instance. Supports viewing and playing from playlists and channels as well.
+    categories:
+      - media
+    binaries:
+      - invidtui
+    homepage: https://github.com/darkhz/invidtui
+    repo: https://github.com/darkhz/invidtui
+  - id: irssi
+    name: irssi
+    description: An IRC terminal client
+    categories:
+      - messaging
+    binaries:
+      - irssi
+    homepage: https://irssi.org/
+  - id: isw
+    name: isw
+    description: A simple terminal stopwatch application for pomodoro etc.
+    categories:
+      - misc
+    binaries:
+      - isw
+    homepage: https://gitlab.com/thom-cameron/isw
+  - id: jellyfin-tui
+    name: jellyfin-tui
+    description: Jellyfin client
+    categories:
+      - media
+    binaries:
+      - jellyfin-tui
+      - jellyfin
+    homepage: https://github.com/dhonus/jellyfin-tui
+    repo: https://github.com/dhonus/jellyfin-tui
+  - id: jiratui
+    name: jiratui
+    description: A TUI for interacting with Atlassian Jira directly from your shell
+    categories:
+      - productivity
+    binaries:
+      - jiratui
+    homepage: https://github.com/whyisdifficult/jiratui
+    repo: https://github.com/whyisdifficult/jiratui
+  - id: jqp
+    name: jqp
+    description: A TUI playground to experiment with jq
+    categories:
+      - dev
+    binaries:
+      - jqp
+    homepage: https://github.com/noahgorstein/jqp
+    repo: https://github.com/noahgorstein/jqp
+  - id: jrnl
+    name: jrnl
+    description: Collect your thoughts and notes without leaving the command line. human-friendly. future-proof. secure.
+    categories:
+      - misc
+    binaries:
+      - jrnl
+    homepage: https://jrnl.sh/
+  - id: judo
+    name: Judo
+    description: A multi-database TUI for ToDo lists, using Rust + Ratatui + SQLite
+    categories:
+      - productivity
+    binaries:
+      - judo
+    homepage: https://github.com/giacomopiccinini/judo
+    repo: https://github.com/giacomopiccinini/judo
+  - id: k8s-tui
+    name: k8s-tui
+    description: TUI Kubernetes resource manager with multi-cluster support
+    categories:
+      - containers
+    binaries:
+      - k8s-tui
+      - k8s
+    homepage: https://github.com/otavioCosta2110/k8s-tui
+    repo: https://github.com/otavioCosta2110/k8s-tui
+  - id: k9s
+    name: k9s
+    description: TUI for managing a Kubernetes cluster
+    categories:
+      - containers
+    binaries:
+      - k9s
+    homepage: https://github.com/derailed/k9s
+    repo: https://github.com/derailed/k9s
+  - id: kabmat
+    name: kabmat
+    description: TUI program for managing kanban boards with vim-like keybindings
+    categories:
+      - productivity
+    binaries:
+      - kabmat
+    homepage: https://github.com/PlankCipher/kabmat
+    repo: https://github.com/PlankCipher/kabmat
+  - id: kagan
+    name: kagan
+    description: AI-powered Kanban TUI for autonomous development workflows
+    categories:
+      - dev
+    binaries:
+      - kagan
+    homepage: https://github.com/kagan-sh/kagan
+    repo: https://github.com/kagan-sh/kagan
+  - id: kakoune
+    name: kakoune
+    description: A modern, modal text editor with focus on interactivity and efficiency
+    categories:
+      - editors
+    binaries:
+      - kakoune
+    homepage: http://kakoune.org/
+  - id: kanban
+    name: kanban
+    description: "- TUI kanban board for projects management with sprint tracking and task prioritization."
+    categories:
+      - productivity
+    binaries:
+      - kanban
+    homepage: https://github.com/fulsomenko/kanban
+    repo: https://github.com/fulsomenko/kanban
+  - id: kanban-python
+    name: kanban-python
+    description: Kanban Terminal App written in Python
+    categories:
+      - productivity
+    binaries:
+      - kanban-python
+    homepage: https://github.com/Zaloog/kanban-python
+    repo: https://github.com/Zaloog/kanban-python
+  - id: kaskade
+    name: kaskade
+    description: TUI for kafka, which allows you to interact and consume topics from your terminal in style!
+    categories:
+      - dashboards
+    binaries:
+      - kaskade
+    homepage: https://github.com/sauljabin/kaskade
+    repo: https://github.com/sauljabin/kaskade
+  - id: kdash
+    name: kdash
+    description: A simple and fast dashboard for Kubernetes
+    categories:
+      - containers
+    binaries:
+      - kdash
+    homepage: https://github.com/kdash-rs/kdash
+    repo: https://github.com/kdash-rs/kdash
+  - id: kew
+    name: kew
+    description: A terminal music player for Linux
+    categories:
+      - media
+    binaries:
+      - kew
+    homepage: https://github.com/ravachol/kew
+    repo: https://github.com/ravachol/kew
+  - id: keydex
+    name: keydex
+    description: TUI password manager for KeePass databases.
+    categories:
+      - misc
+    binaries:
+      - keydex
+    homepage: https://github.com/shikaan/keydex
+    repo: https://github.com/shikaan/keydex
+  - id: kftui
+    name: kftui
+    description: "- A TUI to manage multiple kubectl port-forward commands, with support for UDP and K8s proxy."
+    categories:
+      - containers
+    binaries:
+      - kftui
+    homepage: https://github.com/hcavarsan/kftray
+    repo: https://github.com/hcavarsan/kftray
+  - id: khal
+    name: khal
+    description: A standards based CLI calendar program, able to synchronize with CalDAV servers
+    categories:
+      - productivity
+    binaries:
+      - khal
+    homepage: https://github.com/pimutils/khal
+    repo: https://github.com/pimutils/khal
+  - id: kilo
+    name: kilo
+    description: A minimal but complete editor in ~1000 lines of C code.
+    categories:
+      - editors
+    binaries:
+      - kilo
+    homepage: https://github.com/antirez/kilo
+    repo: https://github.com/antirez/kilo
+  - id: kmon
+    name: kmon
+    description: Linux Kernel Manager and Activity Monitor
+    categories:
+      - dashboards
+    binaries:
+      - kmon
+    homepage: https://github.com/orhun/kmon
+    repo: https://github.com/orhun/kmon
+  - id: ktop
+    name: ktop
+    description: A top-like tool for your Kubernetes clusters
+    categories:
+      - containers
+    binaries:
+      - ktop
+    homepage: https://github.com/vladimirvivien/ktop
+    repo: https://github.com/vladimirvivien/ktop
+  - id: kubetui
+    name: kubetui
+    description: A TUI tool designed for monitoring Kubernetes resources.
+    categories:
+      - containers
+    binaries:
+      - kubetui
+    homepage: https://github.com/sarub0b0/kubetui
+    repo: https://github.com/sarub0b0/kubetui
+  - id: kyanos
+    name: Kyanos
+    description: Linux network analysis tool based on eBPF
+    categories:
+      - dashboards
+    binaries:
+      - kyanos
+    homepage: https://github.com/hengyoush/kyanos
+    repo: https://github.com/hengyoush/kyanos
+  - id: lagrange
+    name: Lagrange
+    description: Lagrange is a cross-platform client for browsing Geminispace
+    categories:
+      - web
+    binaries:
+      - lagrange
+    homepage: https://gmi.skyjake.fi/lagrange
+  - id: lazycontainer
+    name: lazycontainer
+    description: TUI for managing Apple containers
+    categories:
+      - containers
+    binaries:
+      - lazycontainer
+    homepage: https://github.com/andreybleme/lazycontainer
+    repo: https://github.com/andreybleme/lazycontainer
+  - id: lazydocker
+    name: lazydocker
+    description: The lazier way to manage everything docker
+    categories:
+      - containers
+    binaries:
+      - lazydocker
+    homepage: https://github.com/jesseduffield/lazydocker
+    repo: https://github.com/jesseduffield/lazydocker
+  - id: lazygit
+    name: lazygit
+    description: Simple terminal UI for git commands
+    categories:
+      - dev
+    binaries:
+      - lazygit
+    homepage: https://github.com/jesseduffield/lazygit
+    repo: https://github.com/jesseduffield/lazygit
+  - id: lazyjournal
+    name: lazyjournal
+    description: TUI for journalctl, file system logs, as well Docker and Podman containers for quick viewing and filtering
+    categories:
+      - dev
+    binaries:
+      - lazyjournal
+    homepage: https://github.com/Lifailon/lazyjournal
+    repo: https://github.com/Lifailon/lazyjournal
+  - id: lazymake
+    name: lazymake
+    description: Modern TUI for Makefiles with interactive target selection, dependency visualization, and command safety analysis.
+    categories:
+      - dev
+    binaries:
+      - lazymake
+    homepage: https://github.com/rshelekhov/lazymake
+    repo: https://github.com/rshelekhov/lazymake
+  - id: lazynginx
+    name: lazynginx
+    description: Simple TUI for nginx management.
+    categories:
+      - misc
+    binaries:
+      - lazynginx
+    homepage: https://github.com/giacomomasseron/lazynginx
+    repo: https://github.com/giacomomasseron/lazynginx
+  - id: lazysql
+    name: lazysql
+    description: A cross-platform TUI database management tool written in Go.
+    categories:
+      - dev
+    binaries:
+      - lazysql
+    homepage: https://github.com/jorgerojas26/lazysql
+    repo: https://github.com/jorgerojas26/lazysql
+  - id: lazyssh
+    name: LazySSH
+    description: "- TUI SSH manager to browse, connect, and manage servers from ssh config files."
+    categories:
+      - productivity
+    binaries:
+      - lazyssh
+    homepage: https://github.com/adembc/lazyssh
+    repo: https://github.com/adembc/lazyssh
+  - id: lazytrivy
+    name: lazytrivy
+    description: The lazier way to scan images, k8s and the filesytem with Trivy
+    categories:
+      - containers
+    binaries:
+      - lazytrivy
+    homepage: https://github.com/owenrumney/lazytrivy
+    repo: https://github.com/owenrumney/lazytrivy
+  - id: lean-tui
+    name: lean-tui
+    description: Interactive visualization of proofs and programs written in the Lean4 proof-assistant
+    categories:
+      - dev
+    binaries:
+      - lean-tui
+      - lean
+    homepage: https://codeberg.org/wvhulle/lean-tui
+  - id: learnbyexample
+    name: LearnByExample
+    description: A TUI with tutorials and +300 exercises on python, grep, awk, sed & general terminal usage.
+    categories:
+      - misc
+    binaries:
+      - learnbyexample
+    homepage: https://github.com/learnbyexample/TUI-apps
+    repo: https://github.com/learnbyexample/TUI-apps
+  - id: levite
+    name: levite
+    description: A TUI spreadsheet application that uses an RPN formulas and features a vi-friendly interface
+    categories:
+      - productivity
+    binaries:
+      - levite
+    homepage: https://github.com/RauliL/levite
+    repo: https://github.com/RauliL/levite
+  - id: lf
+    name: lf
+    description: A terminal file manager written in Go with heavy inspiration from ranger file manager.
+    categories:
+      - files
+    binaries:
+      - lf
+    homepage: https://github.com/gokcehan/lf
+    repo: https://github.com/gokcehan/lf
+  - id: line
+    name: line
+    description: Tiny command-line midi sequencer and language for live coding
+    categories:
+      - media
+    binaries:
+      - line
+    homepage: https://github.com/pd3v/line
+    repo: https://github.com/pd3v/line
+  - id: lnav
+    name: lnav
+    description: An advanced log file viewer for the small-scale
+    categories:
+      - misc
+    binaries:
+      - lnav
+    homepage: https://lnav.org/
+  - id: loglens
+    name: LogLens
+    description: "- A structured log viewer and query engine for the terminal."
+    categories:
+      - dev
+    binaries:
+      - loglens
+    homepage: https://github.com/Caelrith/loglens-core
+    repo: https://github.com/Caelrith/loglens-core
+  - id: logradar
+    name: logradar
+    description: "- A fast Rust TUI for interactive log filtering and highlighting."
+    categories:
+      - dev
+    binaries:
+      - logradar
+    homepage: https://github.com/nanook72/logradar
+    repo: https://github.com/nanook72/logradar
+  - id: logshark
+    name: logshark
+    description: A debugger CLI for JSON logs written in Go
+    categories:
+      - dev
+    binaries:
+      - logshark
+    homepage: https://github.com/ugosan/logshark
+    repo: https://github.com/ugosan/logshark
+  - id: ls-horizons
+    name: ls-horizons
+    description: Terminal UI for visualizing NASA's Deep Space Network in real-time
+    categories:
+      - dashboards
+    binaries:
+      - ls-horizons
+    homepage: https://github.com/litescript/ls-horizons
+    repo: https://github.com/litescript/ls-horizons
+  - id: lynx
+    name: LYNX
+    description: A text based Terminal browser
+    categories:
+      - web
+    binaries:
+      - lynx
+    homepage: https://lynx.invisible-island.net/
+  - id: mac-cleanup-go
+    name: mac-cleanup-go
+    description: "- macOS disk cleanup TUI: scan cache/dev artifacts, preview, exclude, and move items to Trash."
+    categories:
+      - misc
+    binaries:
+      - mac-cleanup-go
+    homepage: https://github.com/2ykwang/mac-cleanup-go
+    repo: https://github.com/2ykwang/mac-cleanup-go
+  - id: macmon
+    name: macmon
+    description: Sudoless performance monitoring for Apple Silicon processors written in Rust
+    categories:
+      - dashboards
+    binaries:
+      - macmon
+    homepage: https://github.com/vladkens/macmon
+    repo: https://github.com/vladkens/macmon
+  - id: maki
+    name: maki
+    description: A simple tabbed text editor with file navigation and an emphasis on preserving battery life
+    categories:
+      - editors
+    binaries:
+      - maki
+    homepage: https://sr.ht/~bscit/maki/
+  - id: mal-cli
+    name: MAL-Cli
+    description: A terminal interface for the official myanimelist api written in rust.
+    categories:
+      - media
+    binaries:
+      - mal-cli
+      - mal
+    homepage: https://github.com/L4z3x/mal-tui
+    repo: https://github.com/L4z3x/mal-tui
+  - id: managarr
+    name: managarr
+    description: A TUI and CLI for managing your \*arr servers
+    categories:
+      - media
+    binaries:
+      - managarr
+    homepage: https://github.com/Dark-Alex-17/managarr
+    repo: https://github.com/Dark-Alex-17/managarr
+  - id: manga-tui
+    name: manga-tui
+    description: Terminal-based manga reader and downloader with image rendering support
+    categories:
+      - media
+    binaries:
+      - manga-tui
+      - manga
+    homepage: https://github.com/josueBarretogit/manga-tui
+    repo: https://github.com/josueBarretogit/manga-tui
+  - id: mapscii
+    name: mapscii
+    description: Braille & ASCII world map renderer for your console
+    categories:
+      - misc
+    binaries:
+      - mapscii
+    homepage: https://github.com/rastapasta/mapscii
+    repo: https://github.com/rastapasta/mapscii
+  - id: markln
+    name: markln
+    description: A terminal-based markdown editor built with Textual.
+    categories:
+      - editors
+    binaries:
+      - markln
+    homepage: https://github.com/xqtr/markln
+    repo: https://github.com/xqtr/markln
+  - id: marstui-audio
+    name: marstui-audio
+    description: A nice audio management Interface, similar to pavucontrol with the benefit of customizing everything
+    categories:
+      - media
+    binaries:
+      - marstui-audio
+    homepage: https://github.com/schooldanlp6/marstui-rustio
+    repo: https://github.com/schooldanlp6/marstui-rustio
+  - id: mastui
+    name: mastui
+    description: Mastodon TUI
+    categories:
+      - messaging
+    binaries:
+      - mastui
+    homepage: https://github.com/kimusan/mastui
+    repo: https://github.com/kimusan/mastui
+  - id: matcha
+    name: matcha
+    description: Email client
+    categories:
+      - messaging
+    binaries:
+      - matcha
+    homepage: https://github.com/floatpane/matcha
+    repo: https://github.com/floatpane/matcha
+  - id: matterhorn
+    name: matterhorn
+    description: A Mattermost terminal client.
+    categories:
+      - messaging
+    binaries:
+      - matterhorn
+    homepage: https://github.com/matterhorn-chat/matterhorn
+    repo: https://github.com/matterhorn-chat/matterhorn
+  - id: maze
+    name: Maze
+    description: Simple maze game written in Go.
+    categories:
+      - games
+    binaries:
+      - maze
+    homepage: https://github.com/itchyny/maze
+    repo: https://github.com/itchyny/maze
+  - id: maze-tui
+    name: Maze TUI
+    description: Build mazes and solve them with various algorithms.
+    categories:
+      - games
+    binaries:
+      - maze-tui
+      - mazetui
+      - maze
+    homepage: https://github.com/agl-alexglopez/maze-tui
+    repo: https://github.com/agl-alexglopez/maze-tui
+  - id: mc
+    name: mc
+    description: GNU Midnight Commander. A free cross-platform orthodox file manager.
+    categories:
+      - files
+    binaries:
+      - mc
+    homepage: https://github.com/MidnightCommander/mc
+    repo: https://github.com/MidnightCommander/mc
+  - id: mcabber
+    name: mcabber
+    description: XMPP (Jabber) client
+    categories:
+      - messaging
+    binaries:
+      - mcabber
+    homepage: https://mcabber.com/
+  - id: mcfly
+    name: mcfly
+    description: Intelligent context-aware search engine for your shell history
+    categories:
+      - productivity
+    binaries:
+      - mcfly
+    homepage: https://github.com/cantino/mcfly
+    repo: https://github.com/cantino/mcfly
+  - id: meli
+    name: meli
+    description: Email client
+    categories:
+      - messaging
+    binaries:
+      - meli
+    homepage: https://meli.delivery/
+  - id: micro
+    name: micro
+    description: A modern and intuitive terminal-based text editor
+    categories:
+      - editors
+    binaries:
+      - micro
+    homepage: https://github.com/zyedidia/micro
+    repo: https://github.com/zyedidia/micro
+  - id: micro-snake
+    name: Micro Snake
+    description: A small snake game, utilizing ANSI escape sequences to draw the board.
+    categories:
+      - games
+    binaries:
+      - micro-snake
+      - microsnake
+    homepage: https://github.com/troglobit/snake
+    repo: https://github.com/troglobit/snake
+  - id: micro-tetris
+    name: Micro Tetris
+    description: One of the smallest Tetris implementations in the world, utilizing only ANSI escape sequences to draw the board.
+    categories:
+      - games
+    binaries:
+      - micro-tetris
+      - microtetris
+    homepage: https://github.com/troglobit/tetris
+    repo: https://github.com/troglobit/tetris
+  - id: minesweep-rs
+    name: minesweep-rs
+    description: A mine sweeping game written in Rust using tui-rs.
+    categories:
+      - games
+    binaries:
+      - minesweep-rs
+      - minesweep
+    homepage: https://github.com/cpcloud/minesweep-rs
+    repo: https://github.com/cpcloud/minesweep-rs
+  - id: minesweeper_4d_rs
+    name: minesweeper_4d_rs
+    description: 4D minesweeper written in Rust using Ratatui (can also be used for classic minesweeper)
+    categories:
+      - games
+    binaries:
+      - minesweeper_4d_rs
+    homepage: https://github.com/itabesamesa/minesweeper_4d_rs
+    repo: https://github.com/itabesamesa/minesweeper_4d_rs
+  - id: mitmproxy
+    name: mitmproxy
+    description: A free and open source interactive HTTPS proxy
+    categories:
+      - dev
+    binaries:
+      - mitmproxy
+    homepage: https://www.mitmproxy.org
+  - id: moc
+    name: moc
+    description: console audio player
+    categories:
+      - misc
+    binaries:
+      - moc
+    homepage: https://moc.daper.net/download
+  - id: models
+    name: models
+    description: TUI for browsing AI models and coding agents
+    categories:
+      - dev
+    binaries:
+      - models
+    homepage: https://github.com/arimxyer/models
+    repo: https://github.com/arimxyer/models
+  - id: moon-buggy
+    name: moon-buggy
+    description: Drive some car across the moon
+    categories:
+      - games
+    binaries:
+      - moon-buggy
+    homepage: https://github.com/seehuhn/moon-buggy
+    repo: https://github.com/seehuhn/moon-buggy
+  - id: moribito
+    name: moribito
+    description: Browse LDAP directory trees, viewing records, and executing custom queries.
+    categories:
+      - misc
+    binaries:
+      - moribito
+    homepage: https://github.com/ericschmar/moribito
+    repo: https://github.com/ericschmar/moribito
+  - id: mps-youtube
+    name: mps-youtube
+    description: Terminal based YouTube player and downloader
+    categories:
+      - media
+    binaries:
+      - mps-youtube
+    homepage: https://github.com/mps-youtube/mps-youtube
+    repo: https://github.com/mps-youtube/mps-youtube
+  - id: mpvc
+    name: mpvc
+    description: A mpc-like control interface for mpv
+    categories:
+      - media
+    binaries:
+      - mpvc
+    homepage: https://github.com/gmt4/mpvc
+    repo: https://github.com/gmt4/mpvc
+  - id: mqttui
+    name: mqttui
+    description: MQTT Client written in rust
+    categories:
+      - misc
+    binaries:
+      - mqttui
+    homepage: https://github.com/EdJoPaTo/mqttui
+    repo: https://github.com/EdJoPaTo/mqttui
+  - id: multranslate
+    name: multranslate
+    description: A TUI for translating text in multiple translators simultaneously, with support for translation history and language detection
+    categories:
+      - productivity
+    binaries:
+      - multranslate
+    homepage: https://github.com/Lifailon/multranslate
+    repo: https://github.com/Lifailon/multranslate
+  - id: mutt
+    name: Mutt
+    description: Email client
+    categories:
+      - messaging
+    binaries:
+      - mutt
+    homepage: https://gitlab.com/muttmua/mutt
+  - id: myman
+    name: MyMan
+    description: MyMan is a video game for color and monochrome text terminals in the genre of Namco's Pac-Man
+    categories:
+      - games
+    binaries:
+      - myman
+    homepage: https://sourceforge.net/projects/myman/
+  - id: mynav
+    name: mynav
+    description: Workspace and session management for terminal environments
+    categories:
+      - productivity
+    binaries:
+      - mynav
+    homepage: https://github.com/GianlucaP106/mynav
+    repo: https://github.com/GianlucaP106/mynav
+  - id: nanocore
+    name: NanoCore
+    description: An 8-bit CPU emulator TUI written in Rust with an assembler and a custom ISA.
+    categories:
+      - misc
+    binaries:
+      - nanocore
+    homepage: https://github.com/AfaanBilal/NanoCore
+    repo: https://github.com/AfaanBilal/NanoCore
+  - id: nap
+    name: nap
+    description: Code snippets in your terminal
+    categories:
+      - dev
+      - media
+    binaries:
+      - nap
+    homepage: https://github.com/maaslalani/nap
+    repo: https://github.com/maaslalani/nap
+  - id: ncdu
+    name: ncdu
+    description: disk usage analyzer with an ncurses interface
+    categories:
+      - misc
+    binaries:
+      - ncdu
+    homepage: https://dev.yorhel.nl/ncdu
+  - id: nchat
+    name: nchat
+    description: Telegram/WhatsApp client
+    categories:
+      - messaging
+    binaries:
+      - nchat
+    homepage: https://github.com/d99kris/nchat
+    repo: https://github.com/d99kris/nchat
+  - id: nchess
+    name: nchess
+    description: Chess in the terminal, written in C.
+    categories:
+      - games
+    binaries:
+      - nchess
+    homepage: https://github.com/billyvinning/nchess
+    repo: https://github.com/billyvinning/nchess
+  - id: ncspot
+    name: ncspot
+    description: Cross-platform ncurses Spotify client written in Rust
+    categories:
+      - media
+    binaries:
+      - ncspot
+    homepage: https://github.com/hrkfdn/ncspot
+    repo: https://github.com/hrkfdn/ncspot
+  - id: nemu
+    name: nemu
+    description: A TUI for QEMU
+    categories:
+      - misc
+    binaries:
+      - nemu
+    homepage: https://github.com/nemuTUI/nemu
+    repo: https://github.com/nemuTUI/nemu
+  - id: neo
+    name: neo
+    description: Simulates the digital rain from "The Matrix"
+    categories:
+      - screensavers
+    binaries:
+      - neo
+    homepage: https://github.com/st3w/neo
+    repo: https://github.com/st3w/neo
+  - id: neoss
+    name: neoss
+    description: Socket statistics visualization and explanation tool for Unix systems.
+    categories:
+      - misc
+    binaries:
+      - neoss
+    homepage: https://github.com/PabloLec/neoss
+    repo: https://github.com/PabloLec/neoss
+  - id: nerdlog
+    name: nerdlog
+    description: fast, remote-first, multi-host TUI log viewer
+    categories:
+      - dashboards
+    binaries:
+      - nerdlog
+    homepage: https://github.com/dimonomid/nerdlog
+    repo: https://github.com/dimonomid/nerdlog
+  - id: nethack
+    name: NetHack
+    description: Dungeon exploration game
+    categories:
+      - games
+    binaries:
+      - nethack
+    homepage: https://github.com/NetHack/NetHack
+    repo: https://github.com/NetHack/NetHack
+  - id: nethogs
+    name: nethogs
+    description: "'net top' tool"
+    categories:
+      - dashboards
+    binaries:
+      - nethogs
+    homepage: https://github.com/raboof/nethogs
+    repo: https://github.com/raboof/nethogs
+  - id: netscanner
+    name: netscanner
+    description: Network scanner
+    categories:
+      - dashboards
+    binaries:
+      - netscanner
+    homepage: https://github.com/Chleba/netscanner
+    repo: https://github.com/Chleba/netscanner
+  - id: newsboat
+    name: newsboat
+    description: An RSS/Atom feed reader for the text console
+    categories:
+      - web
+    binaries:
+      - newsboat
+    homepage: https://github.com/newsboat/newsboat
+    repo: https://github.com/newsboat/newsboat
+  - id: nino
+    name: nino
+    description: A small terminal-based text editor written in C.
+    categories:
+      - editors
+    binaries:
+      - nino
+    homepage: https://github.com/evanlin96069/nino
+    repo: https://github.com/evanlin96069/nino
+  - id: ninvaders
+    name: nInvaders
+    description: Space Invaders
+    categories:
+      - games
+    binaries:
+      - ninvaders
+    homepage: http://ninvaders.sourceforge.net/
+  - id: nless
+    name: nless
+    description: Terminal pager for exploring tabular data with vi keybindings and automatic delimiter inference
+    categories:
+      - productivity
+    binaries:
+      - nless
+    homepage: https://github.com/mpryor/nothing-less
+    repo: https://github.com/mpryor/nothing-less
+  - id: nmtui
+    name: nmtui
+    description: ncurses network manager
+    categories:
+      - misc
+    binaries:
+      - nmtui
+    homepage: https://developer.gnome.org/NetworkManager/stable/nmtui.html
+  - id: nnn
+    name: nnn
+    description: n³ The unorthodox terminal file manager.
+    categories:
+      - files
+    binaries:
+      - nnn
+    homepage: https://github.com/jarun/nnn
+    repo: https://github.com/jarun/nnn
+  - id: nodebro
+    name: nodebro
+    description: Easily view most recent Github releases/tags and release notes from the terminal
+    categories:
+      - dev
+    binaries:
+      - nodebro
+    homepage: https://github.com/jonaburg/nodebro
+    repo: https://github.com/jonaburg/nodebro
+  - id: nomadnet
+    name: nomadnet
+    description: Secure messaging network built on Reticulum
+    categories:
+      - messaging
+    binaries:
+      - nomadnet
+    homepage: https://github.com/markqvist/NomadNet
+    repo: https://github.com/markqvist/NomadNet
+  - id: nostratui
+    name: nostratui
+    description: A terminal user interface (TUI) for browsing Nostr posts, written in Rust.
+    categories:
+      - messaging
+    binaries:
+      - nostratui
+    homepage: https://github.com/adamm-xyz/nostratui
+    repo: https://github.com/adamm-xyz/nostratui
+  - id: nostui
+    name: nostui
+    description: Nostr client
+    categories:
+      - messaging
+    binaries:
+      - nostui
+    homepage: https://github.com/akiomik/nostui
+    repo: https://github.com/akiomik/nostui
+  - id: nsnake
+    name: nSnake
+    description: The classic snake game with textual interface
+    categories:
+      - games
+    binaries:
+      - nsnake
+    homepage: https://github.com/alexdantas/nSnake
+    repo: https://github.com/alexdantas/nSnake
+  - id: ntc
+    name: ntc
+    description: Ncurses Tabbed file Chooser.
+    categories:
+      - files
+    binaries:
+      - ntc
+    homepage: https://codeberg.org/ItsZariep/ntc
+  - id: nudoku
+    name: nudoku
+    description: ncurses based sudoku game
+    categories:
+      - games
+    binaries:
+      - nudoku
+    homepage: https://github.com/jubalh/nudoku
+    repo: https://github.com/jubalh/nudoku
+  - id: numr
+    name: numr
+    description: A natural language calculator with unit/currency conversions and vim-style keybindings
+    categories:
+      - productivity
+    binaries:
+      - numr
+    homepage: https://github.com/nasedkinpv/numr
+    repo: https://github.com/nasedkinpv/numr
+  - id: nvtop
+    name: nvtop
+    description: GPUs process monitoring for AMD, Intel and NVIDIA
+    categories:
+      - dashboards
+    binaries:
+      - nvtop
+    homepage: https://github.com/Syllo/nvtop
+    repo: https://github.com/Syllo/nvtop
+  - id: nyaa
+    name: nyaa
+    description: A nyaa.si TUI for browsing and downloading torrents
+    categories:
+      - web
+    binaries:
+      - nyaa
+    homepage: https://github.com/Beastwick18/nyaa
+    repo: https://github.com/Beastwick18/nyaa
+  - id: oha
+    name: oha
+    description: HTTP load generator
+    categories:
+      - misc
+    binaries:
+      - oha
+    homepage: https://github.com/hatoo/oha
+    repo: https://github.com/hatoo/oha
+  - id: omaro
+    name: omaro
+    description: TUI to browse posts and comments on lobste.rs
+    categories:
+      - web
+    binaries:
+      - omaro
+    homepage: https://github.com/Rolv-Apneseth/omaro
+    repo: https://github.com/Rolv-Apneseth/omaro
+  - id: onx
+    name: onx
+    description: Noughts & Crosses client-server game with your partner. Based on textual and python.
+    categories:
+      - games
+    binaries:
+      - onx
+    homepage: https://github.com/vyalovvldmr/onx
+    repo: https://github.com/vyalovvldmr/onx
+  - id: opcilloscope
+    name: opcilloscope
+    description: OPC UA client TUI with real-time oscilloscope view for industrial automation
+    categories:
+      - dev
+    binaries:
+      - opcilloscope
+    homepage: https://github.com/SquareWaveSystems/opcilloscope
+    repo: https://github.com/SquareWaveSystems/opcilloscope
+  - id: opencode
+    name: opencode
+    description: AI coding agent, built for the terminal
+    categories:
+      - dev
+    binaries:
+      - opencode
+    homepage: https://github.com/sst/opencode
+    repo: https://github.com/sst/opencode
+  - id: openmux
+    name: openmux
+    description: A terminal multiplexer with master-stack layout (Zellij-style)
+    categories:
+      - productivity
+    binaries:
+      - openmux
+    homepage: https://github.com/monotykamary/openmux
+    repo: https://github.com/monotykamary/openmux
+  - id: orbiton
+    name: orbiton
+    description: Text editor limited by VT100, suitable for programming, writing git commit messages and editing Markdown
+    categories:
+      - editors
+    binaries:
+      - orbiton
+    homepage: https://github.com/xyproto/orbiton
+    repo: https://github.com/xyproto/orbiton
+  - id: oryx
+    name: oryx
+    description: A TUI for sniffing network traffic using eBPF
+    categories:
+      - dashboards
+    binaries:
+      - oryx
+    homepage: https://github.com/pythops/oryx
+    repo: https://github.com/pythops/oryx
+  - id: ostui
+    name: ostui
+    description: CLI client for Subsonic-API servers like gonic and Navidrome
+    categories:
+      - media
+    binaries:
+      - ostui
+    homepage: https://git.sr.ht/~ser/ostui
+  - id: otel-tui
+    name: otel-tui
+    description: A terminal OpenTelemetry viewer
+    categories:
+      - dashboards
+    binaries:
+      - otel-tui
+      - otel
+    homepage: https://github.com/ymtdzzz/otel-tui
+    repo: https://github.com/ymtdzzz/otel-tui
+  - id: oxker
+    name: oxker
+    description: A simple tui to view & control docker containers
+    categories:
+      - containers
+    binaries:
+      - oxker
+    homepage: https://github.com/mrjackwills/oxker
+    repo: https://github.com/mrjackwills/oxker
+  - id: packemon
+    name: packemon
+    description: Packet generator and monitor.
+    categories:
+      - misc
+    binaries:
+      - packemon
+    homepage: https://github.com/ddddddO/packemon
+    repo: https://github.com/ddddddO/packemon
+  - id: pagerduty-tui
+    name: pagerduty-tui
+    description: Minimalistic terminal UI to manage triggered incidents
+    categories:
+      - productivity
+    binaries:
+      - pagerduty-tui
+      - pagerduty
+    homepage: https://github.com/Mk555/pagerduty-tui
+    repo: https://github.com/Mk555/pagerduty-tui
+  - id: pass-cli
+    name: pass-cli
+    description: A TUI and CLI password manager with rclone cloud syncing support
+    categories:
+      - misc
+    binaries:
+      - pass-cli
+      - pass
+    homepage: https://github.com/arimxyer/pass-cli
+    repo: https://github.com/arimxyer/pass-cli
+  - id: patat
+    name: patat
+    description: Terminal-based presentations using Pandoc
+    categories:
+      - productivity
+    binaries:
+      - patat
+    homepage: https://github.com/jaspervdj/patat
+    repo: https://github.com/jaspervdj/patat
+  - id: pdiary
+    name: pdiary
+    description: A simple terminal diary journal application written in Python with encryption support
+    categories:
+      - productivity
+    binaries:
+      - pdiary
+    homepage: https://github.com/manipuladordedados/pdiary
+    repo: https://github.com/manipuladordedados/pdiary
+  - id: pesterexplorer
+    name: PesterExplorer
+    description: A TUI to explore Pester results.
+    categories:
+      - misc
+    binaries:
+      - pesterexplorer
+    homepage: https://github.com/HeyItsGilbert/PesterExplorer
+    repo: https://github.com/HeyItsGilbert/PesterExplorer
+  - id: physics-tui
+    name: physics-TUI
+    description: Physics TUI application for undergraduate study
+    categories:
+      - misc
+    binaries:
+      - physics-tui
+      - physics
+    homepage: https://github.com/ClaudioRMalvino/physics_TUI
+    repo: https://github.com/ClaudioRMalvino/physics_TUI
+  - id: pipe-viewer
+    name: pipe-viewer
+    description: A lightweight YouTube client for Linux, without requiring an API key.
+    categories:
+      - media
+    binaries:
+      - pipe-viewer
+    homepage: https://github.com/trizen/pipe-viewer
+    repo: https://github.com/trizen/pipe-viewer
+  - id: pkm
+    name: pkm
+    description: A super minimal TUI package manager wrapper written in BASH v4.2+
+    categories:
+      - productivity
+    binaries:
+      - pkm
+    homepage: https://github.com/wick3dr0se/pkm
+    repo: https://github.com/wick3dr0se/pkm
+  - id: planor
+    name: Planor
+    description: The Cloud Aviator, dashboard for AWS, Vultr, Heroku, ...
+    categories:
+      - dashboards
+    binaries:
+      - planor
+    homepage: https://github.com/mrusme/planor
+    repo: https://github.com/mrusme/planor
+  - id: play
+    name: play
+    description: A TUI playground to experiment with your favorite programs, such as grep, sed, awk, jq and yq
+    categories:
+      - dev
+    binaries:
+      - play
+    homepage: https://github.com/paololazzari/play
+    repo: https://github.com/paololazzari/play
+  - id: pocker
+    name: Pocker
+    description: TUI based application for docker related tasks.
+    categories:
+      - containers
+    binaries:
+      - pocker
+    homepage: https://github.com/pommee/Pocker
+    repo: https://github.com/pommee/Pocker
+  - id: podliner
+    name: podliner
+    description: A cross-platform podcast client
+    categories:
+      - web
+    binaries:
+      - podliner
+    homepage: https://github.com/timkicker/podliner
+    repo: https://github.com/timkicker/podliner
+  - id: podman-tui
+    name: Podman-tui
+    description: TUI for Podman containers
+    categories:
+      - containers
+    binaries:
+      - podman-tui
+      - podman
+    homepage: https://github.com/containers/podman-tui
+    repo: https://github.com/containers/podman-tui
+  - id: pokete
+    name: pokete
+    description: A terminal based Pokemon like game
+    categories:
+      - games
+    binaries:
+      - pokete
+    homepage: https://github.com/lxgr-linux/pokete
+    repo: https://github.com/lxgr-linux/pokete
+  - id: pomo
+    name: pomo
+    description: A minimal, customizable TUI Pomodoro timer with ASCII art, progress bar, desktop notifications, and productivity statistics.
+    categories:
+      - productivity
+    binaries:
+      - pomo
+    homepage: https://github.com/Bahaaio/pomo
+    repo: https://github.com/Bahaaio/pomo
+  - id: pond
+    name: pond
+    description: A soothing in-terminal idle screen that simulates a little pond.
+    categories:
+      - screensavers
+    binaries:
+      - pond
+    homepage: https://gitlab.com/alice-lefebvre/pond
+  - id: portfolio_rs
+    name: portfolio_rs
+    description: A command line tool for managing financial investment portfolios.
+    categories:
+      - productivity
+    binaries:
+      - portfolio_rs
+    homepage: https://github.com/MarkusZoppelt/portfolio_rs
+    repo: https://github.com/MarkusZoppelt/portfolio_rs
+  - id: posting
+    name: posting
+    description: A powerful HTTP client that lives in your terminal
+    categories:
+      - dev
+    binaries:
+      - posting
+    homepage: https://github.com/darrenburns/posting
+    repo: https://github.com/darrenburns/posting
+  - id: pproftui
+    name: pproftui
+    description: A terminal-based UI for Go's pprof that makes profiling interactive
+    categories:
+      - dev
+    binaries:
+      - pproftui
+    homepage: https://github.com/Oloruntobi1/pproftui
+    repo: https://github.com/Oloruntobi1/pproftui
+  - id: pream-team
+    name: pream-team
+    description: a TUI utility that helps you keep track of your teams GitHub PRs across multiple repositories
+    categories:
+      - productivity
+    binaries:
+      - pream-team
+    homepage: https://github.com/nikoladucak/pream-team/
+    repo: https://github.com/nikoladucak/pream-team/
+  - id: presenterm
+    name: presenterm
+    description: A markdown terminal slideshow tool
+    categories:
+      - productivity
+    binaries:
+      - presenterm
+    homepage: https://github.com/mfontanini/presenterm
+    repo: https://github.com/mfontanini/presenterm
+  - id: process-compose
+    name: process-compose
+    description: TUI for running apps and processes
+    categories:
+      - dashboards
+    binaries:
+      - process-compose
+    homepage: https://github.com/F1bonacc1/process-compose
+    repo: https://github.com/F1bonacc1/process-compose
+  - id: procmux
+    name: procmux
+    description: "- a TUI for running multiple commands in parallel in easily switchable terminals"
+    categories:
+      - productivity
+    binaries:
+      - procmux
+    homepage: https://github.com/napisani/procmux
+    repo: https://github.com/napisani/procmux
+  - id: productivity-timer
+    name: productivity-timer
+    description: A command line time tracker application with a sleek TUI.
+    categories:
+      - productivity
+    binaries:
+      - productivity-timer
+    homepage: https://github.com/h-sifat/productivity-timer
+    repo: https://github.com/h-sifat/productivity-timer
+  - id: profanity
+    name: Profanity
+    description: XMPP (Jabber) client
+    categories:
+      - messaging
+      - misc
+    binaries:
+      - profanity
+    homepage: https://profanity-im.github.io
+  - id: proxymock
+    name: proxymock
+    description: A network recorder that shows API payloads in a TUI and automatically generates tests and mocks from what it observes.
+    categories:
+      - dev
+    binaries:
+      - proxymock
+    homepage: https://proxymock.io
+  - id: prs
+    name: prs
+    description: Stay updated on PRs without leaving the terminal
+    categories:
+      - dev
+    binaries:
+      - prs
+    homepage: https://github.com/dhth/prs
+    repo: https://github.com/dhth/prs
+  - id: psmux
+    name: psmux
+    description: tmux-compatible terminal multiplexer for Windows built in Rust with ratatui.
+    categories:
+      - dashboards
+    binaries:
+      - psmux
+    homepage: https://github.com/marlocarlo/psmux
+    repo: https://github.com/marlocarlo/psmux
+  - id: psnet
+    name: psnet
+    description: Real-time TUI network monitor for Windows with speed graphs, DNS resolution, and packet inspection.
+    categories:
+      - dashboards
+    binaries:
+      - psnet
+    homepage: https://github.com/marlocarlo/psnet
+    repo: https://github.com/marlocarlo/psnet
+  - id: pstop
+    name: pstop
+    description: htop-style system monitor for Windows with per-core CPU bars, tree view, and 7 color schemes.
+    categories:
+      - dashboards
+    binaries:
+      - pstop
+    homepage: https://github.com/marlocarlo/pstop
+    repo: https://github.com/marlocarlo/pstop
+  - id: pudb
+    name: pudb
+    description: A console-based visual debugger for Python
+    categories:
+      - dev
+    binaries:
+      - pudb
+    homepage: https://github.com/inducer/pudb
+    repo: https://github.com/inducer/pudb
+  - id: puffin
+    name: Puffin
+    description: A beautiful terminal dashboard for hledger
+    categories:
+      - dashboards
+    binaries:
+      - puffin
+    homepage: https://github.com/siddhantac/puffin
+    repo: https://github.com/siddhantac/puffin
+  - id: pug
+    name: pug
+    description: terraform and tofu module and infrastructure management.
+    categories:
+      - misc
+    binaries:
+      - pug
+    homepage: https://github.com/leg100/pug
+    repo: https://github.com/leg100/pug
+  - id: pyautogit
+    name: pyautogit
+    description: A terminal UI for managing git repositories, written using py_cui
+    categories:
+      - dev
+    binaries:
+      - pyautogit
+    homepage: https://github.com/jwlodek/pyautogit
+    repo: https://github.com/jwlodek/pyautogit
+  - id: pyradio
+    name: pyradio
+    description: TUI web radio player with thousands of stations from around the world
+    categories:
+      - media
+    binaries:
+      - pyradio
+    homepage: https://github.com/coderholic/pyradio
+    repo: https://github.com/coderholic/pyradio
+  - id: qo
+    name: qo
+    description: Interactive SQL filter for JSON, CSV, TSV and other streams.
+    categories:
+      - dev
+    binaries:
+      - qo
+    homepage: https://github.com/kiki-ki/go-qo
+    repo: https://github.com/kiki-ki/go-qo
+  - id: quorum
+    name: Quorum
+    description: Multi-agent AI discussion system for structured debates between LLMs
+    categories:
+      - dev
+    binaries:
+      - quorum
+    homepage: https://github.com/Detrol/quorum-cli
+    repo: https://github.com/Detrol/quorum-cli
+  - id: radiogogo
+    name: RadioGoGo
+    description: Go-powered CLI to surf global radio waves via a sleek TUI.
+    categories:
+      - media
+    binaries:
+      - radiogogo
+    homepage: https://github.com/Zi0P4tch0/RadioGoGo
+    repo: https://github.com/Zi0P4tch0/RadioGoGo
+  - id: raijin
+    name: Raijin
+    description: A free, simple weather TUI that pulls data without the need for an API key, account, or subscription
+    categories:
+      - dashboards
+    binaries:
+      - raijin
+    homepage: https://github.com/MasonStooksbury/Raijin
+    repo: https://github.com/MasonStooksbury/Raijin
+  - id: rainfrog
+    name: rainfrog
+    description: A database management TUI for Postgres, MySQL, and SQLite written in Rust
+    categories:
+      - dev
+    binaries:
+      - rainfrog
+    homepage: https://github.com/achristmascarl/rainfrog
+    repo: https://github.com/achristmascarl/rainfrog
+  - id: ranger
+    name: ranger
+    description: A VIM-inspired file manager for the console.
+    categories:
+      - files
+    binaries:
+      - ranger
+    homepage: https://github.com/ranger/ranger
+    repo: https://github.com/ranger/ranger
+  - id: rebels-in-the-sky
+    name: Rebels in the sky
+    description: P2P terminal game about spacepirates playing basketball across the galaxy.
+    categories:
+      - games
+    binaries:
+      - rebels-in-the-sky
+      - rebelsinthesky
+    homepage: https://github.com/ricott1/rebels-in-the-sky
+    repo: https://github.com/ricott1/rebels-in-the-sky
+  - id: recoverpy
+    name: recoverpy
+    description: A TUI to recover overwritten or deleted data.
+    categories:
+      - misc
+    binaries:
+      - recoverpy
+    homepage: https://github.com/PabloLec/recoverpy
+    repo: https://github.com/PabloLec/recoverpy
+  - id: redu
+    name: redu
+    description: ncdu for your restic repository that manages exclusion lists to prune files from existing repos and skip new ones
+    categories:
+      - misc
+    binaries:
+      - redu
+    homepage: https://github.com/drdo/redu
+    repo: https://github.com/drdo/redu
+  - id: regex-tui
+    name: regex-tui
+    description: A simple TUI to visualize and test regular expressions
+    categories:
+      - dev
+    binaries:
+      - regex-tui
+      - regex
+    homepage: https://github.com/vitor-mariano/regex-tui
+    repo: https://github.com/vitor-mariano/regex-tui
+  - id: relax-player
+    name: Relax-player
+    description: A lightweight, distraction-free alternative to web-based ambient players.
+    categories:
+      - media
+    binaries:
+      - relax-player
+    homepage: https://github.com/ebithril/relax-player
+    repo: https://github.com/ebithril/relax-player
+  - id: resterm
+    name: resterm
+    description: A terminal client for HTTP/GraphQL/gRPC with support for WebSockets, SSE, workflows, profiling, OpenAPI and response diffs.
+    categories:
+      - dev
+    binaries:
+      - resterm
+    homepage: https://github.com/unkn0wn-root/resterm
+    repo: https://github.com/unkn0wn-root/resterm
+  - id: rfc_reader
+    name: rfc_reader
+    description: A tool to read RFCs (Request for Comments) with a TUI, allowing you to fetch, cache, and browse RFC documents.
+    categories:
+      - web
+    binaries:
+      - rfc_reader
+    homepage: https://github.com/ozan2003/rfc_reader
+    repo: https://github.com/ozan2003/rfc_reader
+  - id: rmpc
+    name: rmpc
+    description: A configurable MPD client inspired by ncmpcpp and ranger with album art support via various graphics protocols.
+    categories:
+      - media
+    binaries:
+      - rmpc
+    homepage: https://mierak.github.io/rmpc/
+  - id: rocket.term
+    name: rocket.term
+    description: Text based chat client for the Rocket.chat messaging solution.
+    categories:
+      - misc
+    binaries:
+      - rocket.term
+    homepage: https://github.com/gerstner-hub/rocket.term
+    repo: https://github.com/gerstner-hub/rocket.term
+  - id: roku-cli
+    name: roku-cli
+    description: A command line TUI remote for Roku
+    categories:
+      - media
+    binaries:
+      - roku-cli
+      - roku
+    homepage: https://github.com/winsbe01/roku-cli
+    repo: https://github.com/winsbe01/roku-cli
+  - id: rovr
+    name: rovr
+    description: A post-modern terminal file manager.
+    categories:
+      - files
+    binaries:
+      - rovr
+    homepage: https://github.com/NSPC911/rovr
+    repo: https://github.com/NSPC911/rovr
+  - id: rtorrent
+    name: rtorrent
+    description: A text-based BitTorrent client written in C++
+    categories:
+      - web
+    binaries:
+      - rtorrent
+    homepage: https://github.com/rakshasa/rtorrent
+    repo: https://github.com/rakshasa/rtorrent
+  - id: rttt
+    name: rttt
+    description: A Hackernews, RSS and Reddit reader for the terminal written in C++.
+    categories:
+      - web
+    binaries:
+      - rttt
+    homepage: https://gitlab.com/BlackEdder/rttt
+  - id: runme
+    name: runme
+    description: Discover and run code snippets directly from your README.md or other markdowns
+    categories:
+      - dev
+    binaries:
+      - runme
+    homepage: https://github.com/stateful/runme
+    repo: https://github.com/stateful/runme
+  - id: rustnet
+    name: rustnet
+    description: A cross-platform network monitoring tool with deep packet inspection
+    categories:
+      - dashboards
+    binaries:
+      - rustnet
+    homepage: https://github.com/domcyrus/rustnet
+    repo: https://github.com/domcyrus/rustnet
+  - id: rusty-pipes
+    name: rusty-pipes
+    description: A sample-based, MIDI-controlled virtual pipe organ instrument compatible with GrandOrgue and Hauptwerk sample sets.
+    categories:
+      - media
+    binaries:
+      - rusty-pipes
+    homepage: https://github.com/dividebysandwich/rusty-pipes
+    repo: https://github.com/dividebysandwich/rusty-pipes
+  - id: rxpipes
+    name: rxpipes
+    description: 2D recreation of the ancient Pipes screensaver for terminals.
+    categories:
+      - screensavers
+    binaries:
+      - rxpipes
+    homepage: https://github.com/inunix3/rxpipes
+    repo: https://github.com/inunix3/rxpipes
+  - id: s-tui
+    name: s-tui
+    description: CPU stress and monitoring utility
+    categories:
+      - dashboards
+    binaries:
+      - s-tui
+    homepage: https://github.com/amanusk/s-tui
+    repo: https://github.com/amanusk/s-tui
+  - id: s3duck-tui
+    name: s3duck-tui
+    description: A TUI S3 client.
+    categories:
+      - files
+    binaries:
+      - s3duck-tui
+      - s3duck
+    homepage: https://github.com/nexusriot/s3duck-tui
+    repo: https://github.com/nexusriot/s3duck-tui
+  - id: sacha
+    name: sacha
+    description: A two-pane AWS TUI for browsing, searching, and managing resources across seven services including CloudWatch Logs, S3, DynamoDB, Lambda, SSM, SQS, and EC2.
+    categories:
+      - dashboards
+    binaries:
+      - sacha
+    homepage: https://github.com/Sachamama/sacha
+    repo: https://github.com/Sachamama/sacha
+  - id: sc-im
+    name: sc-im
+    description: An ncurses spreadsheet program for terminal. Reignited version of sc
+    categories:
+      - productivity
+    binaries:
+      - sc-im
+    homepage: https://github.com/andmarti1424/sc-im
+    repo: https://github.com/andmarti1424/sc-im
+  - id: sclack
+    name: sclack
+    description: Slack terminal client
+    categories:
+      - messaging
+    binaries:
+      - sclack
+    homepage: https://github.com/haskellcamargo/sclack
+    repo: https://github.com/haskellcamargo/sclack
+  - id: scli
+    name: scli
+    description: A simple terminal user interface for signal messenger
+    categories:
+      - messaging
+    binaries:
+      - scli
+    homepage: https://github.com/isamert/scli/
+    repo: https://github.com/isamert/scli/
+  - id: searxngr
+    name: searxngr
+    description: Web search TUI for SearXNG
+    categories:
+      - web
+    binaries:
+      - searxngr
+    homepage: https://github.com/scross01/searxngr
+    repo: https://github.com/scross01/searxngr
+  - id: sen
+    name: sen
+    description: Terminal User Interface for docker engine
+    categories:
+      - containers
+    binaries:
+      - sen
+    homepage: https://github.com/TomasTomecek/sen
+    repo: https://github.com/TomasTomecek/sen
+  - id: serie
+    name: serie
+    description: A rich git commit graph
+    categories:
+      - dev
+    binaries:
+      - serie
+    homepage: https://github.com/lusingander/serie
+    repo: https://github.com/lusingander/serie
+  - id: serverhub
+    name: ServerHub
+    description: A TUI server monitoring dashboard for Linux with real-time metrics, scriptable widgets, and remote management
+    categories:
+      - dashboards
+    binaries:
+      - serverhub
+    homepage: https://github.com/nickprotop/ServerHub
+    repo: https://github.com/nickprotop/ServerHub
+  - id: sfm
+    name: sfm
+    description: Simple file manager.
+    categories:
+      - files
+    binaries:
+      - sfm
+    homepage: https://github.com/afify/sfm
+    repo: https://github.com/afify/sfm
+  - id: sheetsui
+    name: SheetsUI
+    description: A console based spreadsheet application
+    categories:
+      - productivity
+    binaries:
+      - sheetsui
+    homepage: https://github.com/zaphar/sheetsui
+    repo: https://github.com/zaphar/sheetsui
+  - id: siggo
+    name: siggo
+    description: A terminal ui for signal-cli, written in Go
+    categories:
+      - messaging
+    binaries:
+      - siggo
+    homepage: https://github.com/derricw/siggo
+    repo: https://github.com/derricw/siggo
+  - id: slack-term
+    name: Slack-term
+    description: Slack client for your terminal
+    categories:
+      - messaging
+    binaries:
+      - slack-term
+      - slack
+    homepage: https://github.com/erroneousboat/slack-term
+    repo: https://github.com/erroneousboat/slack-term
+  - id: slap
+    name: slap
+    description: Sublime-like terminal-based text editor
+    categories:
+      - editors
+    binaries:
+      - slap
+    homepage: https://github.com/slap-editor/slap
+    repo: https://github.com/slap-editor/slap
+  - id: slides
+    name: slides
+    description: A terminal based presentation tool, supporting markdown syntax.
+    categories:
+      - productivity
+    binaries:
+      - slides
+    homepage: https://github.com/maaslalani/slides
+    repo: https://github.com/maaslalani/slides
+  - id: sls-dev-tools
+    name: sls-dev-tools
+    description: Dev Tools for the Serverless World
+    categories:
+      - dev
+    binaries:
+      - sls-dev-tools
+    homepage: https://github.com/Theodo-UK/sls-dev-tools
+    repo: https://github.com/Theodo-UK/sls-dev-tools
+  - id: slumber
+    name: Slumber
+    description: Terminal-based HTTP/REST client
+    categories:
+      - web
+    binaries:
+      - slumber
+    homepage: https://github.com/LucasPickering/slumber
+    repo: https://github.com/LucasPickering/slumber
+  - id: smassh
+    name: smassh
+    description: A TUI based typing test application inspired by MonkeyType.
+    categories:
+      - misc
+    binaries:
+      - smassh
+    homepage: https://github.com/kraanzu/smassh
+    repo: https://github.com/kraanzu/smassh
+  - id: snake
+    name: snake
+    description: ":video_game: A super minimal TUI snake game written in pure BASH v5.1+"
+    categories:
+      - games
+    binaries:
+      - snake
+    homepage: https://github.com/wick3dr0se/snake
+    repo: https://github.com/wick3dr0se/snake
+  - id: snips.sh
+    name: snips.sh
+    description: ✂️ passwordless, anonymous SSH-powered pastebin with a human-friendly TUI and web UI
+    categories:
+      - dev
+    binaries:
+      - snips.sh
+    homepage: https://github.com/robherley/snips.sh
+    repo: https://github.com/robherley/snips.sh
+  - id: sockttop
+    name: sockttop
+    description: socktop is a remote system monitor with a rich TUI, inspired by top/btop, talking to a lightweight agent over WebSockets.
+    categories:
+      - dashboards
+    binaries:
+      - sockttop
+    homepage: https://github.com/jasonwitty/socktop
+    repo: https://github.com/jasonwitty/socktop
+  - id: soft-serve
+    name: soft-serve
+    description: A tasty, self-hostable Git server for the command lineicecream
+    categories:
+      - dev
+    binaries:
+      - soft-serve
+    homepage: https://github.com/charmbracelet/soft-serve
+    repo: https://github.com/charmbracelet/soft-serve
+  - id: sonicradio
+    name: sonicradio
+    description: A stylish TUI radio player making use of Radio Browser API and Bubbletea.
+    categories:
+      - media
+    binaries:
+      - sonicradio
+    homepage: https://github.com/dancnb/sonicradio
+    repo: https://github.com/dancnb/sonicradio
+  - id: sot
+    name: sot
+    description: A top like system observability tool written in python
+    categories:
+      - dev
+    binaries:
+      - sot
+    homepage: https://github.com/anistark/sot
+    repo: https://github.com/anistark/sot
+  - id: soundcloud2000
+    name: soundcloud2000
+    description: A terminal client for soundcloud
+    categories:
+      - media
+    binaries:
+      - soundcloud2000
+    homepage: https://github.com/grobie/soundcloud2000
+    repo: https://github.com/grobie/soundcloud2000
+  - id: spotatui
+    name: spotatui
+    description: Spotify client with native streaming, synced lyrics, and real-time audio visualization
+    categories:
+      - media
+    binaries:
+      - spotatui
+    homepage: https://github.com/LargeModGames/spotatui
+    repo: https://github.com/LargeModGames/spotatui
+  - id: spotify-player
+    name: spotify-player
+    description: A Spotify player in the terminal with full feature parity
+    categories:
+      - media
+    binaries:
+      - spotify-player
+    homepage: https://github.com/aome510/spotify-player
+    repo: https://github.com/aome510/spotify-player
+  - id: spotui
+    name: spotui
+    description: Spotify client written in Python
+    categories:
+      - media
+    binaries:
+      - spotui
+    homepage: https://github.com/ceuk/spotui
+    repo: https://github.com/ceuk/spotui
+  - id: sq
+    name: sq
+    description: A database client specially made for vim users
+    categories:
+      - dev
+    binaries:
+      - sq
+    homepage: https://github.com/sheenazien8/sq
+    repo: https://github.com/sheenazien8/sq
+  - id: sqlit
+    name: sqlit
+    description: A lightweight TUI for SQL databases inspired by lazygit
+    categories:
+      - dev
+    binaries:
+      - sqlit
+    homepage: https://github.com/Maxteabag/sqlit
+    repo: https://github.com/Maxteabag/sqlit
+  - id: square-tic-tac-toe
+    name: Square Tic Tac Toe
+    description: Like Tic Tac Toe, but form a square with 4 corners instead of a line
+    categories:
+      - games
+    binaries:
+      - square-tic-tac-toe
+      - squaretictactoe
+    homepage: https://github.com/learnbyexample/TUI-apps/tree/main/SquareTicTacToe
+    repo: https://github.com/learnbyexample/TUI-apps/tree/main/SquareTicTacToe
+  - id: ssh-slides
+    name: ssh-slides
+    description: Terminal-based presentations over SSH
+    categories:
+      - productivity
+    binaries:
+      - ssh-slides
+    homepage: https://github.com/ivantsepp/ssh-slides
+    repo: https://github.com/ivantsepp/ssh-slides
+  - id: sshattrick
+    name: ssHattrick
+    description: Play Hattrick in your terminal over SSH.
+    categories:
+      - games
+    binaries:
+      - sshattrick
+    homepage: https://github.com/ricott1/sshattrick
+    repo: https://github.com/ricott1/sshattrick
+  - id: sshm
+    name: sshm
+    description: "SSH made easy and fast: browse, connect, and control from your terminal with a modern TUI"
+    categories:
+      - productivity
+    binaries:
+      - sshm
+    homepage: https://github.com/gu1llaum-3/sshm
+    repo: https://github.com/gu1llaum-3/sshm
+  - id: sshtron
+    name: sshtron
+    description: multiplayer lightcycle game that runs through SSH
+    categories:
+      - games
+    binaries:
+      - sshtron
+    homepage: https://github.com/zachlatta/sshtron
+    repo: https://github.com/zachlatta/sshtron
+  - id: sssnake
+    name: sssnake
+    description: The classic snake game for the terminal that can play itself and be used like a screensaver.
+    categories:
+      - games
+    binaries:
+      - sssnake
+    homepage: https://github.com/AngelJumbo/sssnake
+    repo: https://github.com/AngelJumbo/sssnake
+  - id: steam_friends_list_tui
+    name: steam_friends_list_tui
+    description: The steam friends list in the commandline
+    categories:
+      - misc
+    binaries:
+      - steam_friends_list_tui
+    homepage: https://github.com/AdamWHY2K/steam_friends_list_tui
+    repo: https://github.com/AdamWHY2K/steam_friends_list_tui
+  - id: steam-tui
+    name: steam-tui
+    description: Just a simple TUI client for steamcmd. Allows for the graphical launching, updating, and downloading of steam games through a simple terminal client.
+    categories:
+      - games
+    binaries:
+      - steam-tui
+      - steam
+    homepage: https://github.com/dmadisetti/steam-tui
+    repo: https://github.com/dmadisetti/steam-tui
+  - id: stegodon
+    name: stegodon
+    description: SSH-first federated microblog with ActivityPub, web UI, and RSS feeds
+    categories:
+      - web
+    binaries:
+      - stegodon
+    homepage: https://github.com/deemkeen/stegodon
+    repo: https://github.com/deemkeen/stegodon
+  - id: stu
+    name: stu
+    description: A TUI for Amazon S3
+    categories:
+      - dev
+    binaries:
+      - stu
+    homepage: https://github.com/lusingander/stu
+    repo: https://github.com/lusingander/stu
+  - id: sudoku-rs
+    name: sudoku-rs
+    description: Sudoku built with tui-rs
+    categories:
+      - games
+    binaries:
+      - sudoku-rs
+      - sudoku
+    homepage: https://github.com/MitchelPaulin/sudoku-rs
+    repo: https://github.com/MitchelPaulin/sudoku-rs
+  - id: sup
+    name: sup
+    description: A curses threads-with-tags style email client
+    categories:
+      - messaging
+    binaries:
+      - sup
+    homepage: https://github.com/sup-heliotrope/sup
+    repo: https://github.com/sup-heliotrope/sup
+  - id: superfile
+    name: superfile
+    description: Pretty fancy and modern terminal file manager.
+    categories:
+      - files
+    binaries:
+      - superfile
+    homepage: https://github.com/MHNightCat/superfile
+    repo: https://github.com/MHNightCat/superfile
+  - id: superhighway84
+    name: Superhighway84
+    description: USENET-inspired decentralized internet discussion system
+    categories:
+      - messaging
+    binaries:
+      - superhighway84
+    homepage: https://github.com/mrusme/superhighway84
+    repo: https://github.com/mrusme/superhighway84
+  - id: surge
+    name: surge
+    description: A blazing fast, beautiful TUI download manager built in Go.
+    categories:
+      - web
+    binaries:
+      - surge
+    homepage: https://github.com/surge-downloader/surge
+    repo: https://github.com/surge-downloader/surge
+  - id: sweeper
+    name: sweeper
+    description: Minesweeper game using curtsies
+    categories:
+      - games
+    binaries:
+      - sweeper
+    homepage: https://github.com/igor47/sweeper
+    repo: https://github.com/igor47/sweeper
+  - id: systemd-manager-tui
+    name: Systemd-manager-tui
+    description: A program for managing systemd services through a TUI.
+    categories:
+      - misc
+    binaries:
+      - systemd-manager-tui
+      - systemd-manager
+    homepage: https://github.com/matheus-git/systemd-manager-tui
+    repo: https://github.com/matheus-git/systemd-manager-tui
+  - id: sysz
+    name: sysz
+    description: An fzf terminal UI for systemctl
+    categories:
+      - dashboards
+    binaries:
+      - sysz
+    homepage: https://github.com/joehillen/sysz
+    repo: https://github.com/joehillen/sysz
+  - id: tab-pal
+    name: tab-pal
+    description: Add and edit custom colour palettes in Tableau from the command-line.
+    categories:
+      - misc
+    binaries:
+      - tab-pal
+    homepage: https://github.com/ben-n93/tab-pal
+    repo: https://github.com/ben-n93/tab-pal
+  - id: tabiew
+    name: Tabiew
+    description: A lightweight app to view and query tabular data files, such as CSV, TSV, and parquet.
+    categories:
+      - productivity
+    binaries:
+      - tabiew
+    homepage: https://github.com/shshemi/tabiew
+    repo: https://github.com/shshemi/tabiew
+  - id: talos-linux
+    name: talos linux
+    description: A Linux distro with a TUI dashboard for local and remote usage
+    categories:
+      - dashboards
+    binaries:
+      - talos-linux
+      - taloslinux
+    homepage: https://github.com/siderolabs/talos
+    repo: https://github.com/siderolabs/talos
+  - id: talos-pilot
+    name: talos-pilot
+    description: TUI for Talos Linux providing real-time node monitoring, log streaming, and various diagnostics
+    categories:
+      - containers
+    binaries:
+      - talos-pilot
+    homepage: https://github.com/handfish/talos-pilot
+    repo: https://github.com/handfish/talos-pilot
+  - id: taskline
+    name: taskline
+    description: Tasks, boards & notes for the command-line habitat
+    categories:
+      - productivity
+    binaries:
+      - taskline
+    homepage: https://github.com/perryrh0dan/taskline
+    repo: https://github.com/perryrh0dan/taskline
+  - id: taskwarrior-tui
+    name: taskwarrior-tui
+    description: A Terminal User Interface for Taskwarrior
+    categories:
+      - productivity
+    binaries:
+      - taskwarrior-tui
+    homepage: https://github.com/kdheepak/taskwarrior-tui
+    repo: https://github.com/kdheepak/taskwarrior-tui
+  - id: tblogs
+    name: tblogs
+    description: Read and browse development blogs from your terminal
+    categories:
+      - web
+    binaries:
+      - tblogs
+    homepage: https://github.com/ezeoleaf/tblogs
+    repo: https://github.com/ezeoleaf/tblogs
+  - id: tcpterm
+    name: tcpterm
+    description: tcpterm is a packet visualizer in TUI.
+    categories:
+      - misc
+    binaries:
+      - tcpterm
+    homepage: https://github.com/sachaos/tcpterm
+    repo: https://github.com/sachaos/tcpterm
+  - id: tdash
+    name: tdash
+    description: A terminal dashboard with stats from Google Analytics, GitHub, Travis CI, and Jenkins. Very much built specific to me
+    categories:
+      - dashboards
+    binaries:
+      - tdash
+    homepage: https://github.com/jessfraz/tdash
+    repo: https://github.com/jessfraz/tdash
+  - id: tdf
+    name: tdf
+    description: A tui-based PDF viewer
+    categories:
+      - media
+    binaries:
+      - tdf
+    homepage: https://github.com/itsjunetime/tdf
+    repo: https://github.com/itsjunetime/tdf
+  - id: tegratop
+    name: tegratop
+    description: Monitoring tool (top like) for Nvidia jetson boards
+    categories:
+      - dashboards
+    binaries:
+      - tegratop
+    homepage: https://github.com/pythops/tegratop
+    repo: https://github.com/pythops/tegratop
+  - id: television
+    name: television
+    description: A fast and versatile fuzzy finder TUI
+    categories:
+      - productivity
+    binaries:
+      - television
+    homepage: https://github.com/alexpasmantier/television
+    repo: https://github.com/alexpasmantier/television
+  - id: tenere
+    name: tenere
+    description: A TUI for ChatGPT written in Rust.
+    categories:
+      - productivity
+    binaries:
+      - tenere
+    homepage: https://github.com/pythops/tenere
+    repo: https://github.com/pythops/tenere
+  - id: term.everything
+    name: term.everything
+    description: Run any GUI app in the terminal
+    categories:
+      - misc
+    binaries:
+      - term.everything
+    homepage: https://github.com/mmulet/term.everything
+    repo: https://github.com/mmulet/term.everything
+  - id: termdbms
+    name: termdbms
+    description: A TUI for viewing and editing database files.
+    categories:
+      - dev
+    binaries:
+      - termdbms
+    homepage: https://github.com/mathaou/termdbms
+    repo: https://github.com/mathaou/termdbms
+  - id: terminal-phase
+    name: terminal-phase
+    description: Space shooter game that runs in your terminal!
+    categories:
+      - games
+    binaries:
+      - terminal-phase
+    homepage: https://gitlab.com/dustyweb/terminal-phase
+  - id: terminal-pong
+    name: terminal-pong
+    description: A simple, fun ping pong game playable entirely in your terminal.
+    categories:
+      - games
+    binaries:
+      - terminal-pong
+    homepage: https://github.com/IshmamR/terminal.pong
+    repo: https://github.com/IshmamR/terminal.pong
+  - id: terminal-yt
+    name: terminal-yt
+    description: A small newsboat-inspired terminal youtube manager
+    categories:
+      - media
+    binaries:
+      - terminal-yt
+    homepage: https://github.com/jooooscha/terminal-yt
+    repo: https://github.com/jooooscha/terminal-yt
+  - id: terminalperiodictable
+    name: terminalperiodictable
+    description: A beautiful TUI periodic table for Unix systems coded in C.
+    categories:
+      - misc
+    binaries:
+      - terminalperiodictable
+    homepage: https://github.com/velorek1/terminalperiodictable
+    repo: https://github.com/velorek1/terminalperiodictable
+  - id: termrex
+    name: termrex
+    description: A terminal-based endless runner game inspired by the Chrome Dino offline game.
+    categories:
+      - games
+    binaries:
+      - termrex
+    homepage: https://github.com/SATYADAHAL/termrex
+    repo: https://github.com/SATYADAHAL/termrex
+  - id: termscp
+    name: termscp
+    description: A TUI file transfer and explorer, with support for SCP/SFTP/FTP/S3.
+    categories:
+      - productivity
+    binaries:
+      - termscp
+    homepage: https://github.com/veeso/termscp
+    repo: https://github.com/veeso/termscp
+  - id: termshark
+    name: termshark
+    description: Terminal UI for tshark
+    categories:
+      - misc
+    binaries:
+      - termshark
+    homepage: https://github.com/gcla/termshark
+    repo: https://github.com/gcla/termshark
+  - id: termui
+    name: TermUI
+    description: Golang terminal dashboard
+    categories:
+      - dashboards
+    binaries:
+      - termui
+    homepage: https://github.com/gizak/termui
+    repo: https://github.com/gizak/termui
+  - id: termusic
+    name: termusic
+    description: Music Player TUI written in Rust
+    categories:
+      - media
+    binaries:
+      - termusic
+    homepage: https://github.com/tramhao/termusic
+    repo: https://github.com/tramhao/termusic
+  - id: terraform-tui
+    name: terraform-tui
+    description: view and interact with Terraform state
+    categories:
+      - dev
+    binaries:
+      - terraform-tui
+      - terraform
+    homepage: https://github.com/idoavrah/terraform-tui
+    repo: https://github.com/idoavrah/terraform-tui
+  - id: tetro-tui
+    name: tetro-tui
+    description: A very configurable tetris-like, featuring ASCII particles, replays and more.
+    categories:
+      - games
+    binaries:
+      - tetro-tui
+      - tetro
+    homepage: https://github.com/Strophox/tetro-tui
+    repo: https://github.com/Strophox/tetro-tui
+  - id: textual-paint
+    name: textual-paint
+    description: MS Paint in your terminal
+    categories:
+      - media
+    binaries:
+      - textual-paint
+    homepage: https://github.com/1j01/textual-paint
+    repo: https://github.com/1j01/textual-paint
+  - id: textual-web
+    name: textual-web
+    description: Run TUIs and terminals in your browser
+    categories:
+      - web
+    binaries:
+      - textual-web
+    homepage: https://github.com/Textualize/textual-web
+    repo: https://github.com/Textualize/textual-web
+  - id: tgt
+    name: tgt
+    description: A TUI for Telegram written in Rust
+    categories:
+      - messaging
+    binaries:
+      - tgt
+    homepage: https://github.com/FedericoBruzzone/tgt
+    repo: https://github.com/FedericoBruzzone/tgt
+  - id: thokr
+    name: thokr
+    description: a sleek typing tui written in rust
+    categories:
+      - misc
+    binaries:
+      - thokr
+    homepage: https://github.com/coloradocolby/thokr
+    repo: https://github.com/coloradocolby/thokr
+  - id: thymus
+    name: thymus
+    description: An interactive browser & editor for network configuration files.
+    categories:
+      - editors
+    binaries:
+      - thymus
+    homepage: https://github.com/blademd/thymus
+    repo: https://github.com/blademd/thymus
+  - id: ticker
+    name: ticker
+    description: Track stocks, crypto, and derivatives prices and positions in real time from your terminal
+    categories:
+      - dashboards
+    binaries:
+      - ticker
+    homepage: https://github.com/achannarasappa/ticker
+    repo: https://github.com/achannarasappa/ticker
+  - id: tig
+    name: tig
+    description: Text-mode interface for git
+    categories:
+      - dev
+    binaries:
+      - tig
+    homepage: https://github.com/jonas/tig
+    repo: https://github.com/jonas/tig
+  - id: tiki
+    name: tiki
+    description: Markdown-based git-versioned project and issue manager
+    categories:
+      - productivity
+    binaries:
+      - tiki
+    homepage: https://github.com/boolean-maybe/tiki
+    repo: https://github.com/boolean-maybe/tiki
+  - id: tilde
+    name: tilde
+    description: Intuitive text editor for the terminal
+    categories:
+      - editors
+    binaries:
+      - tilde
+    homepage: https://github.com/gphalkes/tilde
+    repo: https://github.com/gphalkes/tilde
+  - id: timg
+    name: timg
+    description: A terminal image viewer
+    categories:
+      - media
+    binaries:
+      - timg
+    homepage: https://github.com/hzeller/timg
+    repo: https://github.com/hzeller/timg
+  - id: tinytetris
+    name: tinytetris
+    description: 80x23 terminal tetris!
+    categories:
+      - games
+    binaries:
+      - tinytetris
+    homepage: https://github.com/taylorconor/tinytetris
+    repo: https://github.com/taylorconor/tinytetris
+  - id: tizonia-openmax-il
+    name: tizonia-openmax-il
+    description: Command-line cloud music player for Linux with support for Spotify, Google Play Music, YouTube, SoundCloud, Dirble, Plex servers and Chromecast devices
+    categories:
+      - media
+    binaries:
+      - tizonia-openmax-il
+    homepage: https://github.com/tizonia/tizonia-openmax-il
+    repo: https://github.com/tizonia/tizonia-openmax-il
+  - id: tlock
+    name: tlock
+    description: Two-Factor Authentication Tokens Manager in Terminal
+    categories:
+      - misc
+    binaries:
+      - tlock
+    homepage: https://github.com/eklairs/tlock
+    repo: https://github.com/eklairs/tlock
+  - id: tmd-top
+    name: tmd-top
+    description: Used to monitor the process tcp traffic of the linux system, detailed to each IP connection
+    categories:
+      - dashboards
+    binaries:
+      - tmd-top
+    homepage: https://github.com/CDWEN0526/tmd-top
+    repo: https://github.com/CDWEN0526/tmd-top
+  - id: tmux
+    name: tmux
+    description: Terminal multiplexer
+    categories:
+      - productivity
+    binaries:
+      - tmux
+    homepage: https://github.com/tmux/tmux
+    repo: https://github.com/tmux/tmux
+  - id: toad
+    name: Toad
+    description: A unified interface for AI
+    categories:
+      - dev
+    binaries:
+      - toad
+    homepage: https://github.com/batrachianai/toad
+    repo: https://github.com/batrachianai/toad
+  - id: tock
+    name: Tock
+    description: "- The powerful time tracking tool for the command line with a beautiful interactive TUI."
+    categories:
+      - productivity
+    binaries:
+      - tock
+    homepage: https://github.com/kriuchkov/tock
+    repo: https://github.com/kriuchkov/tock
+  - id: tododo
+    name: tododo
+    description: A pretty TUI TODO.md manager for tasks and projects
+    categories:
+      - productivity
+    binaries:
+      - tododo
+    homepage: https://github.com/bmarse/tododo
+    repo: https://github.com/bmarse/tododo
+  - id: todoman
+    name: todoman
+    description: A simple, standards-based (ics, DAV), cli task-manager
+    categories:
+      - productivity
+    binaries:
+      - todoman
+    homepage: https://github.com/pimutils/todoman
+    repo: https://github.com/pimutils/todoman
+  - id: tokui
+    name: tokui
+    description: An interactive TUI for visualizing code statistics from tokei.
+    categories:
+      - dev
+    binaries:
+      - tokui
+    homepage: https://github.com/zdyxry/tokui
+    repo: https://github.com/zdyxry/tokui
+  - id: toney
+    name: Toney
+    description: a fast, lightweight, terminal-based note-taking app for the modern developer.
+    categories:
+      - productivity
+    binaries:
+      - toney
+    homepage: https://github.com/SourcewareLab/Toney
+    repo: https://github.com/SourcewareLab/Toney
+  - id: toolui
+    name: toolui
+    description: Dotnet core application to manage installed nuget tools
+    categories:
+      - dev
+    binaries:
+      - toolui
+    homepage: https://github.com/jinek/ToolUI
+    repo: https://github.com/jinek/ToolUI
+  - id: toot
+    name: toot
+    description: Mastodon CLI & TUI
+    categories:
+      - messaging
+    binaries:
+      - toot
+    homepage: https://github.com/ihabunek/toot
+    repo: https://github.com/ihabunek/toot
+  - id: topydo
+    name: topydo
+    description: A powerful todo list application using the todo.txt format
+    categories:
+      - productivity
+    binaries:
+      - topydo
+    homepage: https://github.com/topydo/topydo
+    repo: https://github.com/topydo/topydo
+  - id: tortuise
+    name: tortuise
+    description: Gaussian Splatting 3D viewer in your terminal. 6 render modes, CPU-only via crossterm + rayon
+    categories:
+      - media
+    binaries:
+      - tortuise
+    homepage: https://github.com/buildoak/tortuise
+    repo: https://github.com/buildoak/tortuise
+  - id: toutui
+    name: Toutui
+    description: A TUI Audiobookshelf Client for Linux
+    categories:
+      - media
+    binaries:
+      - toutui
+    homepage: https://github.com/AlbanDAVID/Toutui
+    repo: https://github.com/AlbanDAVID/Toutui
+  - id: tray-tui
+    name: tray-tui
+    description: System tray in your terminal
+    categories:
+      - misc
+    binaries:
+      - tray-tui
+      - tray
+    homepage: https://github.com/Levizor/tray-tui
+    repo: https://github.com/Levizor/tray-tui
+  - id: treemd
+    name: treemd
+    description: A markdown navigator with tree-based structural navigation
+    categories:
+      - editors
+    binaries:
+      - treemd
+    homepage: https://github.com/Epistates/treemd
+    repo: https://github.com/Epistates/treemd
+  - id: trek
+    name: trek
+    description: ncurses explorer for Hashicorp Nomad clusters
+    categories:
+      - dashboards
+    binaries:
+      - trek
+    homepage: https://github.com/franckverrot/trek
+    repo: https://github.com/franckverrot/trek
+  - id: trippy
+    name: trippy
+    description: A network diagnostic tool that includes functionality like mtr and more
+    categories:
+      - dashboards
+    binaries:
+      - trippy
+    homepage: https://github.com/fujiapple852/trippy
+    repo: https://github.com/fujiapple852/trippy
+  - id: trophy
+    name: Trophy
+    description: A TUI 3D Model Viewer for OBJ and GLB files
+    categories:
+      - media
+    binaries:
+      - trophy
+    homepage: https://github.com/taigrr/trophy
+    repo: https://github.com/taigrr/trophy
+  - id: try-rs
+    name: try-rs
+    description: A lightning-fast TUI to manage temporary projects. Create, explore, and clone repositories instantly without cluttering your system.
+    categories:
+      - misc
+    binaries:
+      - try-rs
+      - try
+    homepage: https://github.com/tassiovirginio/try-rs/
+    repo: https://github.com/tassiovirginio/try-rs/
+  - id: ttop
+    name: ttop
+    description: System monitoring tool with historical data service, triggers and top-like TUI
+    categories:
+      - dashboards
+    binaries:
+      - ttop
+    homepage: https://github.com/inv2004/ttop
+    repo: https://github.com/inv2004/ttop
+  - id: tttui
+    name: tttui
+    description: A Monkeytype-inspired typing test that runs entirely in your terminal
+    categories:
+      - misc
+    binaries:
+      - tttui
+    homepage: https://github.com/reidoboss/tttui
+    repo: https://github.com/reidoboss/tttui
+  - id: tty-solitaire
+    name: tty-solitaire
+    description: Solitaire runs in your terminal!
+    categories:
+      - games
+    binaries:
+      - tty-solitaire
+    homepage: https://github.com/mpereira/tty-solitaire
+    repo: https://github.com/mpereira/tty-solitaire
+  - id: ttyper
+    name: ttyper
+    description: Terminal-based typing test
+    categories:
+      - misc
+    binaries:
+      - ttyper
+    homepage: https://github.com/max-niederman/ttyper
+    repo: https://github.com/max-niederman/ttyper
+  - id: ttyplot
+    name: ttyplot
+    description: A realtime plotting utility for terminals with data input from stdin/pipe.
+    categories:
+      - productivity
+    binaries:
+      - ttyplot
+    homepage: https://github.com/tenox7/ttyplot
+    repo: https://github.com/tenox7/ttyplot
+  - id: tufw
+    name: tufw
+    description: Terminal UI for ufw
+    categories:
+      - dashboards
+    binaries:
+      - tufw
+    homepage: https://github.com/peltho/tufw
+    repo: https://github.com/peltho/tufw
+  - id: tui_projectmanager
+    name: TUI_ProjectManager
+    description: A simple project-based todo list written in Rust
+    categories:
+      - productivity
+    binaries:
+      - tui_projectmanager
+    homepage: https://github.com/NicoDblc/TUI_ProjectManager
+    repo: https://github.com/NicoDblc/TUI_ProjectManager
+  - id: tui-2048
+    name: tui-2048
+    description: The game 2048 for your terminal
+    categories:
+      - games
+    binaries:
+      - tui-2048
+    homepage: https://github.com/ps06756/tui-2048
+    repo: https://github.com/ps06756/tui-2048
+  - id: tui-deck
+    name: tui-deck
+    description: A TUI frontend for Nextcloud Deck app written in GO
+    categories:
+      - productivity
+    binaries:
+      - tui-deck
+    homepage: https://github.com/mebitek/tui-deck
+    repo: https://github.com/mebitek/tui-deck
+  - id: tui-shop
+    name: tui-shop
+    description: Something between a CLI and a GUI way of downloading TUIs/CLIs
+    categories:
+      - misc
+    binaries:
+      - tui-shop
+    homepage: https://github.com/Gcat101/tui-shop
+    repo: https://github.com/Gcat101/tui-shop
+  - id: tui-slides
+    name: tui-slides
+    description: A terminal presentation tool capable of rendering images and many other widgets.
+    categories:
+      - productivity
+    binaries:
+      - tui-slides
+    homepage: https://github.com/Chleba/tui-slides
+    repo: https://github.com/Chleba/tui-slides
+  - id: tuicamp
+    name: tuicamp
+    description: Unofficial TimeCamp TUI
+    categories:
+      - dashboards
+    binaries:
+      - tuicamp
+    homepage: https://github.com/AbeEstrada/tuicamp
+    repo: https://github.com/AbeEstrada/tuicamp
+  - id: tuidict
+    name: tuidict
+    description: Fast offline dictionary with in-app downloads and multi-language support from FreeDict
+    categories:
+      - productivity
+    binaries:
+      - tuidict
+    homepage: https://github.com/404Simon/tuidict
+    repo: https://github.com/404Simon/tuidict
+  - id: tuifimanager
+    name: TUIFIManager
+    description: A cross-platform terminal-based file manager _(supports termux)_.
+    categories:
+      - files
+    binaries:
+      - tuifimanager
+    homepage: https://github.com/GiorgosXou/TUIFIManager
+    repo: https://github.com/GiorgosXou/TUIFIManager
+  - id: tuihub
+    name: tuihub
+    description: A utility hub/dashboard for personal use
+    categories:
+      - productivity
+    binaries:
+      - tuihub
+    homepage: https://github.com/ashis0013/tuihub
+    repo: https://github.com/ashis0013/tuihub
+  - id: tuios
+    name: TUIOS
+    description: A TUI window manager for managing multiple terminal sessions
+    categories:
+      - productivity
+    binaries:
+      - tuios
+    homepage: https://github.com/Gaurav-Gosain/tuios
+    repo: https://github.com/Gaurav-Gosain/tuios
+  - id: tuisky
+    name: tuisky
+    description: TUI client for BlueSky
+    categories:
+      - messaging
+    binaries:
+      - tuisky
+    homepage: https://github.com/sugyan/tuisky
+    repo: https://github.com/sugyan/tuisky
+  - id: tuix
+    name: tuix
+    description: TUI for managing screens
+    categories:
+      - messaging
+    binaries:
+      - tuix
+    homepage: https://github.com/pythops/tuix
+    repo: https://github.com/pythops/tuix
+  - id: turbo
+    name: turbo
+    description: An experimental text editor for the terminal, based on Scintilla and Turbo Vision
+    categories:
+      - editors
+    binaries:
+      - turbo
+    homepage: https://github.com/magiblot/turbo
+    repo: https://github.com/magiblot/turbo
+  - id: turbostream
+    name: turbostream
+    description: Tool to extract key signals from high-velocity streaming data using AI Agents
+    categories:
+      - dev
+    binaries:
+      - turbostream
+    homepage: https://github.com/turboline-ai/turbostream
+    repo: https://github.com/turboline-ai/turbostream
+  - id: tut
+    name: tut
+    description: Mastodon TUI client
+    categories:
+      - messaging
+    binaries:
+      - tut
+    homepage: https://github.com/RasmusLindroth/tut
+    repo: https://github.com/RasmusLindroth/tut
+  - id: tvterm
+    name: tvterm
+    description: A terminal emulator that runs in your terminal
+    categories:
+      - productivity
+    binaries:
+      - tvterm
+    homepage: https://github.com/magiblot/tvterm
+    repo: https://github.com/magiblot/tvterm
+  - id: tweakcc
+    name: tweakcc
+    description: TUI to customize your Claude Code themes, thinking verbs, and more.
+    categories:
+      - misc
+    binaries:
+      - tweakcc
+    homepage: https://github.com/Piebald-AI/tweakcc
+    repo: https://github.com/Piebald-AI/tweakcc
+  - id: twig
+    name: Twig
+    description: Terminal UI for interactively exploring JSON and YAML files.
+    categories:
+      - dev
+    binaries:
+      - twig
+    homepage: https://github.com/workdone0/twig
+    repo: https://github.com/workdone0/twig
+  - id: twitch-tui
+    name: twitch-tui
+    description: Twitch chat in the terminal
+    categories:
+      - messaging
+    binaries:
+      - twitch-tui
+      - twitch
+    homepage: https://github.com/Xithrius/twitch-tui
+    repo: https://github.com/Xithrius/twitch-tui
+  - id: twterm
+    name: twterm
+    description: A full-featured TUI Twitter client
+    categories:
+      - web
+    binaries:
+      - twterm
+    homepage: https://github.com/ryota-ka/twterm
+    repo: https://github.com/ryota-ka/twterm
+  - id: typeinc
+    name: typeinc
+    description: ncurses based typing speed test with various difficulty levels.
+    categories:
+      - games
+    binaries:
+      - typeinc
+    homepage: https://github.com/AnirudhG07/Typeinc
+    repo: https://github.com/AnirudhG07/Typeinc
+  - id: typing-game-cli
+    name: typing-game-cli
+    description: Command line game to practice your typing speed by competing against typer-robot or against your best result
+    categories:
+      - games
+    binaries:
+      - typing-game-cli
+      - typing-game
+    homepage: https://github.com/akgondber/typing-game-cli
+    repo: https://github.com/akgondber/typing-game-cli
+  - id: typtea
+    name: typtea
+    description: Minimal terminal-based typing speed tester with support for dozens of programming languages.
+    categories:
+      - misc
+    binaries:
+      - typtea
+    homepage: https://github.com/ashish0kumar/typtea
+    repo: https://github.com/ashish0kumar/typtea
+  - id: unipac
+    name: UniPac
+    description: Unicode-powered Pac-Man for the terminal, written in Rust.
+    categories:
+      - games
+    binaries:
+      - unipac
+    homepage: https://github.com/jesper-olsen/UniPac
+    repo: https://github.com/jesper-olsen/UniPac
+  - id: updo
+    name: updo
+    description: Website monitoring tool with uptime tracking, response time metrics, and SSL certificate monitoring.
+    categories:
+      - dashboards
+    binaries:
+      - updo
+    homepage: https://github.com/Owloops/updo
+    repo: https://github.com/Owloops/updo
+  - id: upiano
+    name: upiano
+    description: A Piano in your terminal
+    categories:
+      - media
+    binaries:
+      - upiano
+    homepage: https://github.com/eliasdorneles/upiano
+    repo: https://github.com/eliasdorneles/upiano
+  - id: valvefm
+    name: valveFM
+    description: Vintage FM radio TUI for streaming stations from radio-browser.info
+    categories:
+      - media
+    binaries:
+      - valvefm
+    homepage: https://github.com/zorig/valvefm
+    repo: https://github.com/zorig/valvefm
+  - id: vctui
+    name: vctui
+    description: Console interface for vCenter
+    categories:
+      - dev
+    binaries:
+      - vctui
+    homepage: https://github.com/thebsdbox/vctui
+    repo: https://github.com/thebsdbox/vctui
+  - id: vifm
+    name: Vifm
+    description: A TUI file manager with vi-keybindings and other vim like behaviour.
+    categories:
+      - files
+    binaries:
+      - vifm
+    homepage: https://github.com/vifm/vifm
+    repo: https://github.com/vifm/vifm
+  - id: violet
+    name: violet
+    description: Colorful TUI frontend to run Vagrant commands
+    categories:
+      - dev
+    binaries:
+      - violet
+    homepage: https://github.com/braheezy/violet
+    repo: https://github.com/braheezy/violet
+  - id: vis
+    name: vis
+    description: A vi-like editor based on Plan 9's structural regular expressions
+    categories:
+      - editors
+    binaries:
+      - vis
+    homepage: https://github.com/martanne/vis
+    repo: https://github.com/martanne/vis
+  - id: visidata
+    name: Visidata
+    description: A terminal spreadsheet multitool for discovering and arranging data
+    categories:
+      - productivity
+    binaries:
+      - visidata
+    homepage: https://github.com/saulpw/visidata
+    repo: https://github.com/saulpw/visidata
+  - id: viu
+    name: viu
+    description: Your browser anime experience from the terminal
+    categories:
+      - media
+    binaries:
+      - viu
+    homepage: https://github.com/viu-media/viu
+    repo: https://github.com/viu-media/viu
+  - id: vlc
+    name: vlc
+    description: VLC includes an ncurses interface, `vlc --intf ncurses`
+    categories:
+      - media
+    binaries:
+      - vlc
+    homepage: https://github.com/videolan/vlc
+    repo: https://github.com/videolan/vlc
+  - id: vortix
+    name: vortix
+    description: Terminal UI for WireGuard and OpenVPN with real-time telemetry, leak detection, and kill switch.
+    categories:
+      - misc
+    binaries:
+      - vortix
+    homepage: https://github.com/Harry-kp/vortix
+    repo: https://github.com/Harry-kp/vortix
+  - id: vt-code
+    name: VT Code
+    description: VT Code - Semantic Coding Agent
+    categories:
+      - dev
+    binaries:
+      - vt-code
+      - vtcode
+    homepage: https://github.com/vinhnx/vtcode
+    repo: https://github.com/vinhnx/vtcode
+  - id: vv
+    name: vv
+    description: A terminal image viewer, supporting an extensive range of modern image formats
+    categories:
+      - media
+    binaries:
+      - vv
+    homepage: https://github.com/wolfpld/vv
+    repo: https://github.com/wolfpld/vv
+  - id: w3m
+    name: w3m
+    description: A text-mode WWW browser
+    categories:
+      - web
+    binaries:
+      - w3m
+    homepage: https://github.com/tats/w3m
+    repo: https://github.com/tats/w3m
+  - id: wander
+    name: wander
+    description: HashiCorp Nomad terminal client
+    categories:
+      - dashboards
+    binaries:
+      - wander
+    homepage: https://github.com/robinovitch61/wander
+    repo: https://github.com/robinovitch61/wander
+  - id: wavemon
+    name: wavemon
+    description: A wireless device monitoring application
+    categories:
+      - misc
+    binaries:
+      - wavemon
+    homepage: https://github.com/uoaerg/wavemon
+    repo: https://github.com/uoaerg/wavemon
+  - id: waves
+    name: waves
+    description: Terminal music player with vim-style navigation and radio mode that plays similar artists from your library
+    categories:
+      - media
+    binaries:
+      - waves
+    homepage: https://github.com/llehouerou/waves
+    repo: https://github.com/llehouerou/waves
+  - id: wb
+    name: wb
+    description: A TUI vocabulary notebook app for Linux based devices.
+    categories:
+      - misc
+    binaries:
+      - wb
+    homepage: https://github.com/MertGunduz/wb
+    repo: https://github.com/MertGunduz/wb
+  - id: weathr
+    name: weathr
+    description: A terminal weather app with ASCII animations for weather visualization
+    categories:
+      - screensavers
+    binaries:
+      - weathr
+    homepage: https://github.com/veirt/weathr
+    repo: https://github.com/veirt/weathr
+  - id: weechat
+    name: Weechat
+    description: Extensible chat client
+    categories:
+      - messaging
+    binaries:
+      - weechat
+    homepage: https://weechat.org/
+  - id: wego
+    name: wego
+    description: Weather app
+    categories:
+      - misc
+    binaries:
+      - wego
+    homepage: https://github.com/schachmat/wego
+    repo: https://github.com/schachmat/wego
+  - id: wg-commander
+    name: WG Commander
+    description: "A TUI for a simple WireGuard VPN setup: peer management, QR codes, setup wizard."
+    categories:
+      - misc
+    binaries:
+      - wg-commander
+      - wgcommander
+    homepage: https://github.com/andrianbdn/wg-cmd
+    repo: https://github.com/andrianbdn/wg-cmd
+  - id: wifitui
+    name: wifitui
+    description: Fast featureful friendly wifi terminal UI, supports NetworkManager and iwd over dbus.
+    categories:
+      - misc
+    binaries:
+      - wifitui
+    homepage: https://github.com/shazow/wifitui
+    repo: https://github.com/shazow/wifitui
+  - id: wifui
+    name: WifUI
+    description: TUI for managing Wi-Fi connections on Windows natively (Rust)
+    categories:
+      - misc
+    binaries:
+      - wifui
+    homepage: https://github.com/sohamw03/wifui
+    repo: https://github.com/sohamw03/wifui
+  - id: wikit
+    name: Wikit
+    description: TUI for managing Wiki.js instances
+    categories:
+      - dev
+    binaries:
+      - wikit
+    homepage: https://github.com/BryanCE/wikit
+    repo: https://github.com/BryanCE/wikit
+  - id: wireguard-monitor
+    name: WireGuard Monitor
+    description: Simple TUI written in Rust to display the status of WireGuard connections on a host.
+    categories:
+      - misc
+    binaries:
+      - wireguard-monitor
+      - wireguardmonitor
+    homepage: https://codeberg.org/anthonymills/Wireguard_Monitor
+  - id: wiremix
+    name: wiremix
+    description: TUI audio mixer for PipeWire similar to pavucontrol to adjust volumes, change input/output devices and their profiles
+    categories:
+      - media
+    binaries:
+      - wiremix
+    homepage: https://github.com/tsowell/wiremix
+    repo: https://github.com/tsowell/wiremix
+  - id: wocogo
+    name: wocogo
+    description: Construct words from a list of given segments. A simple TUI game in Python, similar to the NY Times Combinations game.
+    categories:
+      - games
+    binaries:
+      - wocogo
+    homepage: https://codeberg.org/kedlubnowski/wocogo
+  - id: wordle
+    name: Wordle
+    description: Script and library for Wordle, written in Raku
+    categories:
+      - games
+    binaries:
+      - wordle
+    homepage: https://github.com/m-dango/raku-wordle/
+    repo: https://github.com/m-dango/raku-wordle/
+  - id: wtf
+    name: WTF
+    description: The personal information dashboard for your terminal.
+    categories:
+      - dashboards
+    binaries:
+      - wtf
+    homepage: https://github.com/senorprogrammer/wtf
+    repo: https://github.com/senorprogrammer/wtf
+  - id: wttr.in
+    name: wttr.in
+    description: The right way to check the weather
+    categories:
+      - misc
+    binaries:
+      - wttr.in
+    homepage: https://github.com/chubin/wttr.in
+    repo: https://github.com/chubin/wttr.in
+  - id: x-cmd
+    name: x-cmd
+    description: A vast and interesting collection of tools that can then bootstrap lots of other programs / functions in a consistent and structured way.
+    categories:
+      - misc
+    binaries:
+      - x-cmd
+    homepage: https://github.com/x-cmd/x-cmd
+    repo: https://github.com/x-cmd/x-cmd
+  - id: xplr
+    name: xplr
+    description: A hackable, minimal, fast TUI file explorer, stealing ideas from nnn and fzf.
+    categories:
+      - misc
+    binaries:
+      - xplr
+    homepage: https://github.com/sayanarijit/xplr
+    repo: https://github.com/sayanarijit/xplr
+  - id: xytz
+    name: xytz
+    description: "- Beautiful TUI for downloading YouTube videos/playlists/channels."
+    categories:
+      - media
+    binaries:
+      - xytz
+    homepage: https://github.com/xdagiz/xytz
+    repo: https://github.com/xdagiz/xytz
+  - id: yazi
+    name: yazi
+    description: Blazing fast terminal file manager written in Rust, based on async I/O.
+    categories:
+      - files
+    binaries:
+      - yazi
+    homepage: https://github.com/sxyazi/yazi
+    repo: https://github.com/sxyazi/yazi
+  - id: yozefu
+    name: Yozefu
+    description: A TUI for exploring data of a kafka cluster.
+    categories:
+      - dashboards
+    binaries:
+      - yozefu
+    homepage: https://github.com/MAIF/yozefu
+    repo: https://github.com/MAIF/yozefu
+  - id: ytdl-tui
+    name: ytdl-tui
+    description: TUI for downloading Youtube videos
+    categories:
+      - media
+    binaries:
+      - ytdl-tui
+      - ytdl
+    homepage: https://github.com/darky/ytdl-tui
+    repo: https://github.com/darky/ytdl-tui
+  - id: ytfzf
+    name: ytfzf
+    description: A POSIX script that helps you find Youtube videos (without API) or Peertube videos and opens/downloads them using mpv/youtube-dl
+    categories:
+      - media
+    binaries:
+      - ytfzf
+    homepage: https://github.com/pystardust/ytfzf
+    repo: https://github.com/pystardust/ytfzf
+  - id: ytui-music
+    name: ytui-music
+    description: Listen to music from youtube. Configurable, minimal, lightweight, private & beautiful music client.
+    categories:
+      - media
+    binaries:
+      - ytui-music
+    homepage: https://github.com/sudipghimire533/ytui-music
+    repo: https://github.com/sudipghimire533/ytui-music
+  - id: zee
+    name: zee
+    description: A modern text editor for the terminal written in Rust
+    categories:
+      - editors
+    binaries:
+      - zee
+    homepage: https://github.com/zee-editor/zee
+    repo: https://github.com/zee-editor/zee
+  - id: zeit
+    name: zeit
+    description: A command line tool for tracking time spent on activities.
+    categories:
+      - productivity
+    binaries:
+      - zeit
+    homepage: https://github.com/mrusme/zeit
+    repo: https://github.com/mrusme/zeit
+  - id: zellij
+    name: zellij
+    description: A terminal workspace with batteries included
+    categories:
+      - productivity
+    binaries:
+      - zellij
+    homepage: https://github.com/zellij-org/zellij
+    repo: https://github.com/zellij-org/zellij
+  - id: zenith
+    name: zenith
+    description: In terminal graphical metrics for your \*nix system written in Rust
+    categories:
+      - dashboards
+    binaries:
+      - zenith
+    homepage: https://github.com/bvaisvil/zenith
+    repo: https://github.com/bvaisvil/zenith
+  - id: zigtris
+    name: Zigtris
+    description: YA terminal tetris
+    categories:
+      - games
+    binaries:
+      - zigtris
+    homepage: https://github.com/ringtailsoftware/zigtris
+    repo: https://github.com/ringtailsoftware/zigtris
+  - id: zoridor
+    name: Zoridor
+    description: Play Quoridor in the terminal
+    categories:
+      - games
+    binaries:
+      - zoridor
+    homepage: https://github.com/ringtailsoftware/zoridor
+    repo: https://github.com/ringtailsoftware/zoridor
+  - id: zulip-terminal
+    name: zulip-terminal
+    description: Official Zulip terminal client (similar to matterhorn)
+    categories:
+      - messaging
+    binaries:
+      - zulip-terminal
+    homepage: https://github.com/zulip/zulip-terminal
+    repo: https://github.com/zulip/zulip-terminal
