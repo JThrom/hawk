@@ -1,19 +1,21 @@
 /**
  * Remote registry fetch (Phase 2).
  *
- * Fetches a CI-built `index.json` from the configured URLs (jsDelivr first,
- * raw.githubusercontent fallback), caches it to disk with a configurable TTL,
- * and degrades gracefully: fresh cache → network → stale cache → bundled
+ * Fetches the CI-built `dist/index.yaml` from the configured URLs (jsDelivr
+ * first, raw.githubusercontent fallback), caches it to disk with a configurable
+ * TTL, and degrades gracefully: fresh cache → network → stale cache → bundled
  * registry. The parsed shape matches the local registry file, so the merge
  * logic in registry.ts is reused unchanged.
  */
 
 import { join } from "node:path";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { parse as parseYaml } from "yaml";
 import type { Catalog, CategoryDef, AppEntry } from "./types.ts";
 import { cacheDir, ensureDir } from "../paths.ts";
 import type { RegistryConfig } from "../config/schema.ts";
 
+// Local cache remains JSON (fast native parse); the remote source is YAML.
 const CACHE_FILE = "registry-index.json";
 const CACHE_VERSION = 1;
 const FETCH_TIMEOUT_MS = 10_000;
@@ -71,6 +73,17 @@ function writeRemoteCache(index: RemoteIndex): void {
   }
 }
 
+/** Parse an index document (YAML or JSON — YAML is a JSON superset). */
+function parseIndex(text: string): RemoteIndex | null {
+  try {
+    const doc = parseYaml(text) as RemoteIndex;
+    if (doc && Array.isArray(doc.entries) && doc.entries.length > 0) return doc;
+  } catch {
+    // fall through
+  }
+  return null;
+}
+
 /** Attempt to fetch the index from the configured URLs in order. */
 async function fetchIndex(urls: string[]): Promise<RemoteIndex | null> {
   for (const url of urls) {
@@ -80,8 +93,9 @@ async function fetchIndex(urls: string[]): Promise<RemoteIndex | null> {
       const res = await fetch(url, { signal: controller.signal });
       clearTimeout(timer);
       if (!res.ok) continue;
-      const json = (await res.json()) as RemoteIndex;
-      if (json.entries && json.entries.length > 0) return json;
+      const text = await res.text();
+      const index = parseIndex(text);
+      if (index) return index;
     } catch {
       // Try next URL.
     }

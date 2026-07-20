@@ -84,10 +84,10 @@ export const DEFAULT_CONFIG: HawkConfig = {
     preferMultiplexer: "auto",
   },
   registry: {
-    enabled: false,
+    enabled: true,
     urls: [
-      "https://cdn.jsdelivr.net/gh/OWNER/hawk-registry@main/dist/index.json",
-      "https://raw.githubusercontent.com/OWNER/hawk-registry/main/dist/index.json",
+      "https://cdn.jsdelivr.net/gh/JThrom/hawk-registry@master/dist/index.yaml",
+      "https://raw.githubusercontent.com/JThrom/hawk-registry/master/dist/index.yaml",
     ],
   },
   managerPreference: ["cargo", "brew", "bun", "npm", "pipx", "pacman", "dnf", "apt", "pip"],
