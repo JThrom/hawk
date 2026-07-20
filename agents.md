@@ -9,11 +9,39 @@ product specification. This file covers conventions, architecture, and workflow.
 
 Hawk is a Bun + TypeScript TUI application launcher built on OpenTUI
 (`@opentui/core`). It discovers installed TUIs, organizes them by category,
-launches them into tmux/zellij windows, and (later phases) suggests and installs
-new TUIs from a GitHub-hosted registry.
+launches them into tmux/zellij windows, and suggests + installs new TUIs from a
+GitHub-hosted registry.
 
-Current phase: **Phase 1 (MVP)** — local launcher, no network. See the roadmap
-in `spec.md` §13.
+Phases 1–3 are implemented (local launcher, registry discovery, install flow).
+See the roadmap in `spec.md` §13.
+
+---
+
+## Guiding principles (read before touching search, discovery, or UI)
+
+These come directly from the project's primary use case (`spec.md` §1a). Treat
+them as hard requirements, not preferences.
+
+1. **Find by function, not name.** TUIs have non-descriptive names. Search MUST
+   weight **tags + description** as heavily as name/id/binary. `calculator`
+   finds calculators; `aws` finds `claws`. Utility matches are first-class, not
+   fallbacks. When adding registry entries, curate function/synonym tags — they
+   are load-bearing. (`spec.md` §8)
+
+2. **Discover apps outside `/bin`.** Many TUIs are npm/cargo/pip/pipx globals in
+   per-tool bin dirs or with mismatched binary names. Detection scans the whole
+   `$PATH` AND cross-references package-manager install lists by package name.
+   Never assume `/bin` or that the binary name equals the app name.
+   (`spec.md` §4)
+
+3. **Hawk is the terminal-OS "start menu."** Primary use: an engineer on a
+   thin client over SSH + tmux, running agentic AI workflows on a persistent
+   server. Hawk launches other TUIs into new tmux windows. Therefore:
+   - **Small-screen first** — usable on narrow terminals; never assume width.
+   - **tmux new-window launching is the primary path.**
+   - **Keyboard-only, low-latency, low-overhead** — must feel good over SSH.
+   - **Robust to detach/reattach** — no assumptions about a persistent client.
+   (`spec.md` §1a)
 
 ---
 

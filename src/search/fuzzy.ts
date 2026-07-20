@@ -1,28 +1,56 @@
 /**
  * Lightweight fuzzy matcher.
  *
- * Subsequence match with a bonus for contiguous runs, word boundaries, and
- * prefix matches. Returns a score (higher = better) or null for no match.
- * Dependency-free; adequate for a launcher's app list.
+ * Returns a score (higher = better) AND a match "kind" describing quality, so
+ * callers can require stronger matches for noisy fields (e.g. descriptions)
+ * than for identity fields (name/tags). Dependency-free.
  */
+
+/**
+ * Match quality, best to worst:
+ *  - exact:       target equals query
+ *  - prefix:      target starts with query
+ *  - word:        query is a substring starting at a word boundary
+ *  - substring:   query is a substring anywhere
+ *  - subsequence: query chars appear in order but not contiguous (weakest)
+ */
+export type MatchKind = "exact" | "prefix" | "word" | "substring" | "subsequence";
 
 export interface FuzzyMatch {
   score: number;
+  kind: MatchKind;
 }
 
-export function fuzzyScore(query: string, target: string): FuzzyMatch | null {
-  if (query.length === 0) return { score: 0 };
-  const q = query.toLowerCase();
-  const t = target.toLowerCase();
+const KIND_RANK: Record<MatchKind, number> = {
+  exact: 5,
+  prefix: 4,
+  word: 3,
+  substring: 2,
+  subsequence: 1,
+};
 
-  // Fast paths.
-  if (t === q) return { score: 1000 };
-  if (t.startsWith(q)) return { score: 800 - (t.length - q.length) };
+/** True if `a` is a stronger (or equal) match kind than `b`. */
+export function kindAtLeast(a: MatchKind, b: MatchKind): boolean {
+  return KIND_RANK[a] >= KIND_RANK[b];
+}
+
+function isBoundary(ch: string | undefined): boolean {
+  return ch === undefined || ch === " " || ch === "-" || ch === "_" || ch === "/" || ch === ".";
+}
+
+/** Score a single query token (no spaces) against a target string. */
+function scoreToken(q: string, t: string): FuzzyMatch | null {
+  if (q.length === 0) return { score: 0, kind: "substring" };
+
+  if (t === q) return { score: 1000, kind: "exact" };
+  if (t.startsWith(q)) return { score: 800 - (t.length - q.length), kind: "prefix" };
+
   const idx = t.indexOf(q);
   if (idx >= 0) {
-    // Contiguous substring match; earlier + shorter is better.
-    const boundaryBonus = idx === 0 || /\W|_/.test(t[idx - 1] ?? "") ? 100 : 0;
-    return { score: 500 - idx - (t.length - q.length) + boundaryBonus };
+    const boundary = isBoundary(t[idx - 1]);
+    const kind: MatchKind = boundary ? "word" : "substring";
+    const boundaryBonus = boundary ? 100 : 0;
+    return { score: 500 - idx - (t.length - q.length) + boundaryBonus, kind };
   }
 
   // Subsequence match.
@@ -42,29 +70,52 @@ export function fuzzyScore(query: string, target: string): FuzzyMatch | null {
     if (found === -1) return null;
     if (found === prevMatch + 1) {
       run += 1;
-      score += 15 + run * 5; // contiguous bonus grows
+      score += 15 + run * 5;
     } else {
       run = 0;
       score += 5;
     }
-    // Word boundary bonus.
-    const before = t[found - 1];
-    if (found === 0 || before === " " || before === "-" || before === "_") {
-      score += 10;
-    }
+    if (isBoundary(t[found - 1])) score += 10;
     prevMatch = found;
     ti = found + 1;
   }
-  // Penalize length difference slightly.
   score -= Math.max(0, t.length - q.length) * 0.5;
-  return { score };
+  return { score, kind: "subsequence" };
 }
 
-/** Best score across multiple candidate strings (e.g. name, desc, tags). */
-export function fuzzyScoreMany(
-  query: string,
-  targets: string[],
-): FuzzyMatch | null {
+/**
+ * Score a query against a target. Multi-word queries ("file manager") are
+ * matched token-by-token: every token must be found somewhere in the target;
+ * the result kind is the WEAKEST token kind (so a phrase only counts as a
+ * strong match if all its words match strongly), and the score is the sum.
+ */
+export function fuzzyScore(query: string, target: string): FuzzyMatch | null {
+  const q = query.toLowerCase().trim();
+  const t = target.toLowerCase();
+  if (q.length === 0) return { score: 0, kind: "substring" };
+
+  const tokens = q.split(/\s+/).filter(Boolean);
+  if (tokens.length <= 1) return scoreToken(q, t);
+
+  // Whole-phrase match takes precedence if present.
+  const whole = scoreToken(q, t);
+  if (whole && (whole.kind === "exact" || whole.kind === "prefix" || whole.kind === "word")) {
+    return whole;
+  }
+
+  let total = 0;
+  let weakest: MatchKind = "exact";
+  for (const tok of tokens) {
+    const m = scoreToken(tok, t);
+    if (!m) return null;
+    total += m.score;
+    if (KIND_RANK[m.kind] < KIND_RANK[weakest]) weakest = m.kind;
+  }
+  return { score: total, kind: weakest };
+}
+
+/** Best match across multiple candidate strings (e.g. name, tags). */
+export function fuzzyScoreMany(query: string, targets: string[]): FuzzyMatch | null {
   let best: FuzzyMatch | null = null;
   for (const target of targets) {
     const m = fuzzyScore(query, target);
