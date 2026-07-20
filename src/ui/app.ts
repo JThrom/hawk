@@ -97,6 +97,10 @@ export class HawkApp {
   private managerForId: string | null = null;
   /** True while an install is running (guards against re-entry). */
   private installing = false;
+  /** Whether the install-notes overlay is visible. */
+  private notesVisible = false;
+  /** Scroll offset (top line) within the notes overlay. */
+  private notesScroll = 0;
 
   // Renderables.
   private catBox!: BoxRenderable;
@@ -104,6 +108,8 @@ export class HawkApp {
   private searchBox!: BoxRenderable;
   private searchText!: TextRenderable;
   private detailText!: TextRenderable;
+  private notesBox!: BoxRenderable;
+  private notesText!: TextRenderable;
   private helpText!: TextRenderable;
   private catRows: TextRenderable[] = [];
   private appRows: TextRenderable[] = [];
@@ -253,6 +259,32 @@ export class HawkApp {
       fg: COLORS.dim,
     });
     root.add(this.helpText);
+
+    // Install-notes overlay (hidden by default). Covers most of the screen so
+    // README install instructions are readable on small terminals.
+    this.notesBox = new BoxRenderable(this.renderer, {
+      id: "notes",
+      position: "absolute",
+      left: 2,
+      top: 1,
+      width: "auto",
+      right: 2,
+      bottom: 2,
+      border: true,
+      borderColor: COLORS.accent,
+      title: " Install notes ",
+      titleColor: COLORS.accent,
+      backgroundColor: COLORS.panelBg,
+      zIndex: 100,
+      visible: false,
+    });
+    this.notesText = new TextRenderable(this.renderer, {
+      id: "notesText",
+      content: "",
+      fg: COLORS.text,
+    });
+    this.notesBox.add(this.notesText);
+    root.add(this.notesBox);
   }
 
   /* ---- data --------------------------------------------------------- */
@@ -339,8 +371,38 @@ export class HawkApp {
     this.renderCategories();
     this.renderApps();
     this.renderDetail();
+    this.renderNotes();
     this.renderHelp();
     this.renderer.root.requestRender();
+  }
+
+  /** Approx visible line count inside the notes overlay. */
+  private notesViewportLines(): number {
+    // Overlay spans top:1..bottom:2 with a 1-line border top/bottom.
+    return Math.max(4, (this.renderer.terminalHeight ?? 24) - 1 - 2 - 2);
+  }
+
+  private renderNotes(): void {
+    if (!this.notesVisible) {
+      this.notesBox.visible = false;
+      return;
+    }
+    const app = this.selectedApp();
+    const notes = app?.installNotes;
+    if (!app || !notes) {
+      this.notesBox.visible = false;
+      this.notesVisible = false;
+      return;
+    }
+    this.notesBox.visible = true;
+    this.notesBox.title = ` Install notes — ${app.name}  (j/k scroll · v/Esc close) `;
+
+    const allLines = notes.split("\n");
+    const viewport = this.notesViewportLines();
+    const maxScroll = Math.max(0, allLines.length - viewport);
+    if (this.notesScroll > maxScroll) this.notesScroll = maxScroll;
+    const shown = allLines.slice(this.notesScroll, this.notesScroll + viewport);
+    this.notesText.content = shown.join("\n");
   }
 
   private renderSearch(): void {
@@ -432,12 +494,15 @@ export class HawkApp {
         bits.push(`· i to install via ${chosen.manager}${alt}: ${chosen.command}`);
       } else {
         const declared = allDeclaredInstalls(app);
-        bits.push(
-          declared.length > 0
-            ? `· no available manager — manual: ${declared[0]!.command}`
-            : "· not installed (no install command)",
-        );
+        if (declared.length > 0) {
+          bits.push(`· no available manager — manual: ${declared[0]!.command}`);
+        } else if (app.installNotes) {
+          bits.push("· no install command — press v for install notes");
+        } else {
+          bits.push("· not installed (no install command)");
+        }
       }
+      if (app.installNotes) bits.push("· v: notes");
     } else if (app.homepage) {
       bits.push(`· ${app.homepage}`);
     }
@@ -460,8 +525,9 @@ export class HawkApp {
   }
 
   private renderHelp(): void {
-    this.helpText.content =
-      " ↑/↓ move · ←/→ pane · Enter launch · i install · m manager · f favorite · / search · Esc clear · r refresh · q quit";
+    this.helpText.content = this.notesVisible
+      ? " j/k scroll · v or Esc close notes"
+      : " ↑/↓ move · ←/→ pane · Enter launch · i install · m manager · v notes · f favorite · / search · r refresh · q quit";
   }
 
   /* ---- input -------------------------------------------------------- */
@@ -471,6 +537,32 @@ export class HawkApp {
     if (key.ctrl && key.name === "c") return this.quit();
 
     const action = this.keymap.resolve(key);
+
+    // Notes overlay captures input while open.
+    if (this.notesVisible) {
+      if (action === "viewNotes" || action === "clearSearch" || key.name === "escape") {
+        this.notesVisible = false;
+        return this.render();
+      }
+      if (action === "down") {
+        this.notesScroll += 1;
+        return this.render();
+      }
+      if (action === "up") {
+        this.notesScroll = Math.max(0, this.notesScroll - 1);
+        return this.render();
+      }
+      if (key.name === "pagedown" || key.name === "space") {
+        this.notesScroll += this.notesViewportLines();
+        return this.render();
+      }
+      if (key.name === "pageup") {
+        this.notesScroll = Math.max(0, this.notesScroll - this.notesViewportLines());
+        return this.render();
+      }
+      return; // swallow everything else while notes are open
+    }
+
     const inSearch = this.query.trim().length > 0;
 
     // When typing search text, printable chars extend the query unless they
@@ -511,6 +603,8 @@ export class HawkApp {
         return this.installSelected();
       case "cycleManager":
         return this.cycleManager();
+      case "viewNotes":
+        return this.toggleNotes();
       case "toggleFavorite":
         return this.toggleFavorite();
       case "refresh":
@@ -638,6 +732,18 @@ export class HawkApp {
       ? `Launched ${app.name} (${plan.mode})`
       : `Launch failed: ${result.error ?? "unknown error"}`;
     this.rebuildCategories();
+    this.render();
+  }
+
+  /** Toggle the install-notes overlay for the selected app. */
+  private toggleNotes(): void {
+    const app = this.selectedApp();
+    if (!app || !app.installNotes) {
+      this.status = app ? `${app.name} has no install notes` : "";
+      return this.render();
+    }
+    this.notesVisible = !this.notesVisible;
+    this.notesScroll = 0;
     this.render();
   }
 

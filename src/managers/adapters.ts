@@ -113,6 +113,19 @@ const pip = makeAdapter(
       .filter((n) => n.length > 0),
 );
 
+// go: `go install` places binaries in $GOBIN / $GOPATH/bin (normally on PATH),
+// so installed go apps are found by PATH match. There is no cheap installed-
+// package list, so this adapter only reports availability.
+const go: PackageManagerAdapter = {
+  id: "go",
+  isAvailable() {
+    return which("go") !== null;
+  },
+  async listInstalled() {
+    return new Set();
+  },
+};
+
 export const ADAPTERS: Record<PackageManagerId, PackageManagerAdapter> = {
   brew,
   apt,
@@ -123,6 +136,7 @@ export const ADAPTERS: Record<PackageManagerId, PackageManagerAdapter> = {
   bun,
   pipx,
   pip,
+  go,
 };
 
 export function getAdapter(id: PackageManagerId): PackageManagerAdapter {

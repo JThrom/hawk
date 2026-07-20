@@ -257,8 +257,15 @@ installed — so name-only matching is insufficient by design.
 - On completion, Hawk **re-scans** and the app moves into the installed set. In
   window mode the install is async, so the detail line prompts pressing `r` when
   it finishes. [done]
-- When no available manager can install an app, Hawk shows the manual command
-  instead of attempting an install.
+- When no available manager can install an app, Hawk shows the manual command,
+  and — if the registry provides `installNotes` (extracted from the project's
+  README) — the user can press `v` to open a scrollable **install-notes
+  overlay** with the project's own instructions. This covers the many TUIs
+  distributed only via `go install`, source builds, or one-off scripts.
+- The registry enriches entries from GitHub READMEs (install commands, package
+  names, language, tags, and the install section) so install coverage is broad
+  without hand-curation. Supported managers include `go` (in addition to
+  brew/apt/pacman/cargo/npm/bun/pipx/pip/dnf).
 - Package-manager preference order is configurable in `config.yaml`
   (`managerPreference`). Install/cycle keys are rebindable (`install`,
   `cycleManager`).

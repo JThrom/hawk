@@ -19,6 +19,7 @@ const MANAGER_BINARIES: Record<PackageManagerId, string> = {
   pipx: "pipx",
   pip: "pip",
   dnf: "dnf",
+  go: "go",
 };
 
 export const ALL_MANAGERS = Object.keys(MANAGER_BINARIES) as PackageManagerId[];

@@ -16,7 +16,8 @@ export type PackageManagerId =
   | "bun"
   | "pipx"
   | "pip"
-  | "dnf";
+  | "dnf"
+  | "go";
 
 /** Canonical category identifiers (Phase 1 taxonomy; extended by registry). */
 export type CategoryId = string;
@@ -49,6 +50,14 @@ export interface AppEntry {
   popularity?: number;
   /** Implementation language / runtime. */
   language?: string;
+  /**
+   * Extracted installation instructions (markdown) from the app's README.
+   * Shown by Hawk when no package-manager install command is available. The
+   * full README is stored as a sidecar in the registry, not inlined here.
+   */
+  installNotes?: string;
+  /** URL to the full README (raw) for on-demand viewing. */
+  readmeUrl?: string;
 }
 
 /** A category definition in the taxonomy. */
