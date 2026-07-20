@@ -172,17 +172,28 @@ Each app entry contains:
 
 ---
 
-## 9. Install Flow (Phase 3)
+## 9. Install Flow (Phase 3)  (IMPLEMENTED)
 
-- User selects a registry app to install.
-- Hawk **auto-picks** the best package manager based on the system and detected
-  managers (native/user-space preference), with a user override.
-- The install command runs in a **new multiplexer window/pane**, streaming
-  output so the user watches progress.
-- Privilege escalation (apt/dnf/pacman `sudo`) is handled by the underlying
-  command prompting naturally in the real terminal — Hawk stays out of auth.
-- On completion, Hawk re-scans to pick up the newly installed app.
-- Package-manager preference order is configurable in `config.yaml`.
+- User selects a registry (not-installed) app and presses `i` (or `Enter`).
+- Hawk **auto-picks** the best package manager: the intersection of the app's
+  declared install commands and the managers detected on the system, ordered by
+  `managerPreference`. The `m` key cycles through the other viable managers
+  before installing. [done]
+- Inside a multiplexer, the install runs in a **new window** (`sh -c` wrapping
+  the command), streaming output; the window stays open at the end (`read`) so
+  results/prompts are visible. Hawk keeps running. [done]
+- Without a multiplexer, Hawk **suspends** the renderer, runs the install inline
+  with inherited stdio (so sudo/interactive prompts work), then **resumes**. [done]
+- Privilege escalation is handled entirely by the underlying command — Hawk
+  never touches credentials. [done]
+- On completion, Hawk **re-scans** and the app moves into the installed set. In
+  window mode the install is async, so the detail line prompts pressing `r` when
+  it finishes. [done]
+- When no available manager can install an app, Hawk shows the manual command
+  instead of attempting an install.
+- Package-manager preference order is configurable in `config.yaml`
+  (`managerPreference`). Install/cycle keys are rebindable (`install`,
+  `cycleManager`).
 
 ---
 
@@ -261,9 +272,11 @@ Each app entry contains:
 Phase 2 complete. Note: the index is YAML (not JSON); the fetcher parses YAML,
 which is a JSON superset, so the local disk cache remains JSON for fast reads.
 
-### Phase 3 — Install flow
-- Auto-pick package manager (with override), stream install in new window.
-- Re-scan on completion. Configurable pkg-manager preference order.
+### Phase 3 — Install flow  (IMPLEMENTED)
+- Auto-pick package manager with in-app cycling override (`m`), install via `i`.
+- New-window streaming install in a multiplexer; suspend/resume inline install
+  otherwise. Re-scan on completion. Configurable pkg-manager preference order.
+- See §9 for details.
 
 ### Phase 4 — Updates & extras
 - "Updates Available" category (compare installed vs registry versions).

@@ -17,6 +17,8 @@ export type Action =
   | "left"
   | "right"
   | "launch"
+  | "install"
+  | "cycleManager"
   | "focusSearch"
   | "clearSearch"
   | "toggleFavorite"
@@ -69,6 +71,8 @@ export const DEFAULT_CONFIG: HawkConfig = {
     left: ["h", "left"],
     right: ["l", "right"],
     launch: ["return", "enter"],
+    install: ["i"],
+    cycleManager: ["m"],
     focusSearch: ["/"],
     clearSearch: ["escape"],
     toggleFavorite: ["f"],

@@ -29,6 +29,13 @@ import { buildCategories, type CategoryView } from "./model.ts";
 import { Keymap } from "./keymap.ts";
 import { search } from "../search/rank.ts";
 import { planLaunch, executeLaunch } from "../launch/launcher.ts";
+import {
+  installCandidates,
+  allDeclaredInstalls,
+  cycleIndex,
+  type InstallCandidate,
+} from "../install/select.ts";
+import { planInstall, executeInstall } from "../install/installer.ts";
 
 const MAX_ROWS = 40;
 
@@ -84,6 +91,12 @@ export class HawkApp {
   private query = "";
   private status = "";
   private initialSelectionDone = false;
+  /** Selected package-manager candidate index for the current app (cycling). */
+  private managerIndex = 0;
+  /** App id the managerIndex applies to (reset when selection changes). */
+  private managerForId: string | null = null;
+  /** True while an install is running (guards against re-entry). */
+  private installing = false;
 
   // Renderables.
   private catBox!: BoxRenderable;
@@ -410,32 +423,45 @@ export class HawkApp {
     const app = row.entry;
     const bits = [app.description];
     if (app.language) bits.push(`· ${app.language}`);
+
     if (!row.installed) {
-      const cmd = this.suggestedInstall(app);
-      bits.push(cmd ? `· install: ${cmd}` : "· not installed");
+      const candidates = this.candidatesFor(app);
+      if (candidates.length > 0) {
+        const chosen = candidates[this.managerIndex] ?? candidates[0]!;
+        const alt = candidates.length > 1 ? ` (m: ${candidates.length} managers)` : "";
+        bits.push(`· i to install via ${chosen.manager}${alt}: ${chosen.command}`);
+      } else {
+        const declared = allDeclaredInstalls(app);
+        bits.push(
+          declared.length > 0
+            ? `· no available manager — manual: ${declared[0]!.command}`
+            : "· not installed (no install command)",
+        );
+      }
     } else if (app.homepage) {
       bits.push(`· ${app.homepage}`);
     }
+
     const line = bits.join(" ");
     this.detailText.content = this.status ? `${this.status}  |  ${line}` : line;
     this.detailText.fg = row.installed ? COLORS.dim : COLORS.installed;
   }
 
-  /** Pick an install command for a registry app based on available managers. */
-  private suggestedInstall(app: AppEntry): string | null {
-    if (!app.install) return null;
-    for (const mgr of this.config.managerPreference) {
-      const cmd = app.install[mgr];
-      if (cmd) return cmd;
+  /** Viable install candidates for an app, keeping the cycle index valid. */
+  private candidatesFor(app: AppEntry): InstallCandidate[] {
+    const candidates = installCandidates(app, this.config);
+    // Reset the cycle when the selected app changes.
+    if (this.managerForId !== app.id) {
+      this.managerForId = app.id;
+      this.managerIndex = 0;
     }
-    // Fall back to any available command.
-    const first = Object.values(app.install)[0];
-    return first ?? null;
+    if (this.managerIndex >= candidates.length) this.managerIndex = 0;
+    return candidates;
   }
 
   private renderHelp(): void {
     this.helpText.content =
-      " ↑/↓ or j/k move · ←/→ or h/l switch pane · Enter launch · f favorite · / search · Esc clear · r refresh · q quit";
+      " ↑/↓ move · ←/→ pane · Enter launch · i install · m manager · f favorite · / search · Esc clear · r refresh · q quit";
   }
 
   /* ---- input -------------------------------------------------------- */
@@ -481,6 +507,10 @@ export class HawkApp {
         return this.render();
       case "launch":
         return this.launchSelected();
+      case "install":
+        return this.installSelected();
+      case "cycleManager":
+        return this.cycleManager();
       case "toggleFavorite":
         return this.toggleFavorite();
       case "refresh":
@@ -587,14 +617,9 @@ export class HawkApp {
     if (!row || row.kind !== "app") return;
     const app = row.entry;
 
-    // Registry (not-installed) app: launching isn't possible yet. Show the
-    // install command (real in-app install lands in Phase 3).
+    // Registry (not-installed) app: Enter installs it.
     if (!row.installed) {
-      const cmd = this.suggestedInstall(app);
-      this.status = cmd
-        ? `Not installed — run: ${cmd}`
-        : `${app.name} is not installed and has no known install command`;
-      return this.render();
+      return this.installSelected();
     }
 
     const plan = planLaunch(app, this.config);
@@ -613,6 +638,99 @@ export class HawkApp {
       ? `Launched ${app.name} (${plan.mode})`
       : `Launch failed: ${result.error ?? "unknown error"}`;
     this.rebuildCategories();
+    this.render();
+  }
+
+  /** Cycle the chosen package manager for the selected registry app. */
+  private cycleManager(): void {
+    const app = this.selectedApp();
+    if (!app) return;
+    const candidates = this.candidatesFor(app);
+    if (candidates.length <= 1) return;
+    this.managerIndex = cycleIndex(this.managerIndex, candidates.length);
+    const chosen = candidates[this.managerIndex]!;
+    this.status = `Manager: ${chosen.manager}`;
+    this.render();
+  }
+
+  /** Install the selected registry app via the chosen package manager. */
+  private async installSelected(): Promise<void> {
+    if (this.installing) return;
+    const row = this.selectedRow();
+    if (!row || row.kind !== "app") return;
+    const app = row.entry;
+
+    if (row.installed) {
+      this.status = `${app.name} is already installed`;
+      return this.render();
+    }
+
+    const candidates = this.candidatesFor(app);
+    if (candidates.length === 0) {
+      const declared = allDeclaredInstalls(app);
+      this.status =
+        declared.length > 0
+          ? `No available manager for ${app.name} — run manually: ${declared[0]!.command}`
+          : `${app.name} has no known install command`;
+      return this.render();
+    }
+
+    const candidate = candidates[this.managerIndex] ?? candidates[0]!;
+    const plan = planInstall(candidate);
+    this.installing = true;
+
+    if (plan.needsSuspend) {
+      // No multiplexer: suspend the UI, run inline (sudo/prompts work), resume.
+      this.renderer.suspend();
+      const result = await executeInstall(plan);
+      this.renderer.resume();
+      this.installing = false;
+      await this.afterInstall(app, candidate, result.ok, result.error);
+      return;
+    }
+
+    // Multiplexer: install runs in a new window; Hawk keeps rendering.
+    this.status = `Installing ${app.name} via ${candidate.manager} (new window)…`;
+    this.render();
+    const result = await executeInstall(plan);
+    this.installing = false;
+    if (!result.ok) {
+      this.status = `Install failed to start: ${result.error ?? "unknown error"}`;
+      return this.render();
+    }
+    // The install runs asynchronously in its window. Rescan so the app is
+    // picked up once it completes (user can also press 'r' to refresh).
+    await this.afterInstall(app, candidate, true, undefined, /*rescanOnly*/ true);
+  }
+
+  /** Post-install: rescan and report. */
+  private async afterInstall(
+    app: AppEntry,
+    candidate: InstallCandidate,
+    ok: boolean,
+    error: string | undefined,
+    windowMode = false,
+  ): Promise<void> {
+    try {
+      const result = await forceRescan(this.catalog);
+      this.installed = result.installed;
+      this.recomputeRegistryPool();
+      this.rebuildCategories();
+    } catch {
+      // Ignore rescan errors; user can refresh manually.
+    }
+    const nowInstalled = this.installed.some((a) => a.entry.id === app.id);
+    if (windowMode) {
+      this.status = nowInstalled
+        ? `${app.name} installed`
+        : `Installing ${app.name} via ${candidate.manager} in its window — press r when done`;
+    } else if (ok && nowInstalled) {
+      this.status = `Installed ${app.name} via ${candidate.manager}`;
+    } else if (ok) {
+      this.status = `${candidate.manager} finished but ${app.name} not detected — try r`;
+    } else {
+      this.status = `Install failed: ${error ?? "see output"}`;
+    }
     this.render();
   }
 

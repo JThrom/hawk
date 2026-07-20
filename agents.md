@@ -60,6 +60,9 @@ src/
     <name>.ts           # one adapter per pkg manager (brew, apt, pacman, ...)
   launch/
     launcher.ts         # window/pane vs exec-replace logic
+  install/
+    select.ts           # pick + cycle package manager (candidates)
+    installer.ts        # install plan + execute (mux window / suspend-resume)
   state/
     usage.ts            # local launch tracking (recent/frequent)
     favorites.ts        # pinned apps
