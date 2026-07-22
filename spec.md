@@ -275,10 +275,10 @@ installed — so name-only matching is insufficient by design.
 ## 10. UI / Interaction
 
 ### 10.1 Layout
-- **Three-column, Miller-column style**:
-  1. **Categories** (left, narrow).
-  2. **Apps** in the selected category / search results (middle, flexible).
-  3. **Details** (right, wider fixed column) — a rich multi-line panel for the
+- **Three-column, Miller-column style** (widths 20% / 20% / 60%):
+  1. **Categories** (left, 20%).
+  2. **Apps** in the selected category / search results (middle, 20%).
+  3. **Details** (right, 60%) — a rich multi-line panel for the
      selected app: name + installed/available badge, wrapped description, and
      enrichment facts (language, category, tags, stars, command, homepage), plus
      contextual install/launch guidance and the transient status line.

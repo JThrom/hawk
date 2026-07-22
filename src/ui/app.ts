@@ -42,9 +42,6 @@ const MAX_ROWS = 40;
 /** Cap registry suggestions shown in search to keep the list scannable. */
 const REGISTRY_SUGGESTION_LIMIT = 12;
 
-/** Width of the right-hand details column. */
-const DETAIL_WIDTH = 42;
-
 const COLORS = {
   bg: "#0d1117",
   panelBg: "#0d1117",
@@ -197,7 +194,7 @@ export class HawkApp {
 
     this.catBox = new BoxRenderable(this.renderer, {
       id: "categories",
-      width: 24,
+      width: "20%",
       height: "100%",
       border: true,
       borderColor: COLORS.borderFocus,
@@ -209,7 +206,7 @@ export class HawkApp {
 
     this.appBox = new BoxRenderable(this.renderer, {
       id: "apps",
-      flexGrow: 1,
+      width: "20%",
       height: "100%",
       border: true,
       borderColor: COLORS.border,
@@ -219,10 +216,10 @@ export class HawkApp {
     });
     middle.add(this.appBox);
 
-    // Details column (wider right pane, multi-line).
+    // Details column (widest, multi-line).
     this.detailBox = new BoxRenderable(this.renderer, {
       id: "detail",
-      width: DETAIL_WIDTH,
+      width: "60%",
       height: "100%",
       border: true,
       borderColor: COLORS.border,
@@ -499,9 +496,10 @@ export class HawkApp {
     }
   }
 
-  /** Inner text width of the details column (box width minus borders/pad). */
+  /** Inner text width of the details column (60% of terminal, minus borders). */
   private detailInnerWidth(): number {
-    return DETAIL_WIDTH - 4;
+    const term = this.renderer.terminalWidth ?? 80;
+    return Math.max(20, Math.floor(term * 0.6) - 4);
   }
 
   /** Wrap `text` to `width` columns, returning lines. */
