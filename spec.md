@@ -275,17 +275,33 @@ installed — so name-only matching is insufficient by design.
 ## 10. UI / Interaction
 
 ### 10.1 Layout
-- **Two-pane, Miller-column style**: categories on the left, apps of the
-  selected category on the right, with a detail area for the selected app.
+- **Three-column, Miller-column style**:
+  1. **Categories** (left, narrow).
+  2. **Apps** in the selected category / search results (middle, flexible).
+  3. **Details** (right, wider fixed column) — a rich multi-line panel for the
+     selected app: name + installed/available badge, wrapped description, and
+     enrichment facts (language, category, tags, stars, command, homepage), plus
+     contextual install/launch guidance and the transient status line.
+- A top **search bar** spans the full width.
+- **Overlays** (absolute, centered, dismiss with Esc):
+  - **Install notes** (`v`) — scrollable README install section.
+  - **Keybindings help** (`Ctrl+H`) — full, aligned list of bindings.
+- No persistent bottom help bar (reclaimed for content); help lives in the
+  Ctrl+H modal. Small-screen-first: columns and wrapping keep it usable on
+  narrow terminals.
 
 ### 10.2 Keybindings
 - **Vim keys and arrows both** supported.
-  - `h/j/k/l` + arrow keys — navigate
-  - `Enter` — launch selected app
-  - typing — live fuzzy search
-  - `q` — quit
-  - refresh key — force re-scan / registry refresh
-- **Fully rebindable** via `config.yaml`.
+  - `h/j/k/l` + arrow keys — navigate / switch pane
+  - `Enter` — launch (installed) or install (available) selected app
+  - `i` — install · `m` — cycle package manager · `v` — install notes
+  - `f` — toggle favorite
+  - typing — live fuzzy search · `Esc` — clear search / close overlay
+  - `r` — force re-scan + registry refresh
+  - `Ctrl+H` — keybindings help modal
+  - `q` / `Ctrl+C` — quit
+- **Fully rebindable** via `config.yaml` (the help modal reflects the active
+  bindings).
 
 ---
 

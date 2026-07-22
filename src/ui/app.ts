@@ -42,6 +42,9 @@ const MAX_ROWS = 40;
 /** Cap registry suggestions shown in search to keep the list scannable. */
 const REGISTRY_SUGGESTION_LIMIT = 12;
 
+/** Width of the right-hand details column. */
+const DETAIL_WIDTH = 42;
+
 const COLORS = {
   bg: "#0d1117",
   panelBg: "#0d1117",
@@ -105,14 +108,18 @@ export class HawkApp {
   // Renderables.
   private catBox!: BoxRenderable;
   private appBox!: BoxRenderable;
+  private detailBox!: BoxRenderable;
   private searchBox!: BoxRenderable;
   private searchText!: TextRenderable;
   private detailText!: TextRenderable;
   private notesBox!: BoxRenderable;
   private notesText!: TextRenderable;
-  private helpText!: TextRenderable;
+  private helpBox!: BoxRenderable;
+  private helpModalText!: TextRenderable;
   private catRows: TextRenderable[] = [];
   private appRows: TextRenderable[] = [];
+  /** Whether the keybindings help modal is visible. */
+  private helpVisible = false;
 
   constructor(deps: AppDeps) {
     this.catalog = deps.catalog;
@@ -178,7 +185,7 @@ export class HawkApp {
     this.searchBox.add(this.searchText);
     root.add(this.searchBox);
 
-    // Middle row: two panes side by side.
+    // Middle row: three columns — categories | apps | details.
     const middle = new BoxRenderable(this.renderer, {
       id: "middle",
       width: "100%",
@@ -190,7 +197,7 @@ export class HawkApp {
 
     this.catBox = new BoxRenderable(this.renderer, {
       id: "categories",
-      width: 28,
+      width: 24,
       height: "100%",
       border: true,
       borderColor: COLORS.borderFocus,
@@ -212,6 +219,25 @@ export class HawkApp {
     });
     middle.add(this.appBox);
 
+    // Details column (wider right pane, multi-line).
+    this.detailBox = new BoxRenderable(this.renderer, {
+      id: "detail",
+      width: DETAIL_WIDTH,
+      height: "100%",
+      border: true,
+      borderColor: COLORS.border,
+      title: " Details ",
+      titleColor: COLORS.accent,
+      backgroundColor: COLORS.panelBg,
+    });
+    this.detailText = new TextRenderable(this.renderer, {
+      id: "detailText",
+      content: "",
+      fg: COLORS.text,
+    });
+    this.detailBox.add(this.detailText);
+    middle.add(this.detailBox);
+
     // Row pools.
     for (let i = 0; i < MAX_ROWS; i++) {
       const cr = new TextRenderable(this.renderer, {
@@ -232,33 +258,6 @@ export class HawkApp {
       this.appRows.push(ar);
       this.appBox.add(ar);
     }
-
-    // Detail line.
-    const detailBox = new BoxRenderable(this.renderer, {
-      id: "detail",
-      width: "100%",
-      height: 4,
-      border: true,
-      borderColor: COLORS.border,
-      title: " Details ",
-      titleColor: COLORS.accent,
-      backgroundColor: COLORS.panelBg,
-    });
-    this.detailText = new TextRenderable(this.renderer, {
-      id: "detailText",
-      content: "",
-      fg: COLORS.dim,
-    });
-    detailBox.add(this.detailText);
-    root.add(detailBox);
-
-    // Help bar.
-    this.helpText = new TextRenderable(this.renderer, {
-      id: "help",
-      content: "",
-      fg: COLORS.dim,
-    });
-    root.add(this.helpText);
 
     // Install-notes overlay (hidden by default). Covers most of the screen so
     // README install instructions are readable on small terminals.
@@ -285,6 +284,31 @@ export class HawkApp {
     });
     this.notesBox.add(this.notesText);
     root.add(this.notesBox);
+
+    // Keybindings help modal (hidden by default; toggled with Ctrl+H).
+    this.helpBox = new BoxRenderable(this.renderer, {
+      id: "help",
+      position: "absolute",
+      left: 4,
+      top: 2,
+      right: 4,
+      bottom: 3,
+      border: true,
+      borderColor: COLORS.accent,
+      title: " Keybindings  (Ctrl+H or Esc to close) ",
+      titleColor: COLORS.accent,
+      backgroundColor: COLORS.panelBg,
+      zIndex: 100,
+      visible: false,
+      padding: 1,
+    });
+    this.helpModalText = new TextRenderable(this.renderer, {
+      id: "helpModalText",
+      content: "",
+      fg: COLORS.text,
+    });
+    this.helpBox.add(this.helpModalText);
+    root.add(this.helpBox);
   }
 
   /* ---- data --------------------------------------------------------- */
@@ -372,7 +396,7 @@ export class HawkApp {
     this.renderApps();
     this.renderDetail();
     this.renderNotes();
-    this.renderHelp();
+    this.renderHelpModal();
     this.renderer.root.requestRender();
   }
 
@@ -475,41 +499,118 @@ export class HawkApp {
     }
   }
 
+  /** Inner text width of the details column (box width minus borders/pad). */
+  private detailInnerWidth(): number {
+    return DETAIL_WIDTH - 4;
+  }
+
+  /** Wrap `text` to `width` columns, returning lines. */
+  private wrap(text: string, width: number): string[] {
+    const out: string[] = [];
+    for (const paragraph of text.split("\n")) {
+      if (paragraph.length === 0) {
+        out.push("");
+        continue;
+      }
+      let line = "";
+      for (const word of paragraph.split(/\s+/)) {
+        if (word.length > width) {
+          // Hard-break very long tokens (e.g. URLs).
+          if (line) {
+            out.push(line);
+            line = "";
+          }
+          for (let i = 0; i < word.length; i += width) {
+            out.push(word.slice(i, i + width));
+          }
+          continue;
+        }
+        if ((line + (line ? " " : "") + word).length > width) {
+          out.push(line);
+          line = word;
+        } else {
+          line += (line ? " " : "") + word;
+        }
+      }
+      if (line) out.push(line);
+    }
+    return out;
+  }
+
   private renderDetail(): void {
+    const w = this.detailInnerWidth();
     const row = this.selectedRow();
+
     if (!row || row.kind !== "app") {
-      this.detailText.content = this.status || "No app selected.";
+      this.detailBox.title = " Details ";
+      this.detailText.content = this.status
+        ? this.wrap(this.status, w).join("\n")
+        : "No app selected.";
       this.detailText.fg = COLORS.dim;
       return;
     }
-    const app = row.entry;
-    const bits = [app.description];
-    if (app.language) bits.push(`· ${app.language}`);
 
-    if (!row.installed) {
+    const app = row.entry;
+    const lines: string[] = [];
+
+    // Name + status badge.
+    const badge = row.installed ? "● installed" : "○ available to install";
+    lines.push(app.name);
+    lines.push(row.installed ? `${badge}` : badge);
+    lines.push("");
+
+    // Description.
+    lines.push(...this.wrap(app.description, w));
+    lines.push("");
+
+    // Facts (aligned label column).
+    const fact = (label: string, value: string) =>
+      this.wrap(`${(label + ":").padEnd(10)}${value}`, w);
+    if (app.language) lines.push(...fact("Language", app.language));
+    if (app.categories.length) lines.push(...fact("Category", app.categories.join(", ")));
+    if (app.tags && app.tags.length) {
+      lines.push(...fact("Tags", app.tags.slice(0, 10).join(", ")));
+    }
+    if (app.popularity) lines.push(...fact("Stars", formatStars(app.popularity)));
+    if (row.installed && app.binaries[0]) lines.push(...fact("Command", app.binaries[0]));
+    if (app.homepage) lines.push(...fact("Home", app.homepage));
+    lines.push("");
+
+    // Install / action guidance.
+    if (row.installed) {
+      lines.push("Enter to launch.");
+    } else {
       const candidates = this.candidatesFor(app);
       if (candidates.length > 0) {
         const chosen = candidates[this.managerIndex] ?? candidates[0]!;
-        const alt = candidates.length > 1 ? ` (m: ${candidates.length} managers)` : "";
-        bits.push(`· i to install via ${chosen.manager}${alt}: ${chosen.command}`);
+        lines.push(`Install (${chosen.manager}):`);
+        lines.push(...this.wrap(chosen.command, w));
+        lines.push(
+          candidates.length > 1
+            ? `i: install · m: manager (${this.managerIndex + 1}/${candidates.length})`
+            : "i or Enter: install",
+        );
       } else {
         const declared = allDeclaredInstalls(app);
         if (declared.length > 0) {
-          bits.push(`· no available manager — manual: ${declared[0]!.command}`);
-        } else if (app.installNotes) {
-          bits.push("· no install command — press v for install notes");
+          lines.push("No available manager. Manual:");
+          lines.push(...this.wrap(declared[0]!.command, w));
         } else {
-          bits.push("· not installed (no install command)");
+          lines.push("No install command known.");
         }
       }
-      if (app.installNotes) bits.push("· v: notes");
-    } else if (app.homepage) {
-      bits.push(`· ${app.homepage}`);
+      if (app.installNotes) lines.push("v: view install notes");
     }
 
-    const line = bits.join(" ");
-    this.detailText.content = this.status ? `${this.status}  |  ${line}` : line;
-    this.detailText.fg = row.installed ? COLORS.dim : COLORS.installed;
+    // Status message (transient) at the bottom.
+    if (this.status) {
+      lines.push("");
+      lines.push(...this.wrap(`» ${this.status}`, w));
+    }
+
+    this.detailBox.title = row.installed ? " Details " : " Details · installable ";
+    this.detailText.content = lines.join("\n");
+    this.detailText.fg = COLORS.text;
   }
 
   /** Viable install candidates for an app, keeping the cycle index valid. */
@@ -524,10 +625,35 @@ export class HawkApp {
     return candidates;
   }
 
-  private renderHelp(): void {
-    this.helpText.content = this.notesVisible
-      ? " j/k scroll · v or Esc close notes"
-      : " ↑/↓ move · ←/→ pane · Enter launch · i install · m manager · v notes · f favorite · / search · r refresh · q quit";
+  /** Human-readable keybinding help, grouped, built from the active keymap. */
+  private helpModalContent(): string {
+    const km = this.config.keymap;
+    const keys = (action: string): string => (km[action] ?? []).join(", ") || "—";
+    const rows: Array<[string, string]> = [
+      ["Move up / down", `${keys("up")}  /  ${keys("down")}`],
+      ["Switch pane", `${keys("left")}  /  ${keys("right")}`],
+      ["Launch app", keys("launch")],
+      ["Install app", keys("install")],
+      ["Cycle package manager", keys("cycleManager")],
+      ["View install notes", keys("viewNotes")],
+      ["Toggle favorite", keys("toggleFavorite")],
+      ["Search (type any time)", `${keys("focusSearch")} or just type`],
+      ["Clear search / close", keys("clearSearch")],
+      ["Refresh (rescan + registry)", keys("refresh")],
+      ["Quit", `${keys("quit")}, Ctrl+C`],
+      ["This help", "Ctrl+H"],
+    ];
+
+    const labelWidth = Math.max(...rows.map(([l]) => l.length));
+    const lines = rows.map(([label, k]) => `  ${label.padEnd(labelWidth)}   ${k}`);
+    return ["Keybindings", "", ...lines, "", "All keys are rebindable in ~/.config/hawk/config.yaml"].join("\n");
+  }
+
+  private renderHelpModal(): void {
+    this.helpBox.visible = this.helpVisible;
+    if (this.helpVisible) {
+      this.helpModalText.content = this.helpModalContent();
+    }
   }
 
   /* ---- input -------------------------------------------------------- */
@@ -536,7 +662,22 @@ export class HawkApp {
     // Ctrl-C always quits.
     if (key.ctrl && key.name === "c") return this.quit();
 
+    // Ctrl-H toggles the keybindings help modal from anywhere.
+    if (key.ctrl && key.name === "h") {
+      this.helpVisible = !this.helpVisible;
+      return this.render();
+    }
+
     const action = this.keymap.resolve(key);
+
+    // Help modal captures input while open (Esc or Ctrl+H already handled).
+    if (this.helpVisible) {
+      if (action === "clearSearch" || key.name === "escape" || action === "quit") {
+        this.helpVisible = false;
+        return this.render();
+      }
+      return; // swallow other keys
+    }
 
     // Notes overlay captures input while open.
     if (this.notesVisible) {
@@ -848,4 +989,10 @@ export class HawkApp {
 
 function clamp(n: number, lo: number, hi: number): number {
   return Math.max(lo, Math.min(hi, n));
+}
+
+/** Compact star count, e.g. 55000 -> "55.0k". */
+function formatStars(n: number): string {
+  if (n >= 1000) return `${(n / 1000).toFixed(1)}k`;
+  return String(n);
 }
