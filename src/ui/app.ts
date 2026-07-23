@@ -250,6 +250,13 @@ export class HawkApp {
       id: "detailText",
       content: "",
       fg: COLORS.text,
+      // Fill the box interior so every frame repaints the full region. Without
+      // an explicit size the renderable shrinks to its content and leaves stale
+      // glyphs from a previously selected app on the freed rows below. Painting
+      // the background across the whole area clears those freed cells.
+      width: "100%",
+      height: "100%",
+      bg: COLORS.panelBg,
     });
     this.detailBox.add(this.detailText);
     middle.add(this.detailBox);
@@ -654,6 +661,12 @@ export class HawkApp {
     // Facts (aligned label column).
     const fact = (label: string, value: string) =>
       this.wrap(`${(label + ":").padEnd(10)}${value}`, w);
+    // Link fact: label on its own line, then the URL on a new line truncated to
+    // the panel width so long links never overflow or wrap across many rows.
+    const linkFact = (label: string, url: string) => {
+      const line = url.length > w ? url.slice(0, Math.max(1, w - 1)) + "…" : url;
+      return [`${label}:`, line];
+    };
     if (app.language) lines.push(...fact("Language", app.language));
     if (app.categories.length) lines.push(...fact("Category", app.categories.join(", ")));
     if (app.tags && app.tags.length) {
@@ -661,7 +674,7 @@ export class HawkApp {
     }
     if (app.popularity) lines.push(...fact("Stars", formatStars(app.popularity)));
     if (row.installed && app.binaries[0]) lines.push(...fact("Command", app.binaries[0]));
-    if (app.homepage) lines.push(...fact("Home", app.homepage));
+    if (app.homepage) lines.push(...linkFact("Home", app.homepage));
     lines.push("");
 
     // Launch parameters (if any).
