@@ -282,26 +282,44 @@ installed — so name-only matching is insufficient by design.
      selected app: name + installed/available badge, wrapped description, and
      enrichment facts (language, category, tags, stars, command, homepage), plus
      contextual install/launch guidance and the transient status line.
-- A top **search bar** spans the full width.
+ - A top **search bar** spans the full width.
+- The **category and app lists scroll**: only a viewport of rows renders, the
+  selection is always kept in view, and pane titles show `↑N`/`↓N` counts of
+  hidden rows above/below. Works for arbitrarily long lists and short terminals.
 - **Overlays** (absolute, centered, dismiss with Esc):
   - **Install notes** (`v`) — scrollable README install section.
-  - **Keybindings help** (`Ctrl+H`) — full, aligned list of bindings.
+  - **Keybindings help** (`?`) — full, aligned list of bindings.
+  - **Launch parameters** — modal text prompt for apps that declare launch
+    args (e.g. a required `path`); collects each arg, then launches with them.
 - No persistent bottom help bar (reclaimed for content); help lives in the
-  Ctrl+H modal. Small-screen-first: columns and wrapping keep it usable on
+  `?` modal. Small-screen-first: columns and wrapping keep it usable on
   narrow terminals.
 
 ### 10.2 Keybindings
 - **Vim keys and arrows both** supported.
   - `h/j/k/l` + arrow keys — navigate / switch pane
-  - `Enter` — launch (installed) or install (available) selected app
+  - `Enter` — launch (installed) or install (available) selected app; if the app
+    declares launch args, a parameter prompt opens first
   - `i` — install · `m` — cycle package manager · `v` — install notes
   - `f` — toggle favorite
   - typing — live fuzzy search · `Esc` — clear search / close overlay
   - `r` — force re-scan + registry refresh
-  - `Ctrl+H` — keybindings help modal
+  - `?` — keybindings help modal (opens when not mid-search)
   - `q` / `Ctrl+C` — quit
+- Note: `Ctrl+H` is **not** used for help — terminals send it as ASCII
+  backspace, indistinguishable from the Backspace key.
 - **Fully rebindable** via `config.yaml` (the help modal reflects the active
   bindings).
+
+### 10.3 Launch parameters
+- Registry/seed entries may declare `launch.args`: a list of arguments the app
+  needs (e.g. a `path`). Each arg has `name`, optional `description`,
+  `required`, `placeholder`, `default`, and `flag` (for `--flag value` style;
+  omit for positional).
+- On launch, Hawk prompts for each arg in a modal, validates required ones, and
+  appends the collected values to the launch command.
+- The details panel lists an app's parameters so the user knows what's needed
+  before launching.
 
 ---
 
