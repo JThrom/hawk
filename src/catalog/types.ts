@@ -22,6 +22,34 @@ export type PackageManagerId =
 /** Canonical category identifiers (Phase 1 taxonomy; extended by registry). */
 export type CategoryId = string;
 
+/**
+ * A launch argument an app accepts (e.g. a required `path`). Hawk prompts the
+ * user for these via a modal before launching, and appends them to the command.
+ */
+export interface LaunchArg {
+  /** Argument name (for display). */
+  name: string;
+  /** What the argument is, shown in the prompt + details. */
+  description?: string;
+  /** Whether the app cannot launch without it. */
+  required?: boolean;
+  /** Example / hint shown in the input field. */
+  placeholder?: string;
+  /**
+   * Optional flag prefix, e.g. "--path". When set the value is passed as
+   * `<flag> <value>`; otherwise it's passed positionally.
+   */
+  flag?: string;
+  /** Default value pre-filled in the input. */
+  default?: string;
+}
+
+/** Launch configuration for an app. */
+export interface LaunchSpec {
+  /** Ordered arguments to prompt for before launching. */
+  args?: LaunchArg[];
+}
+
 export interface AppEntry {
   /** Stable unique identifier, e.g. "lazygit". */
   id: string;
@@ -58,6 +86,8 @@ export interface AppEntry {
   installNotes?: string;
   /** URL to the full README (raw) for on-demand viewing. */
   readmeUrl?: string;
+  /** Launch arguments/options the app accepts (prompted before launch). */
+  launch?: LaunchSpec;
 }
 
 /** A category definition in the taxonomy. */

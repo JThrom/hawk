@@ -20,6 +20,7 @@ export type Action =
   | "install"
   | "cycleManager"
   | "viewNotes"
+  | "help"
   | "focusSearch"
   | "clearSearch"
   | "toggleFavorite"
@@ -75,6 +76,7 @@ export const DEFAULT_CONFIG: HawkConfig = {
     install: ["i"],
     cycleManager: ["m"],
     viewNotes: ["v"],
+    help: ["?"],
     focusSearch: ["/"],
     clearSearch: ["escape"],
     toggleFavorite: ["f"],

@@ -17,7 +17,7 @@ import {
   type ParsedKey,
 } from "@opentui/core";
 
-import type { AppEntry, Catalog } from "../catalog/types.ts";
+import type { AppEntry, Catalog, LaunchArg } from "../catalog/types.ts";
 import type { HawkConfig } from "../config/schema.ts";
 import type { InstalledApp } from "../discovery/scan.ts";
 import { forceRescan } from "../discovery/cache.ts";
@@ -28,7 +28,7 @@ import { UsageStore } from "../state/usage.ts";
 import { buildCategories, type CategoryView } from "./model.ts";
 import { Keymap } from "./keymap.ts";
 import { search } from "../search/rank.ts";
-import { planLaunch, executeLaunch } from "../launch/launcher.ts";
+import { planLaunch, executeLaunch, buildLaunchArgs } from "../launch/launcher.ts";
 import {
   installCandidates,
   allDeclaredInstalls,
@@ -87,6 +87,9 @@ export class HawkApp {
   private categories: CategoryView[] = [];
   private catIndex = 0;
   private appIndex = 0;
+  /** First visible row index in each list pane (scroll offset). */
+  private catScroll = 0;
+  private appScroll = 0;
   private focus: Focus = "categories";
   private query = "";
   private status = "";
@@ -113,10 +116,26 @@ export class HawkApp {
   private notesText!: TextRenderable;
   private helpBox!: BoxRenderable;
   private helpModalText!: TextRenderable;
+  private promptBox!: BoxRenderable;
+  private promptText!: TextRenderable;
   private catRows: TextRenderable[] = [];
   private appRows: TextRenderable[] = [];
   /** Whether the keybindings help modal is visible. */
   private helpVisible = false;
+
+  /** Active launch-argument prompt, if any. */
+  private prompt: {
+    app: AppEntry;
+    args: LaunchArg[];
+    /** Index of the arg currently being entered. */
+    index: number;
+    /** Collected values by arg name. */
+    values: Record<string, string>;
+    /** Current input buffer for the active arg. */
+    buffer: string;
+    /** Transient validation message. */
+    error: string;
+  } | null = null;
 
   constructor(deps: AppDeps) {
     this.catalog = deps.catalog;
@@ -282,7 +301,7 @@ export class HawkApp {
     this.notesBox.add(this.notesText);
     root.add(this.notesBox);
 
-    // Keybindings help modal (hidden by default; toggled with Ctrl+H).
+    // Keybindings help modal (hidden by default; toggled with ?).
     this.helpBox = new BoxRenderable(this.renderer, {
       id: "help",
       position: "absolute",
@@ -292,7 +311,7 @@ export class HawkApp {
       bottom: 3,
       border: true,
       borderColor: COLORS.accent,
-      title: " Keybindings  (Ctrl+H or Esc to close) ",
+      title: " Keybindings  (? or Esc to close) ",
       titleColor: COLORS.accent,
       backgroundColor: COLORS.panelBg,
       zIndex: 100,
@@ -306,6 +325,31 @@ export class HawkApp {
     });
     this.helpBox.add(this.helpModalText);
     root.add(this.helpBox);
+
+    // Launch-argument prompt modal (hidden by default).
+    this.promptBox = new BoxRenderable(this.renderer, {
+      id: "prompt",
+      position: "absolute",
+      left: "15%",
+      right: "15%",
+      top: 4,
+      height: 9,
+      border: true,
+      borderColor: COLORS.accent,
+      title: " Launch parameters ",
+      titleColor: COLORS.accent,
+      backgroundColor: COLORS.panelBg,
+      zIndex: 200,
+      visible: false,
+      padding: 1,
+    });
+    this.promptText = new TextRenderable(this.renderer, {
+      id: "promptText",
+      content: "",
+      fg: COLORS.text,
+    });
+    this.promptBox.add(this.promptText);
+    root.add(this.promptBox);
   }
 
   /* ---- data --------------------------------------------------------- */
@@ -394,6 +438,7 @@ export class HawkApp {
     this.renderDetail();
     this.renderNotes();
     this.renderHelpModal();
+    this.renderPrompt();
     this.renderer.root.requestRender();
   }
 
@@ -432,6 +477,39 @@ export class HawkApp {
     this.searchText.fg = searching ? COLORS.text : COLORS.dim;
   }
 
+  /**
+   * Number of list rows visible in a pane: the terminal height minus the
+   * search bar (3) and the pane's own top/bottom border (2), capped at the
+   * row pool size.
+   */
+  private listViewport(): number {
+    const h = this.renderer.terminalHeight ?? 24;
+    return Math.max(1, Math.min(MAX_ROWS, h - 3 - 2));
+  }
+
+  /**
+   * Adjust `scroll` so `index` stays within the visible window of `viewport`
+   * rows over `total` items. Returns the new scroll offset.
+   */
+  private clampScroll(scroll: number, index: number, total: number, viewport: number): number {
+    let s = scroll;
+    if (index < s) s = index;
+    else if (index >= s + viewport) s = index - viewport + 1;
+    const maxScroll = Math.max(0, total - viewport);
+    return Math.max(0, Math.min(s, maxScroll));
+  }
+
+  /** Build a "▲ n more" / "▼ n more" scroll suffix for a pane title. */
+  private scrollTitle(base: string, scroll: number, shown: number, total: number): string {
+    if (total <= shown) return ` ${base} `;
+    const above = scroll;
+    const below = total - (scroll + shown);
+    const up = above > 0 ? `↑${above}` : "";
+    const down = below > 0 ? `↓${below}` : "";
+    const sep = up && down ? " " : "";
+    return ` ${base}  ${up}${sep}${down} `;
+  }
+
   private renderCategories(): void {
     const inSearch = this.query.trim().length > 0;
     this.catBox.borderColor =
@@ -439,15 +517,21 @@ export class HawkApp {
         ? COLORS.borderFocus
         : COLORS.border;
 
+    const total = this.categories.length;
+    const viewport = this.listViewport();
+    this.catScroll = this.clampScroll(this.catScroll, this.catIndex, total, viewport);
+    this.catBox.title = this.scrollTitle("Categories", this.catScroll, viewport, total);
+
     for (let i = 0; i < MAX_ROWS; i++) {
       const row = this.catRows[i]!;
-      const cat = this.categories[i];
+      const dataIndex = this.catScroll + i;
+      const cat = i < viewport ? this.categories[dataIndex] : undefined;
       if (!cat) {
         row.content = " ";
         row.bg = undefined;
         continue;
       }
-      const selected = i === this.catIndex && !inSearch;
+      const selected = dataIndex === this.catIndex && !inSearch;
       const label = ` ${cat.name} (${cat.apps.length})`;
       row.content = selected ? `▸${label}` : ` ${label}`;
       row.fg = selected ? COLORS.selText : COLORS.text;
@@ -463,11 +547,17 @@ export class HawkApp {
     this.appBox.borderColor =
       this.focus === "apps" || inSearch ? COLORS.borderFocus : COLORS.border;
     const appCount = rows.filter((r) => r.kind === "app").length;
-    this.appBox.title = inSearch ? ` Results (${appCount}) ` : " Apps ";
+
+    const total = rows.length;
+    const viewport = this.listViewport();
+    this.appScroll = this.clampScroll(this.appScroll, this.appIndex, total, viewport);
+    const base = inSearch ? `Results (${appCount})` : "Apps";
+    this.appBox.title = this.scrollTitle(base, this.appScroll, viewport, total);
 
     for (let i = 0; i < MAX_ROWS; i++) {
       const rowText = this.appRows[i]!;
-      const row = rows[i];
+      const dataIndex = this.appScroll + i;
+      const row = i < viewport ? rows[dataIndex] : undefined;
       if (!row) {
         rowText.content = " ";
         rowText.bg = undefined;
@@ -482,7 +572,7 @@ export class HawkApp {
       }
 
       const app = row.entry;
-      const selected = i === this.appIndex;
+      const selected = dataIndex === this.appIndex;
       const star = this.favorites.has(app.id) ? "★ " : "  ";
       const marker = row.installed ? "" : "↓ "; // ↓ = installable
       rowText.content = `${selected ? "▸" : " "}${star}${marker}${app.name}`;
@@ -574,9 +664,21 @@ export class HawkApp {
     if (app.homepage) lines.push(...fact("Home", app.homepage));
     lines.push("");
 
+    // Launch parameters (if any).
+    const launchArgs = app.launch?.args ?? [];
+    if (launchArgs.length > 0) {
+      lines.push("Parameters:");
+      for (const a of launchArgs) {
+        const req = a.required ? "*" : " ";
+        const desc = a.description ? ` — ${a.description}` : "";
+        lines.push(...this.wrap(`  ${req}${a.name}${desc}`, w));
+      }
+      lines.push("");
+    }
+
     // Install / action guidance.
     if (row.installed) {
-      lines.push("Enter to launch.");
+      lines.push(launchArgs.length > 0 ? "Enter to launch (prompts for parameters)." : "Enter to launch.");
     } else {
       const candidates = this.candidatesFor(app);
       if (candidates.length > 0) {
@@ -639,7 +741,7 @@ export class HawkApp {
       ["Clear search / close", keys("clearSearch")],
       ["Refresh (rescan + registry)", keys("refresh")],
       ["Quit", `${keys("quit")}, Ctrl+C`],
-      ["This help", "Ctrl+H"],
+      ["This help", keys("help")],
     ];
 
     const labelWidth = Math.max(...rows.map(([l]) => l.length));
@@ -654,23 +756,48 @@ export class HawkApp {
     }
   }
 
+  private renderPrompt(): void {
+    if (!this.prompt) {
+      this.promptBox.visible = false;
+      return;
+    }
+    this.promptBox.visible = true;
+    const p = this.prompt;
+    const arg = p.args[p.index]!;
+    const req = arg.required ? " (required)" : " (optional)";
+    const step = p.args.length > 1 ? ` [${p.index + 1}/${p.args.length}]` : "";
+    this.promptBox.title = ` Launch ${p.app.name}${step} `;
+
+    const lines: string[] = [];
+    lines.push(`${arg.name}${req}`);
+    if (arg.description) lines.push(arg.description);
+    lines.push("");
+    const shown = p.buffer.length > 0 ? p.buffer : (arg.placeholder ? `${arg.placeholder}` : "");
+    const isPlaceholder = p.buffer.length === 0 && Boolean(arg.placeholder);
+    lines.push(`> ${shown}${isPlaceholder ? "" : "▏"}`);
+    if (p.error) lines.push(`! ${p.error}`);
+    lines.push("");
+    lines.push("Enter: confirm · Esc: cancel");
+
+    this.promptText.content = lines.join("\n");
+  }
+
   /* ---- input -------------------------------------------------------- */
 
   private async onKey(key: ParsedKey): Promise<void> {
     // Ctrl-C always quits.
     if (key.ctrl && key.name === "c") return this.quit();
 
-    // Ctrl-H toggles the keybindings help modal from anywhere.
-    if (key.ctrl && key.name === "h") {
-      this.helpVisible = !this.helpVisible;
-      return this.render();
-    }
-
     const action = this.keymap.resolve(key);
 
-    // Help modal captures input while open (Esc or Ctrl+H already handled).
+    // Launch-parameter prompt captures all input while open.
+    if (this.prompt) {
+      return this.onPromptKey(key);
+    }
+
+    // Help modal captures input while open.
     if (this.helpVisible) {
-      if (action === "clearSearch" || key.name === "escape" || action === "quit") {
+      if (action === "help" || action === "clearSearch" || key.name === "escape" || action === "quit") {
         this.helpVisible = false;
         return this.render();
       }
@@ -702,7 +829,14 @@ export class HawkApp {
       return; // swallow everything else while notes are open
     }
 
-    const inSearch = this.query.trim().length > 0;
+    const inSearch = this.query.length > 0;
+
+    // Open the help modal with the help key (?), but only when not actively
+    // typing a search — otherwise ? is a normal search character.
+    if (action === "help" && !inSearch) {
+      this.helpVisible = true;
+      return this.render();
+    }
 
     // When typing search text, printable chars extend the query unless they
     // resolve to a navigation action while search is active.
@@ -855,7 +989,26 @@ export class HawkApp {
       return this.installSelected();
     }
 
-    const plan = planLaunch(app, this.config);
+    // If the app declares launch arguments, prompt for them first.
+    const args = app.launch?.args ?? [];
+    if (args.length > 0) {
+      this.prompt = {
+        app,
+        args,
+        index: 0,
+        values: {},
+        buffer: args[0]!.default ?? "",
+        error: "",
+      };
+      return this.render();
+    }
+
+    await this.launchWithArgs(app, []);
+  }
+
+  /** Execute a launch for `app` with resolved extra `args`. */
+  private async launchWithArgs(app: AppEntry, extraArgs: string[]): Promise<void> {
+    const plan = planLaunch(app, this.config, extraArgs);
     this.usage.recordLaunch(app.id);
 
     if (plan.takesOverTerminal) {
@@ -872,6 +1025,54 @@ export class HawkApp {
       : `Launch failed: ${result.error ?? "unknown error"}`;
     this.rebuildCategories();
     this.render();
+  }
+
+  /** Handle a keystroke while the launch-parameter prompt is open. */
+  private async onPromptKey(key: ParsedKey): Promise<void> {
+    const p = this.prompt;
+    if (!p) return;
+
+    if (key.name === "escape") {
+      this.prompt = null;
+      this.status = "Launch cancelled";
+      return this.render();
+    }
+
+    if (key.name === "return" || key.name === "enter") {
+      const arg = p.args[p.index]!;
+      const value = (p.buffer.trim() || arg.default || "").trim();
+      if (arg.required && value.length === 0) {
+        p.error = `${arg.name} is required`;
+        return this.render();
+      }
+      p.values[arg.name] = value;
+      if (p.index < p.args.length - 1) {
+        // Advance to the next argument.
+        p.index += 1;
+        p.buffer = p.args[p.index]!.default ?? "";
+        p.error = "";
+        return this.render();
+      }
+      // All args collected: build + launch.
+      const app = p.app;
+      const built = buildLaunchArgs(app, p.values);
+      this.prompt = null;
+      this.render();
+      return this.launchWithArgs(app, built);
+    }
+
+    if (key.name === "backspace" || key.name === "delete") {
+      p.buffer = p.buffer.slice(0, -1);
+      p.error = "";
+      return this.render();
+    }
+
+    // Printable characters extend the buffer.
+    if (this.isPrintable(key)) {
+      p.buffer += key.sequence;
+      p.error = "";
+      return this.render();
+    }
   }
 
   /** Toggle the install-notes overlay for the selected app. */

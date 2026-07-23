@@ -26,11 +26,28 @@ export interface LaunchPlan {
   takesOverTerminal: boolean;
 }
 
-/** The command used to run the app itself (primary binary). */
-function appCommand(entry: AppEntry): string[] {
+/** The command used to run the app itself (primary binary + extra args). */
+function appCommand(entry: AppEntry, args: string[] = []): string[] {
   const bin = entry.binaries[0];
   if (!bin) throw new Error(`App ${entry.id} has no binary`);
-  return [bin];
+  return [bin, ...args];
+}
+
+/**
+ * Build argv fragments from the app's launch-arg spec and the values the user
+ * supplied (keyed by arg name). Empty optional values are skipped; flagged args
+ * become `<flag> <value>`, positional args become just `<value>`.
+ */
+export function buildLaunchArgs(entry: AppEntry, values: Record<string, string>): string[] {
+  const specs = entry.launch?.args ?? [];
+  const out: string[] = [];
+  for (const spec of specs) {
+    const raw = (values[spec.name] ?? spec.default ?? "").trim();
+    if (!raw) continue; // skip empty (required-ness is enforced in the UI)
+    if (spec.flag) out.push(spec.flag, raw);
+    else out.push(raw);
+  }
+  return out;
 }
 
 /** Choose which multiplexer to target given availability + config. */
@@ -45,8 +62,12 @@ function chooseMultiplexer(config: HawkConfig): MultiplexerId {
 }
 
 /** Build a launch plan for the given app without executing it. */
-export function planLaunch(entry: AppEntry, config: HawkConfig): LaunchPlan {
-  const app = appCommand(entry);
+export function planLaunch(
+  entry: AppEntry,
+  config: HawkConfig,
+  args: string[] = [],
+): LaunchPlan {
+  const app = appCommand(entry, args);
   const mux = detectMultiplexer();
   const target: LaunchTarget = config.launch.target;
 

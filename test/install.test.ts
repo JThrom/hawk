@@ -56,9 +56,11 @@ test("cycleIndex wraps", () => {
 
 test("install plan wraps command to keep window open and stays out of auth", () => {
   const plan = planInstall({ manager: "brew", command: "brew install gitui" });
-  // In this test env (no multiplexer) the plan runs inline.
   expect(["tmux-window", "zellij-window", "inline"]).toContain(plan.mode);
   expect(plan.installCommand).toBe("brew install gitui");
-  // Command is executed via a shell so the registry command string works as-is.
-  expect(plan.command[0]).toBe("sh");
+  // Regardless of mode, the command is ultimately run via a shell so the
+  // registry command string works as-is (sh -c "<command>...").
+  expect(plan.command).toContain("sh");
+  expect(plan.command).toContain("-c");
+  expect(plan.command.some((a) => a.includes("brew install gitui"))).toBe(true);
 });

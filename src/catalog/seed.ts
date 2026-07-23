@@ -136,6 +136,17 @@ export const SEED_ENTRIES: AppEntry[] = [
     repo: "https://github.com/sxyazi/yazi",
     popularity: 24000,
     language: "Rust",
+    launch: {
+      args: [
+        {
+          name: "path",
+          description: "Directory to open",
+          required: false,
+          placeholder: "~/projects",
+          default: ".",
+        },
+      ],
+    },
   },
   {
     id: "nnn",
@@ -164,6 +175,16 @@ export const SEED_ENTRIES: AppEntry[] = [
     repo: "https://github.com/neovim/neovim",
     popularity: 85000,
     language: "C/Lua",
+    launch: {
+      args: [
+        {
+          name: "file",
+          description: "File or directory to open",
+          required: false,
+          placeholder: "path/to/file",
+        },
+      ],
+    },
   },
   {
     id: "helix",

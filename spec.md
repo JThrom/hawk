@@ -1,10 +1,15 @@
 # Hawk — Specification
 
-Hawk is a terminal user interface (TUI) application launcher and management
-layer. It discovers, organizes, and launches other installed TUIs, and connects
-to a community registry to suggest new ones. The long-term vision is an
-all-terminal operating environment where tmux (or zellij) acts as the tiling
-window manager and Hawk provides the main menu / application launcher.
+Hawk is a terminal user interface that discovers, organizes, launches, and
+installs other terminal applications (TUIs). It cross-references the system
+against a curated catalog and a community registry, lets the user find tools by
+what they *do* (not just their name), and launches them into new terminal
+multiplexer windows. The long-term vision is an all-terminal operating
+environment where tmux (or zellij) acts as the tiling window manager and Hawk
+provides the main menu / application launcher.
+
+Status: Phases 1–3 implemented (local launcher, registry discovery, install
+flow). See §13 for the roadmap.
 
 ---
 
@@ -53,15 +58,16 @@ loses connectivity, runs out of battery, or the user steps away.
 
 ## 2. Technology Stack
 
-| Concern        | Decision                                              |
-|----------------|-------------------------------------------------------|
-| Runtime        | Bun                                                   |
-| Language       | TypeScript                                            |
-| TUI framework  | OpenTUI (`@opentui/core`, ≥ 0.4.5)                    |
-| Distribution   | npm / bun global package (`bunx hawk` / `npx hawk`)   |
-| Config format  | YAML (`~/.config/hawk/config.yaml`)                   |
-| Registry files | YAML source, compiled to `index.json` artifact        |
-| Registry fetch | jsDelivr CDN (fallback: raw.githubusercontent.com)    |
+| Concern           | Decision                                              |
+|-------------------|-------------------------------------------------------|
+| Runtime           | Bun                                                   |
+| Language          | TypeScript                                            |
+| UI framework      | OpenTUI (`@opentui/core`, ≥ 0.4.5)                   |
+| Distribution      | npm / bun global package (`bunx hawk` / `npx hawk`)   |
+| Config format     | YAML (`~/.config/hawk/config.yaml`)                   |
+| Registry source   | per-app YAML files, compiled to a `dist/index.yaml`   |
+| Registry fetch    | jsDelivr CDN (fallback: raw.githubusercontent.com)    |
+| License           | GPL-2.0-only                                          |
 
 Rationale:
 - **Bun**: OpenTUI's first-class runtime. Fast startup, native FFI for the Zig
@@ -93,9 +99,10 @@ Hawk detects and adapts to its runtime environment.
 ### 3.4 Package managers & compilers
 - Detect installed package managers and query them for installed packages:
   `brew`, `apt`/`dpkg`, `pacman`, `cargo`, `npm`/`bun` global, `pipx`/`pip`,
-  `dnf`/`rpm`.
+  `dnf`/`rpm`, `go`.
 - Awareness of installed compilers/runtimes informs which install commands are
-  viable (e.g. `cargo install` needs the Rust toolchain).
+  viable (e.g. `cargo install` needs the Rust toolchain; `go install` needs Go).
+- Only detected managers are queried during discovery and offered for installs.
 
 ---
 
@@ -145,17 +152,26 @@ The "catalog" is:
 - Community contributes apps via pull request.
 
 ### 5.2 Structure
-- **Source**: a directory of per-app YAML files (one file per app).
-  YAML chosen for human-friendliness in PRs and inline comments.
-- **Artifact**: CI in the registry repo compiles all app files into a single
-  `index.json` manifest (and a fixed category taxonomy). Hawk fetches the one
-  index — no directory listing needed on the CDN.
+- **Source**: a directory of per-app YAML files (`apps/<id>.yaml`), one file per
+  app, plus a `categories.yaml` taxonomy. YAML chosen for human-friendliness in
+  PRs and inline comments.
+- **Enrichment**: `scripts/enrich.ts` fetches each app's GitHub README (via
+  `raw.githubusercontent.com/<owner>/<repo>/HEAD`, no API rate limit), stores it
+  as a sidecar `readmes/<id>.readme.md`, and infers `install`, `packages`,
+  `language`, `tags`, and an extracted install section (`installNotes`).
+  Detected secrets in READMEs are redacted before storage.
+- **Artifact**: CI (GitHub Actions) compiles all app files + taxonomy into a
+  single `dist/index.yaml`. Hawk fetches the one index — no directory listing
+  needed on the CDN. On PRs CI validates only; on push to `master` it builds and
+  commits the index.
 
 ### 5.3 Fetch & caching
-- Fetch `index.json` via jsDelivr CDN; fall back to raw.githubusercontent.com.
-- Cache to disk with a **configurable TTL** (default 24h) in
-  `~/.cache/hawk/`.
-- Use cache offline; refresh in the background when stale.
+- Fetch `dist/index.yaml` via jsDelivr CDN; fall back to
+  raw.githubusercontent.com. (YAML is a JSON superset; the parser handles both.)
+- Cache to disk (as JSON, for fast reads) with a **configurable TTL**
+  (default 24h) in `~/.cache/hawk/`.
+- Offline degradation: fresh cache → network → stale cache → bundled local
+  registry/seed. Refresh in the background when stale.
 - Registry URL(s) and TTL are configurable in `config.yaml`.
 
 ### 5.4 Per-app entry schema
@@ -163,29 +179,41 @@ Each app entry contains:
 - `id` — stable unique identifier
 - `name` — display name
 - `description` — search + display text
-- `categories` / `tags` — canonical categories (see §7) + free tags
-- `binaries` — one or more binary names for PATH/pkg detection
+- `categories` / `tags` — canonical categories (see §7) + function/synonym tags
+- `binaries` — one or more binary names for PATH/pkg detection + launch
 - `install` — install commands keyed by package manager
-  (e.g. `{ brew: "...", cargo: "...", apt: "..." }`)
+  (e.g. `{ brew: "...", cargo: "...", go: "...", apt: "..." }`)
+- `packages` — package name per manager, for install-detection
 - `homepage` / `repo` — outbound links
 - `popularity` — stars / rank signal for search ordering
 - `language` — implementation language/runtime (Rust, Go, Python, …)
+- `installNotes` — extracted README install section, shown when no package
+  manager on the system can install the app
+- `readmeUrl` — raw URL of the full README
+- `launch` — optional launch arguments the app needs; see §10.3
 
-(Screenshots/asciinema intentionally excluded — impractical in a TUI.)
+(Screenshots/asciinema intentionally excluded — impractical in a terminal
+interface.)
 
 ---
 
 ## 6. Launching Apps
 
 ### 6.1 Inside a multiplexer (tmux / zellij)
-- Default: launch the selected app in a **new window**.
-- (Future/config: option to launch in a new pane / split.)
-- tmux: `tmux new-window <cmd>`; zellij: equivalent action.
+- Default: launch the selected app in a **new window** so Hawk stays running as
+  the always-available menu (the primary use case, §1a).
+- Config `launch.target` can select a new **pane** (split) instead.
+- tmux: `tmux new-window -n <id> <cmd>` (or `split-window` for a pane);
+  zellij: `zellij run --name <id> -- <cmd>`.
 
 ### 6.2 Without a multiplexer
 - **exec / replace** the Hawk process: Hawk hands the terminal to the app.
-  On app exit, control returns to Hawk (re-launch or shell wrapper).
+  On app exit, control returns to the shell.
 - Simple, works everywhere, no lingering Hawk process needed.
+
+### 6.3 Launch arguments
+- Apps may declare `launch.args` (see §10.3). When present, Hawk prompts for the
+  values in a modal and appends them to the launch command.
 
 ---
 
@@ -196,8 +224,11 @@ Each app entry contains:
   category list for consistency. (MVP: same taxonomy baked into the seed.)
 
 ### 7.2 Auto-generated special categories (pinned at top)
-- **Favorites** — user-pinned apps (persisted locally).
-- **Recent** — recently launched apps (from local usage tracking).
+- **★ Favorites** — user-pinned apps (persisted locally; toggle with `f`).
+- **◷ Recent** — recently launched apps (from local usage tracking).
+- **All Installed** — a flat list of every detected app (pinned at the bottom).
+- Only categories that contain at least one installed app are shown; the first
+  non-empty category is selected on startup.
 
 ---
 
@@ -282,42 +313,90 @@ installed — so name-only matching is insufficient by design.
      selected app: name + installed/available badge, wrapped description, and
      enrichment facts (language, category, tags, stars, command, homepage), plus
      contextual install/launch guidance and the transient status line.
-- A top **search bar** spans the full width.
+ - A top **search bar** spans the full width.
+- The **category and app lists scroll**: only a viewport of rows renders, the
+  selection is always kept in view, and pane titles show `↑N`/`↓N` counts of
+  hidden rows above/below. Works for arbitrarily long lists and short terminals.
 - **Overlays** (absolute, centered, dismiss with Esc):
   - **Install notes** (`v`) — scrollable README install section.
-  - **Keybindings help** (`Ctrl+H`) — full, aligned list of bindings.
+  - **Keybindings help** (`?`) — full, aligned list of bindings.
+  - **Launch parameters** — modal text prompt for apps that declare launch
+    args (e.g. a required `path`); collects each arg, then launches with them.
 - No persistent bottom help bar (reclaimed for content); help lives in the
-  Ctrl+H modal. Small-screen-first: columns and wrapping keep it usable on
+  `?` modal. Small-screen-first: columns and wrapping keep it usable on
   narrow terminals.
 
 ### 10.2 Keybindings
 - **Vim keys and arrows both** supported.
   - `h/j/k/l` + arrow keys — navigate / switch pane
-  - `Enter` — launch (installed) or install (available) selected app
+  - `Enter` — launch (installed) or install (available) selected app; if the app
+    declares launch args, a parameter prompt opens first
   - `i` — install · `m` — cycle package manager · `v` — install notes
   - `f` — toggle favorite
   - typing — live fuzzy search · `Esc` — clear search / close overlay
   - `r` — force re-scan + registry refresh
-  - `Ctrl+H` — keybindings help modal
+  - `?` — keybindings help modal (opens when not mid-search)
   - `q` / `Ctrl+C` — quit
+- Note: `Ctrl+H` is **not** used for help — terminals send it as ASCII
+  backspace, indistinguishable from the Backspace key.
 - **Fully rebindable** via `config.yaml` (the help modal reflects the active
   bindings).
+
+### 10.3 Launch parameters
+- Registry/seed entries may declare `launch.args`: a list of arguments the app
+  needs (e.g. a `path`). Each arg has `name`, optional `description`,
+  `required`, `placeholder`, `default`, and `flag` (for `--flag value` style;
+  omit for positional).
+- On launch, Hawk prompts for each arg in a modal, validates required ones, and
+  appends the collected values to the launch command.
+- The details panel lists an app's parameters so the user knows what's needed
+  before launching.
 
 ---
 
 ## 11. Configuration
 
-- Location: `~/.config/hawk/config.yaml` (XDG).
-- Philosophy: **maximize configurability** — devs value config + extensibility.
-- Covers at minimum:
-  - keybindings (full rebind map)
-  - cache TTLs (registry, scan)
-  - registry URL(s) / mirrors
-  - launch defaults (window vs pane; multiplexer preference)
-  - package-manager preference order
-  - favorites list / pinned apps
-  - enabled/disabled package-manager scanners
-  - theme / colors (future)
+- Location: `~/.config/hawk/config.yaml` (XDG; honors `$XDG_CONFIG_HOME`).
+- Philosophy: **maximize configurability** with strong zero-config defaults.
+  Every value is optional and deep-merged over the defaults; a malformed file
+  falls back to defaults rather than crashing.
+- Full shape (defaults shown):
+
+```yaml
+keymap:                    # every action maps to a list of key names
+  up:            [k, up]
+  down:          [j, down]
+  left:          [h, left]
+  right:         [l, right]
+  launch:        [return, enter]
+  install:       [i]
+  cycleManager:  [m]
+  viewNotes:     [v]
+  help:          ["?"]
+  focusSearch:   ["/"]
+  clearSearch:   [escape]
+  toggleFavorite:[f]
+  refresh:       [r]
+  quit:          [q]
+
+cache:
+  scanTtlMs:     86400000  # installed-app scan cache TTL (24h)
+  registryTtlMs: 86400000  # remote registry index cache TTL (24h)
+
+launch:
+  target:           window # "window" or "pane" (inside a multiplexer)
+  preferMultiplexer: auto   # "tmux" | "zellij" | "auto"
+
+registry:
+  enabled: true
+  urls:                    # first reachable wins (jsDelivr, then raw)
+    - https://cdn.jsdelivr.net/gh/JThrom/hawk-registry@master/dist/index.yaml
+    - https://raw.githubusercontent.com/JThrom/hawk-registry/master/dist/index.yaml
+
+managerPreference: [cargo, brew, bun, npm, pipx, pacman, dnf, apt, pip]
+disabledScanners: []       # package managers to skip during discovery
+favorites: []              # app ids seeded as favorites
+```
 
 ---
 
@@ -336,7 +415,7 @@ installed — so name-only matching is insufficient by design.
 - Environment detection (OS, terminal, multiplexer, package managers).
 - App discovery via **bundled static seed catalog** (PATH + pkg-manager match).
 - Scan caching with background/manual refresh.
-- Two-pane browse UI with categories.
+- Browse UI with categories (later expanded to the three-column layout, §10.1).
 - Always-on fuzzy search over installed apps.
 - Launch: new window in tmux/zellij; exec-replace fallback.
 - Favorites (pinned) + Recent special categories.
@@ -377,7 +456,12 @@ which is a JSON superset, so the local disk cache remains JSON for fast reads.
 
 ## 14. Open Questions / Deferred
 
-- Version comparison strategy for "Updates Available" (Phase 4).
+- **Updates Available** (Phase 4): needs a version-comparison strategy; registry
+  entries do not yet carry version data.
+- **Frequent** special category (usage counts are already tracked locally).
+- **Theming**: color scheme is currently hard-coded; a config-driven theme is
+  deferred.
 - Additional multiplexers beyond tmux/zellij (screen, wezterm) — deferred.
-- Theming system specifics.
 - Windows support — out of scope for now.
+- Curating richer function/synonym **tags** across the full registry (README
+  enrichment gives broad coverage; hand-curation would sharpen synonym search).
