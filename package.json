@@ -1,7 +1,7 @@
 {
   "name": "hawk",
   "version": "0.1.0",
-  "description": "TUI application launcher and management layer",
+  "description": "A terminal user interface for discovering, launching, and installing other TUIs",
   "type": "module",
   "bin": {
     "hawk": "./src/index.ts"

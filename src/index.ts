@@ -46,7 +46,7 @@ async function main(): Promise<void> {
   if (args.includes("--help") || args.includes("-h")) {
     console.log(
       [
-        "hawk — TUI application launcher",
+        "hawk — a terminal user interface for discovering and launching TUIs",
         "",
         "Usage: hawk [options]",
         "",
