@@ -878,10 +878,16 @@ export class HawkApp {
         this.move(1, inSearch);
         return this.render();
       case "left":
-        if (!inSearch) this.focus = "categories";
+        if (!inSearch) {
+          this.focus = "categories";
+          this.status = "";
+        }
         return this.render();
       case "right":
-        if (!inSearch) this.focus = "apps";
+        if (!inSearch) {
+          this.focus = "apps";
+          this.status = "";
+        }
         return this.render();
       case "launch":
         return this.launchSelected();
@@ -943,10 +949,16 @@ export class HawkApp {
       let pos = selectable.indexOf(this.appIndex);
       if (pos === -1) pos = 0;
       const nextPos = clamp(pos + delta, 0, selectable.length - 1);
-      this.appIndex = selectable[nextPos]!;
+      const next = selectable[nextPos]!;
+      // Changing the selected app dismisses any transient status (e.g. a
+      // "Launched …" message), so it never lingers on unrelated apps' details.
+      if (next !== this.appIndex) this.status = "";
+      this.appIndex = next;
     } else {
       if (this.categories.length === 0) return;
-      this.catIndex = clamp(this.catIndex + delta, 0, this.categories.length - 1);
+      const next = clamp(this.catIndex + delta, 0, this.categories.length - 1);
+      if (next !== this.catIndex) this.status = "";
+      this.catIndex = next;
       this.appIndex = 0;
     }
   }
